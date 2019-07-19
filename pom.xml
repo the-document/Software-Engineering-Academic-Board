@@ -34,5 +34,92 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 			    <scope>provided</scope>
 			</dependency>
 			
-	  </dependencies>
+			
+			<!-- ACCESS DATABASE=========================================================================-->
+			<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+			<dependency>
+			    <groupId>commons-dbcp</groupId>
+			    <artifactId>commons-dbcp</artifactId>
+			    <version>1.4</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+			<dependency>
+			    <groupId>mysql</groupId>
+			    <artifactId>mysql-connector-java</artifactId>
+			    <version>8.0.15</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core  de su ung anotion entity...-->
+			<dependency>
+			    <groupId>org.hibernate</groupId>
+			    <artifactId>hibernate-core</artifactId>
+			    <version>5.4.2.Final</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-tx</artifactId>
+			    <version>5.1.5.RELEASE</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm de k can tao transaction-->
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-orm</artifactId>
+			    <version>5.1.5.RELEASE</version>
+			</dependency>
+			
+			
+			
+			<!-- FACEBOOK =========================================================================-->
+			    <!-- Spring Security -->
+			    <dependency>
+			      <groupId>org.springframework.security</groupId>
+			      <artifactId>spring-security-web</artifactId>
+			      <version>5.1.5.RELEASE</version>
+			    </dependency>
+			    <dependency>
+			      <groupId>org.springframework.security</groupId>
+			      <artifactId>spring-security-config</artifactId>
+			      <version>5.1.5.RELEASE</version>
+			    </dependency>
+			    <!-- org.apache.httpcomponents -->
+			    <dependency>
+			      <groupId>org.apache.httpcomponents</groupId>
+			      <artifactId>httpcore</artifactId>
+			      <version>4.4.9</version>
+			    </dependency>
+			    <dependency>
+			      <groupId>org.apache.httpcomponents</groupId>
+			      <artifactId>httpclient</artifactId>
+			      <version>4.5.5</version>
+			    </dependency>
+			    <dependency>
+			      <groupId>org.apache.httpcomponents</groupId>
+			      <artifactId>fluent-hc</artifactId>
+			      <version>4.5.5</version>
+			    </dependency>
+			    <!-- restfb -->
+			    <dependency>
+			      <groupId>com.restfb</groupId>
+			      <artifactId>restfb</artifactId>
+			      <version>2.3.0</version>
+			    </dependency>
+			    <!-- Jackson -->
+			    <dependency>
+			      <groupId>com.fasterxml.jackson.core</groupId>
+			      <artifactId>jackson-databind</artifactId>
+			      <version>2.9.3</version>
+			    </dependency>
+			    <dependency>
+			      <groupId>com.fasterxml.jackson.core</groupId>
+			      <artifactId>jackson-core</artifactId>
+			      <version>2.9.3</version>
+			    </dependency>
+			    <dependency>
+			      <groupId>com.fasterxml.jackson.core</groupId>
+			      <artifactId>jackson-annotations</artifactId>
+			      <version>2.9.3</version>
+			    </dependency>
+						   
+	  
+	</dependencies>	    	
 </project>

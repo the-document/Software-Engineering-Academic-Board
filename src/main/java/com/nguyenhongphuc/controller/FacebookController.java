@@ -2,7 +2,6 @@ package com.nguyenhongphuc.controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
@@ -108,6 +107,7 @@ public class FacebookController {
 		} catch (Exception e) {
 			 session = sessionFactory.openSession();
 		}
+		
 		
 		
 		List<User> users= (List<User>) session.createQuery("from user where username = '"+id+"'").getResultList();

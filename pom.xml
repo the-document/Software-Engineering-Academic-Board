@@ -34,6 +34,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 			    <scope>provided</scope>
 			</dependency>
 			
+			<!-- TO USING JSTL <c: -->
+			<dependency>
+			    <groupId>javax.servlet</groupId>
+			    <artifactId>jstl</artifactId>
+			    <version>1.2</version>
+			</dependency>
+			
 			
 			<!-- ACCESS DATABASE=========================================================================-->
 			<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->

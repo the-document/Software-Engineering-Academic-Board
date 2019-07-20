@@ -16,6 +16,7 @@
 	        <property name="url" value="jdbc:mysql://localhost:3306/academicboard"/>
 	        <property name="username" value="root"/>
 	        <property name="password" value=""/>
+	        <property name="connectionProperties" value="useUnicode=yes;characterEncoding=utf8;"/>
 			</bean>
 	
 			<!-- DUNG DE KET NOI DEN DB -->
@@ -40,6 +41,7 @@
 		    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		    	<property name="sessionFactory" ref="sessionFactory"/>
 		    </bean>
+		   
 		    <tx:annotation-driven transaction-manager="transactionManager"/>
 		
 </beans>

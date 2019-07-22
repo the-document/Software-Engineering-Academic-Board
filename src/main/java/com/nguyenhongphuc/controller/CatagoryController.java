@@ -32,20 +32,13 @@ public class CatagoryController {
 		return "documents";
 	}
 	
-	@GetMapping(path = "/ajaxcatagory/{id}")
-	public String GetCatalogInMajor(@PathVariable("id") String id, ModelMap modelMap) {
+	@GetMapping(path = "/ajax/{namescope}")
+	@ResponseBody
+	public List<Category> GetCatalogInMajor(@PathVariable("namescope") String namescope) {
 		
-		List<Category> listsCategories=CatalogService.getCategoryFor(id);
+		List<Category> listsCategories=CatalogService.getCategoryFor(namescope);	
 		
-		modelMap.addAttribute("listSubjectDefault", listsCategories);
-		
-		
-		return "home";
+		return listsCategories;
 	}
 	
-	@GetMapping(path = "/ajax")
-	@ResponseBody
-	public String test() {
-		return "ok";
-	}
 }

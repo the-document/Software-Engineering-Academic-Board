@@ -1,9 +1,11 @@
 package com.nguyenhongphuc.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity(name = "document")
@@ -16,11 +18,15 @@ public class Document {
 	String name;
 	String type;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id")
 	User author;
+//	
+//	@OneToOne
+//	Category category;
 	
-	@OneToOne
-	Category category;
+	//int author;
+	int category;
 	
 	int dowloads;
 	Boolean status;
@@ -51,12 +57,12 @@ public class Document {
 	public void setAuthor(User author) {
 		this.author = author;
 	}
-	public Category getCategory() {
-		return category;
-	}
-	public void setCategory(Category category) {
-		this.category = category;
-	}
+//	public Category getCategory() {
+//		return category;
+//	}
+//	public void setCategory(Category category) {
+//		this.category = category;
+//	}
 	public int getDowloads() {
 		return dowloads;
 	}
@@ -80,6 +86,18 @@ public class Document {
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+//	public int getAuthor() {
+//		return author;
+//	}
+//	public void setAuthor(int author) {
+//		this.author = author;
+//	}
+	public int getCategory() {
+		return category;
+	}
+	public void setCategory(int category) {
+		this.category = category;
 	}
 	
 	

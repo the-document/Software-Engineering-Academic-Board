@@ -23,6 +23,10 @@ public class CatalogService implements ICatalog{
 		return catalogAccess.getCategoryFor(major);
 	}
 
+	public Category getCategory(int id) {
+		return catalogAccess.getCategory(id);
+	}
+
 	
 
 }

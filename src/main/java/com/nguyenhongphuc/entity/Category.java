@@ -20,16 +20,7 @@ public class Category {
 	String avatar;
 	String scope;
 	
-	@OneToMany
-	Set<Document> documents;
 	
-	
-	public Set<Document> getDocuments() {
-		return documents;
-	}
-	public void setDocuments(Set<Document> documents) {
-		this.documents = documents;
-	}
 	public int getId() {
 		return id;
 	}

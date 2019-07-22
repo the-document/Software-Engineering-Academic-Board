@@ -65,6 +65,27 @@ public class CatalogAccess implements ICatalog{
 		return lists;
 	}
 
+	public Category getCategory(int id) {
+		Session session;
+		try {
+			session=sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			session=sessionFactory.openSession();
+		}
+		finally {
+			if (sessionFactory==null) {
+				System.out.println("session fatory null");
+			}
+			
+		}
+		
+		
+		String query = "FROM category WHERE id = '"+ id+"'";
+		Category category= (Category)session.createQuery(query).getSingleResult();
+		//System.out.println("size list:\n"+lists.size());
+		return category;
+	}
+
 	
 
 }

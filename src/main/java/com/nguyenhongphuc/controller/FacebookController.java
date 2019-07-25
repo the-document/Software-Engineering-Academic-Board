@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.apache.http.client.ClientProtocolException;
@@ -15,8 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,12 +27,14 @@ import com.restfb.Version;
 
 @Controller
 @RequestMapping("/login")
+@SessionAttributes("user")
 public class FacebookController {
 
 	  public static String FACEBOOK_APP_ID = "889293998090512";
 	  public static String FACEBOOK_APP_SECRET = "fde2e71e8791a839dd681d41650c4e35";
-	  public static String FACEBOOK_REDIRECT_URL = "https://localhost:8443/Software-Engineering-Academic-Board/login/process";
+	  public static String FACEBOOK_REDIRECT_URL = "https://localhost:8443/Software-Engineering-Academic-Board/login/facebook";
 	  public static String FACEBOOK_LINK_GET_TOKEN = "https://graph.facebook.com/oauth/access_token?client_id=%s&client_secret=%s&redirect_uri=%s&code=%s";
+	  public static String FACEBOOK_LINK_GET_ID="https://graph.facebook.com/me?access_token=%s";
 	  
 	  @Autowired
 	  SessionFactory sessionFactory;
@@ -50,56 +52,68 @@ public class FacebookController {
 	
 	//page login
 	@GetMapping
-	public String Default(ModelMap modelMap) {
+	public String Default(ModelMap modelMap,HttpSession httpSession) {
+		User user =(User) httpSession.getAttribute("user");
+		modelMap.addAttribute("user", user);
 		return "login";
 	}
    
 	
-	@GetMapping("/process")
-	public String ProcessInfor(HttpServletRequest request, ModelMap modelMap) throws ClientProtocolException, IOException {
+	@GetMapping("/facebook")
+	public String ProcessInfor(HttpServletRequest request, ModelMap modelMap,HttpSession httpSession) throws ClientProtocolException, IOException {
 		String code = request.getParameter("code");
 		String accessToken = "";
 		try {
 			accessToken = this.getToken(code);
-			System.out.println(accessToken);
-			
-			
+			System.out.println("token"+accessToken);	
 			System.out.println("\n\n\n\n");
 			
-			FacebookClient facebookClient = new DefaultFacebookClient(accessToken, FACEBOOK_APP_SECRET, Version.LATEST);
-			com.restfb.types.User userfacebookUser=facebookClient.fetchObject("me", com.restfb.types.User.class);
-			System.out.println("fb client:\n"+userfacebookUser);
+			String linkGetID=String.format(FACEBOOK_LINK_GET_ID, accessToken);
 			
 			
-			String idUser=userfacebookUser.getId();
-			String nameString=userfacebookUser.getName();
+			String response = Request.Get(linkGetID).execute().returnContent().asString();
+			ObjectMapper mapper = new ObjectMapper();
+			JsonNode id = mapper.readTree(response).get("id");
+			JsonNode name = mapper.readTree(response).get("name");
 			
-			if (CheckingExistsInTheSystem(idUser) == true) {
+			String userID=id.asText();
+			String userName=name.asText();
+			  
+			String userAvatar="https://graph.facebook.com/"+id.asText()+"/picture?type=large&width=720&height=720";
 
-				System.out.println("Wellcome" + nameString);
-				modelMap.addAttribute("username", nameString);
-				modelMap.addAttribute("success", "dang nhap thanh cong");
+			User userInSystem=GetUser(userID);
+			if ( userInSystem!=null) {
+				modelMap.addAttribute("user", userInSystem);
+				httpSession.setAttribute("user", userInSystem);
+				System.out.println("\nexist\n");
+				System.out.println(userInSystem.getName());
 			}
-
 			else {
-				Boolean success = RegisterNewMember(userfacebookUser);
-				if (success) {
-					modelMap.addAttribute("success", "dang ky thanh cong");
+				User user = RegisterNewMember(userID,userName,userAvatar);
+				if (user!=null) {
+					modelMap.addAttribute("user", user);
 					System.out.println("registered...");
+					httpSession.setAttribute("user", user);
 				} else {
-					modelMap.addAttribute("success", "dang ky that bai");
+					modelMap.addAttribute("user", user);
 					System.out.println("can't register...");
+					 return "redirect:/login";
 				}
 
 			}
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
+			 return "redirect:/";
 		}
-		return "home";
+		
+		String referer = request.getHeader("Referer");
+		System.out.println("\n\n"+referer);
+	    return "redirect:"+ referer;
+	    
 	}
 	
 	@Transactional
-	private Boolean CheckingExistsInTheSystem(String id) {
+	private User GetUser(String id) {
 		
 		Session session;
 		try {
@@ -109,24 +123,23 @@ public class FacebookController {
 		}
 		
 		
-		
 		List<User> users= (List<User>) session.createQuery("from user where username = '"+id+"'").getResultList();
 		
 		if(users.isEmpty())
-			return false;
+			return null;
 		
-		return true;
+		return users.get(0);
 	}
 	
 	@Transactional
-	private Boolean RegisterNewMember(com.restfb.types.User userFacebook) {
+	private User RegisterNewMember(String id,String name, String avatar) {
 		try {
 			User user=new User();
-			user.setUsername(userFacebook.getId());
-			user.setName(userFacebook.getName());
+			user.setUsername(id);
+			user.setName(name);
 			user.setPosition("Member");
 			user.setPoint(1000);
-			user.setAvatar("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQU3Kz6dlgxTnxNJ-dNY1aGQ4hFaTfFFtc_a0hzdNa_c75t7dF");
+			user.setAvatar(avatar);
 			
 			Session session;
 			try {
@@ -135,17 +148,17 @@ public class FacebookController {
 				 session = sessionFactory.openSession();
 			}
 			
-			int id=(Integer) session.save(user);
+			int key=(Integer) session.save(user);
 			
-			if(id!=0)
-			return true;
+			if(key!=0)
+			return user;
 			else {
-				return false;
+				return null;
 			}
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			return false;
+			return null;
 		}
 	}
 }

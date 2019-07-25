@@ -8,6 +8,11 @@
 </head>
 <body>
 
+		<h1>user controller</h1>
+		<h4 style="color:red">/login/facebook</h4>
+		<p>api ajax, điều hướng qua xác nhận facebook, sao đó đưa về page trước đó có chứa thông tin đăng nhập đã lưu vào session</p>
+		<br/>
+
 		<h1>catagory controller</h1>
 		<h4 style="color:red">/documents</h4>
 		<p>Load page tài liệu, trả về danh sách các môn học đại cương</p>

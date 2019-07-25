@@ -86,6 +86,5 @@ public class CatalogAccess implements ICatalog{
 		return category;
 	}
 
-	
 
 }

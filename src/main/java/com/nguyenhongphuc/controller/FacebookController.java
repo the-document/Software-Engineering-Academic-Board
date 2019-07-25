@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nguyenhongphuc.entity.User;
+import com.nguyenhongphuc.service.UserService;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Version;
@@ -37,7 +38,7 @@ public class FacebookController {
 	  public static String FACEBOOK_LINK_GET_ID="https://graph.facebook.com/me?access_token=%s";
 	  
 	  @Autowired
-	  SessionFactory sessionFactory;
+	  UserService userSevirce;
 	  
 	public String getToken(final String code) throws ClientProtocolException, IOException {
 		String link = String.format(FACEBOOK_LINK_GET_TOKEN, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET,
@@ -81,7 +82,7 @@ public class FacebookController {
 			  
 			String userAvatar="https://graph.facebook.com/"+id.asText()+"/picture?type=large&width=720&height=720";
 
-			User userInSystem=GetUser(userID);
+			User userInSystem=userSevirce.GetUserById(userID);
 			if ( userInSystem!=null) {
 				modelMap.addAttribute("user", userInSystem);
 				httpSession.setAttribute("user", userInSystem);
@@ -89,7 +90,7 @@ public class FacebookController {
 				System.out.println(userInSystem.getName());
 			}
 			else {
-				User user = RegisterNewMember(userID,userName,userAvatar);
+				User user = userSevirce.RegisterViaFacebook(userID,userName,userAvatar);
 				if (user!=null) {
 					modelMap.addAttribute("user", user);
 					System.out.println("registered...");
@@ -112,53 +113,53 @@ public class FacebookController {
 	    
 	}
 	
-	@Transactional
-	private User GetUser(String id) {
-		
-		Session session;
-		try {
-			 session = sessionFactory.getCurrentSession();
-		} catch (Exception e) {
-			 session = sessionFactory.openSession();
-		}
-		
-		
-		List<User> users= (List<User>) session.createQuery("from user where username = '"+id+"'").getResultList();
-		
-		if(users.isEmpty())
-			return null;
-		
-		return users.get(0);
-	}
+//	@Transactional
+//	private User GetUser(String id) {
+//		
+//		Session session;
+//		try {
+//			 session = sessionFactory.getCurrentSession();
+//		} catch (Exception e) {
+//			 session = sessionFactory.openSession();
+//		}
+//		
+//		
+//		List<User> users= (List<User>) session.createQuery("from user where username = '"+id+"'").getResultList();
+//		
+//		if(users.isEmpty())
+//			return null;
+//		
+//		return users.get(0);
+//	}
 	
-	@Transactional
-	private User RegisterNewMember(String id,String name, String avatar) {
-		try {
-			User user=new User();
-			user.setUsername(id);
-			user.setName(name);
-			user.setPosition("Member");
-			user.setPoint(1000);
-			user.setAvatar(avatar);
-			
-			Session session;
-			try {
-				 session = sessionFactory.getCurrentSession();
-			} catch (Exception e) {
-				 session = sessionFactory.openSession();
-			}
-			
-			int key=(Integer) session.save(user);
-			
-			if(key!=0)
-			return user;
-			else {
-				return null;
-			}
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
-	}
+//	@Transactional
+//	private User RegisterNewMember(String id,String name, String avatar) {
+//		try {
+//			User user=new User();
+//			user.setUsername(id);
+//			user.setName(name);
+//			user.setPosition("Member");
+//			user.setPoint(1000);
+//			user.setAvatar(avatar);
+//			
+//			Session session;
+//			try {
+//				 session = sessionFactory.getCurrentSession();
+//			} catch (Exception e) {
+//				 session = sessionFactory.openSession();
+//			}
+//			
+//			int key=(Integer) session.save(user);
+//			
+//			if(key!=0)
+//			return user;
+//			else {
+//				return null;
+//			}
+//
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//			return null;
+//		}
+//	}
 }

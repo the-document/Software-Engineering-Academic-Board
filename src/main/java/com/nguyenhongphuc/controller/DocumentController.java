@@ -16,7 +16,7 @@ import com.nguyenhongphuc.service.CatalogService;
 import com.nguyenhongphuc.service.DocumentService;
 
 @Controller
-@RequestMapping("/documents/details")
+@RequestMapping("/documents")
 public class DocumentController {
 
 	@Autowired
@@ -38,7 +38,8 @@ public class DocumentController {
 		return "documentdetail";
 	}
 	
-	@GetMapping(path = "/ajax/{idSubject}/{name-type-documents}")
+	
+	@GetMapping(path = "/{idSubject}/ajax/{name-type-documents}")
 	@ResponseBody
 	public List<Document> getDocumentsInSpecialType(@PathVariable("idSubject") int idSubject, @PathVariable("name-type-documents") String type){
 		

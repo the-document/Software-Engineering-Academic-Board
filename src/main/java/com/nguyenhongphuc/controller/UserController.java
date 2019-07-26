@@ -70,6 +70,7 @@ public class UserController {
 			return user; //id= 0 mean err
 		}
 		
+		user.setPassword("********************");
 		return user;
 		//return null;
 	}

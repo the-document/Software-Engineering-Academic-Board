@@ -29,6 +29,11 @@ public class UserService implements IUser{
 	public User RegisterViaFacebook(String id, String name, String avatar) {
 		return userAccess.RegisterViaFacebook(id, name, avatar);
 	}
+
+
+	public Boolean UpdatePoint(User user) {
+		return userAccess.UpdatePoint(user);
+	}
 	
 
 }

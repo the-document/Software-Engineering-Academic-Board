@@ -8,4 +8,7 @@ public interface IUser {
 	User GetUserByUsername(String username);
 	Boolean SaveUser(User user);
 	User RegisterViaFacebook(String id,String name, String avatar);
+	
+	Boolean UpdatePoint(User user);
+
 }

@@ -8,4 +8,5 @@ public interface IDocument {
 
 	public List<Document> GetTest(String category);
 	public List<Document>getDocumentsInSpecialType(String category,String type);
+	public Document GetDocumentsById(String idDoc);
 }

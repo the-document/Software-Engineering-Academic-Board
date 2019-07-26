@@ -10,13 +10,43 @@
 	<title>Academic Board|Documents</title>
 	<jsp:include page="header.jsp"/>
 </head>
-<body>
-		<c:forEach var="value" items="${listSubjectDefault}">
-			${value.getName()} <br/>
-		</c:forEach>
+<body >
 		
-		<button class="loadsubject" data-id="Công nghệ phần mềm">SE</button>
-		<button class="loadsubject" data-id="Công nghệ phần mềm">CS</button>
+		<h2>ĐẠI CƯƠNG</h2>
+		<p>Thường là môn học năm nhất, năm hai</p>
+		
+		
+	
+			<c:forEach var="value" items="${listSubjectDefault}">
+				<div style="float:left; margin:20px">
+					<a href="documents/${value.getId() }">
+						<div style="width: 100px; height: 100px; ">
+							<img alt="avatar" src="${value.getAvatar() }" width=100% >
+						</div>
+						
+					</a>
+					${value.getName()} <br/>
+				</div>
+			</c:forEach>
+		
+		
+		<div style="position:absolute; right: 30px; top:400px">
+			<button class="loadsubject" data-id="Công nghệ phần mềm">
+				<h2>CÔNG NGHỆ PHẦN MỀM</h2>
+				<p>Tài liệu chuyên ngành khoa Công nghệ Phần mềm</p>
+			</button>
+			
+		</div>	
+		
+		<div style="position:absolute; right: 30px; top:500px">
+			<button class="loadsubject" data-id="Mạng máy tính và truyền thông">
+				<h2>TRUYỀN THÔNG VÀ MẠNG MÁY TÍNH</h2>
+				<p>Tài liệu chuyên ngành khoa Mạng máy tính và truyền thông</p>
+			</button>
+			
+		</div>	
+		
+		
 		
 		<jsp:include page="footer.jsp"/>
 </body>

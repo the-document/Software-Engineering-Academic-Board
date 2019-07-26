@@ -19,7 +19,7 @@ public class Document {
 	String type;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "author")
 	User author;
 //	
 //	@OneToOne

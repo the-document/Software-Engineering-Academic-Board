@@ -106,4 +106,34 @@ public class UserAccess implements IUser{
 			return null;
 		}
 	}
+
+	@Transactional
+	public Boolean UpdatePoint(User user) {
+		Session session;
+		try {
+			 session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			 session = sessionFactory.openSession();
+		}
+		
+
+			System.out.println("prepare update");
+			System.out.println(user.getPoint()+"--");
+//			String query = "UPDATE user " + 
+//					"SET password = "+user.getPassword()
+//					+" ,name = "+user.getName()+" ,major = "+user.getMajor()+", position = "+user.getPosition()
+//					+", point = "+user.getPoint()+" ,description = "+user.getDescription()
+//					+", avatar = "+user.getAvatar()+" ,token ="+user.getToken()+ " WHERE id="+user.getId();
+			
+			String query = "UPDATE user SET point = " +user.getPoint()+ " WHERE id="+user.getId();
+			int i= session.createQuery(query).executeUpdate();
+			
+			if(i!=0) {
+				System.out.println("updated"+user.getId());
+				return true;
+			}
+			System.out.println("can't update"+user.getId());
+			return false;
+		}
+		
 }

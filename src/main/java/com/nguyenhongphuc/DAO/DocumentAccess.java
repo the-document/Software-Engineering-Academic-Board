@@ -32,6 +32,7 @@ public class DocumentAccess implements IDocument{
 		
 		String query="from document  " + 				
 				"WHERE type  ='DETHI' and category= "+category;
+		//String query="from document d ,user a WHERE d.author=a.id and type  ='DETHI' and category="+category;
 		List<Document> list=(List<Document>)session.createQuery(query).getResultList();
 		
 		return list;
@@ -57,5 +58,28 @@ public class DocumentAccess implements IDocument{
 		List<Document> list=(List<Document>)session.createQuery(query).getResultList();
 	
 		return list;
+	}
+
+
+	public Document GetDocumentsById(String idDoc) {
+		Session session;
+		try {
+			session=sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			session=sessionFactory.openSession();
+		}
+		finally {
+			if (sessionFactory==null) {
+				System.out.println("session fatory null");
+			}
+			
+		}
+		
+		String query="from document  " + 				
+				"WHERE id = "+idDoc;
+		Document doc=null;
+		doc=(Document)session.createQuery(query).getSingleResult();
+	
+		return doc;
 	}
 }

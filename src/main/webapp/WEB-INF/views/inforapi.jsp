@@ -49,9 +49,15 @@
 		<h5>value: listTest, type: com.nguyenhongphuc.entity.Documents </h5>
 		<br/>
 		
-		<h4 style="color:red">/{idSubject}/ajax/{name-type-documents}</h4>
+		<h4 style="color:red">/documents/{idSubject}/ajax/{name-type-documents}</h4>
 		<p> GET -ajax danh sách ame-type-documents của subject này</p>
 		<h5>value: listdocuments, type: com.nguyenhongphuc.entity.Documents </h5>
+		<br/>
+		
+		
+		<h4 style="color:red">/documents/{idSubject}/download/{idDocument}</h4>
+		<p> GET -Thực hiện dowload tài liệu, nếu người dùng đã đăng nhập tự động chuyển hướng đến tài liệu và trừ điểm. Nếu không đủ điểm thì redirect về lại trang hiện tại</p>
+		
 		<br/>
 </body>
 </html>

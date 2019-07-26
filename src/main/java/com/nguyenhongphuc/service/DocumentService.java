@@ -23,4 +23,8 @@ public class DocumentService implements IDocument{
 		return documentAccess.getDocumentsInSpecialType(category, type);
 	}
 
+	public Document GetDocumentsById(String idDoc) {
+		return documentAccess.GetDocumentsById(idDoc);
+	}
+
 }

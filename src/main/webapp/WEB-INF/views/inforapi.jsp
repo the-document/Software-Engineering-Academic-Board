@@ -18,7 +18,17 @@
 		<br/>
 		
 		<h4 style="color:red">/user/register</h4>
-		<p>POST - đăng ký và trả về user, nếu không thành công thì user.id=0 và message lỗi nằm trong user.name</p>
+		<p>POST -ajax đăng ký và trả về user, nếu không thành công thì user.id=0 và message lỗi nằm trong user.name</p>
+		<p> type="email" name="username". type="text" name="name". type="password" name="password". type="password" name="password2"</p>
+		<br/>
+		
+		<h4 style="color:red">/user/login</h4>
+		<p>POST -ajax Đăng nhập bằng tài khoản thường, nếu không thành công thì user.id=0 và message lỗi nằm trong user.name. Khi thành công thì trong ajax set menubar user infor</p>
+		<p>type='email' name='username'. type='password' name='password' </p>
+		<br/>
+		
+		<h4 style="color:red">/user/logout</h4>
+		<p>GET -ajax Đăng xuất tài khoản. Chuỗi trả về là "success" hoặc "fail"</p>
 		<br/>
 
 		<h1>catagory controller</h1>
@@ -28,7 +38,7 @@
 		<br/>
 		
 		<h4 style="color:red">/documents/ajax/{namescope}</h4>
-		<p>GET - trả về danh sách các môn học thuộc namescope</p>
+		<p>GET -ajax trả về danh sách các môn học thuộc namescope</p>
 		<h5>value: listSubject, type: com.nguyenhongphuc.entity.Catagory </h5>
 		<br/>
 		
@@ -40,7 +50,7 @@
 		<br/>
 		
 		<h4 style="color:red">/{idSubject}/ajax/{name-type-documents}</h4>
-		<p> GET - danh sách ame-type-documents của subject này</p>
+		<p> GET -ajax danh sách ame-type-documents của subject này</p>
 		<h5>value: listdocuments, type: com.nguyenhongphuc.entity.Documents </h5>
 		<br/>
 </body>

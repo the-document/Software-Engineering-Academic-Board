@@ -13,11 +13,11 @@
 
 	  <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://localhost:8443/Software-Engineering-Academic-Board/login/facebook">Login Facebook</a>
 	  
-	  <form name='loginForm' action="<c:url value='j_spring_security_login' />" method='POST'>
+	  <form name='loginForm' action="login" method='POST'>
 	    <table>
 	      <tr>
 	        <td>User:</td>
-	        <td><input type='text' name='username'></td>
+	        <td><input type='email' name='username'></td>
 	      </tr>
 	      <tr>
 	        <td>Password:</td>

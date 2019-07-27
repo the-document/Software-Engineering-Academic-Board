@@ -19,7 +19,7 @@
 	
 			<c:forEach var="value" items="${listSubjectDefault}">
 				<div style="float:left; margin:20px">
-					<a href="documents/${value.getId() }">
+					<a href="${value.getId() }">
 						<div style="width: 100px; height: 100px; ">
 							<img alt="avatar" src="${value.getAvatar() }" width=100% >
 						</div>

@@ -810,6 +810,13 @@ input.checkbox:checked:after {
 	</div>
 	<!-- //main -->
 	
+		<form action="upload" method="POST">
+			<input name="type" type="text" placeholder="type">
+			<input name="category" type="text" placeholder="category">
+			<input name="url" type="text" placeholder="url">
+			<input name="name" type="text" placeholder="name">
+			<input type="submit" value="ADD" >
+		</form>
 	
 </body>
 </html>

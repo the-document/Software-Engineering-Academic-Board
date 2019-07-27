@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.nguyenhongphuc.entity.Category;
+import com.nguyenhongphuc.entity.Document;
 import com.nguyenhongphuc.service.CatalogService;
 
 @Controller
@@ -41,4 +42,10 @@ public class CatagoryController {
 		return listsCategories;
 	}
 	
+	@GetMapping("/allcategory")
+	@ResponseBody
+	public List<Category> getAllCategory() {
+		List<Category> categorys=CatalogService.getAllCatetory();
+		return categorys;
+	}
 }

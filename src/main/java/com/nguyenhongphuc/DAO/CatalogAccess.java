@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.nguyenhongphuc.entity.Category;
+import com.nguyenhongphuc.entity.Document;
 import com.nguyenhongphuc.interfaces.ICatalog;
 
 @Repository
@@ -84,6 +85,26 @@ public class CatalogAccess implements ICatalog{
 		Category category= (Category)session.createQuery(query).getSingleResult();
 		//System.out.println("size list:\n"+lists.size());
 		return category;
+	}
+
+	public List<Category> getAllCatetory() {
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			session = sessionFactory.openSession();
+		} finally {
+			if (sessionFactory == null) {
+				System.out.println("session fatory null");
+			}
+
+		}
+
+		String query = "from category  ";
+		List<Category> categorys = null;
+		categorys = (List<Category>) session.createQuery(query).getResultList();
+
+		return categorys;
 	}
 
 

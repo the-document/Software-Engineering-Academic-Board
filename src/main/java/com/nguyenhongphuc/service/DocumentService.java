@@ -27,4 +27,16 @@ public class DocumentService implements IDocument{
 		return documentAccess.GetDocumentsById(idDoc);
 	}
 
+	public Boolean UploadDocument(Document document) {
+		return documentAccess.UploadDocument(document);
+	}
+
+	public List<Document> getAllDocuments() {
+		return documentAccess.getAllDocuments();
+	}
+
+	public List<Document> getAllDocumentsUnapproved() {
+		return documentAccess.getAllDocumentsUnapproved();
+	}
+
 }

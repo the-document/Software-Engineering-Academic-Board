@@ -27,6 +27,10 @@ public class CatalogService implements ICatalog{
 		return catalogAccess.getCategory(id);
 	}
 
+	public List<Category> getAllCatetory() {
+		return catalogAccess.getAllCatetory();
+	}
+
 	
 
 }

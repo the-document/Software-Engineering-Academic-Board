@@ -54,10 +54,28 @@
 		<h5>value: listdocuments, type: com.nguyenhongphuc.entity.Documents </h5>
 		<br/>
 		
+		<h4 style="color:red">/documents/allcategory</h4>
+		<p> GET -ajax danh sách tất cả các môn học (danh mục): </p>
+		<h5>value: categorys, type: com.nguyenhongphuc.entity.Documents </h5>
+		<br/>
+		
 		
 		<h4 style="color:red">/documents/{idSubject}/download/{idDocument}</h4>
 		<p> GET -Thực hiện dowload tài liệu, nếu người dùng đã đăng nhập tự động chuyển hướng đến tài liệu và trừ điểm. Nếu không đủ điểm thì redirect về lại trang hiện tại</p>
+		<br/>
 		
+		<h4 style="color:red">/documents/upload</h4>
+		<p> ajax - POST -Thực hiện upload tài liệu, trả về chuỗi kết quả (string)  </p>
+		<br/>
+		
+		<h1>Admin controller</h1>
+		<h4 style="color:red">/admin/browsedoc</h4>
+		<p>GET - trả về view danh sách các tài liệu chưa duyệt</p>
+		<h5>value: listdoc, type: com.nguyenhongphuc.entity.Documents </h5>
+		<br/>
+		
+		<h4 style="color:red">/admin/browsedoc</h4>
+		<p>ajax - POST - upload tài liệu, trả về chuỗi kết quả</p>
 		<br/>
 </body>
 </html>

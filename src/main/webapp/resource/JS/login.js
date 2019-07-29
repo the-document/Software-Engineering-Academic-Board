@@ -47,12 +47,49 @@ function register() {
 		timeout: 100000,
 		success: function(data){
 			if (data.id==0)
+			{
+				$("#refister-notify").removeClass("message-success");
+				$("#refister-notify").addClass("message-error");
 				$("#refister-notify").text("Thất bại: " +data.name);
+			}
 			else
-				$("#refister-notify").text("Đăng ký thành công, vui lòng đăng nhập để tiếp tục");
+			{
+				$("#refister-notify").removeClass("message-error");
+				$("#refister-notify").addClass("message-success");
+				$("#refister-notify").text("Đăng ký thành công, đăng nhập để tiếp tục");
+				$("#username-popup2").val(username);
+			}
 		},
 		error: function(e){
 			console.log("ERROR",e);
+		}
+	});
+}
+
+function loginNormalPopupRegister() {
+	var username =$("#username-popup2").val();
+	var password =$("#password-popup2").val();
+	console.log(username);
+	console.log(password);
+	$.ajax({
+		type: "POST",
+		url: "user/login",
+		data:{
+			username:username,
+			password:password
+		},
+		dataType: 'json',
+		timeout:100000,
+		success: function (data) {
+			if(data.id==0)
+				$("#login-notify").text(data.name);
+			else
+			{
+				location.reload();
+			}
+		},
+		error: function (e){
+			console.log("ERROR:",e);
 		}
 	});
 }

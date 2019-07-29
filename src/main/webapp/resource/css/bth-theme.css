@@ -23,6 +23,59 @@ h4{
     flex-direction: column;
     align-items: center;
 }
+
+.message-error{
+    color: #D8000C;
+    background-color: #FFD2D2;
+    text-align: center;
+}
+.message-success{
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    text-align: center;
+}
+
+/*Login form*/
+.text-input{
+    margin-top: 10px;
+}
+
+.btn-login{
+    width: 300px; font-size:14px;background: #5B9BD5;
+    border: none;border-radius: 10px; margin-top: 10px; color: #fff;
+    line-height: 35px;box-shadow: 0 2px #a0a0a0; text-align: center;
+}
+
+.btn-register{
+    width: 300px; font-size:14px;background: #fff;
+    border: none;border-radius: 10px; margin-top: 10px; color: #000;
+    line-height: 35px;box-shadow: 0 2px #a0a0a0; text-align: center;
+    margin-top: 30px;
+}
+
+.login-text{
+    padding-top: 10px;
+}
+
+.register-input{
+    display: flex; justify-content: center;
+}
+
+.register-icon-input{
+    position: absolute;
+    width: 24px;
+    left: 53px;
+    top: 5px;
+}
+
+.register-icon-input-login{
+    position: absolute;
+    width: 24px;
+    left: 53px;
+    top: 15px;
+}
+
+/*END Login form*/
 /*reEdit=========================================================*/
 
 .main-container {

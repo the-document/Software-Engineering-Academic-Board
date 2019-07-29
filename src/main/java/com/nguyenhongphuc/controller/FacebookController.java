@@ -107,10 +107,10 @@ public class FacebookController {
 			 return "redirect:/";
 		}
 		
-		String referer = request.getHeader("Referer");
-		System.out.println("\n\n"+referer);
-	    return "redirect:"+ referer;
-	    
+		//String referer = request.getHeader("Referer");
+		//System.out.println("\n\n"+referer);
+	    //return "redirect:"+ referer;
+		return "redirect:/documents";
 	}
 	
 //	@Transactional

@@ -36,6 +36,7 @@
 							
 							<h4>Xin chào: ${user.getName()}</h4>
 							<img alt="ảnh đại diện" src="${user.getAvatar()}"/>
+							<a href="user/logout"><button>Logout</button></a>
 						</c:otherwise>
 					</c:choose>
                    

@@ -66,7 +66,7 @@
                 </div>
                 <div class="form-item">
                     <button onclick="loginNormal()">Login</button>
-                    <p id="login-notify"></p>
+                    <p id="notify"></p>
                 </div>
                 <div class="form-item">
                     <label>
@@ -83,7 +83,7 @@
     </div>
     <div id="id02" class="modal login-form">
         <div class="modal-content animate">
-            <form method="POST" action="/SIGNUP">
+            <div id="form-div">
                 <div>
                     Signup
                 </div>
@@ -94,14 +94,24 @@
                         </div>
                         <div class="log-input main-input form-item">
                             <img class="logo-input" src="<c:url value="/resource/images/icons/username.png"/>" >     
-                            <input id="username" type="email" placeholder="Tên đăng nhập" name="username" required />
+                            <input id="register-username" type="email" placeholder="Tên đăng nhập" name="register-username" required />
+                        </div>
+                        <div class="log-input main-input form-item">
+                         	<img class="logo-input" src="<c:url value="/resource/images/icons/username.png"/>" >
+                            <input id="register-name" type="text" placeholder="Tên hiển thị" name="register-name" required />
                         </div>
                         <div class="log-input main-input form-item">
                          	<img class="logo-input" src="<c:url value="/resource/images/icons/password.png"/>" >
-                            <input id="password" type="password" placeholder="Mật khẩu" name="password" required />
+                            <input id="register-password" type="password" placeholder="Mật khẩu" name="register-password" required />
                         </div>
+                        <div class="log-input main-input form-item">
+                         	<img class="logo-input" src="<c:url value="/resource/images/icons/password.png"/>" >
+                            <input id="register-password2" type="password" placeholder="Nhập lại mật khẩu" name="register-password2" required />
+                        </div>
+                        
                         <div class="form-item">
-                            <button id="register-normal" ">Register</button>
+                            <button id="register-normal" onclick="register()">Register</button>
+                            <p id="refister-notify"></p>
                         </div>
                         <div class="form-itema">
                             <label>
@@ -115,7 +125,7 @@
                 </div>
 
 
-            </form>
+            </div>
             <div class="modal-close">
                 <button class="btn-close" onclick="closeSignupModal()">
 					<img src="<c:url value="/resource/images/icons/close.png"/>" >

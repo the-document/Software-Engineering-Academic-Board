@@ -76,6 +76,7 @@ public class DocumentController {
 			if(user.getPoint()>POIN_OF_DOCUMENT)
 			{
 				Document doc=documentService.GetDocumentsById(idDocument);
+				documentService.UpdateViewsDocument(doc);
 				//System.out.println(doc.getUrl());
 				user.setPoint(user.getPoint()-POIN_OF_DOCUMENT);
 				userService.UpdatePoint(user);

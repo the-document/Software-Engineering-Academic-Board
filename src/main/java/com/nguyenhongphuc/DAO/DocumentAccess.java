@@ -2,15 +2,20 @@ package com.nguyenhongphuc.DAO;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.nguyenhongphuc.entity.Document;
 import com.nguyenhongphuc.interfaces.IDocument;
 
 @Repository
+@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class DocumentAccess implements IDocument {
 
 	@Autowired
@@ -139,5 +144,27 @@ public class DocumentAccess implements IDocument {
 		List<Document> list = (List<Document>) session.createQuery(query).getResultList();
 
 		return list;
+	}
+
+	@Transactional
+	public Boolean UpdateViewsDocument(Document document) {
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			session = sessionFactory.openSession();
+		} finally {
+			if (sessionFactory == null) {
+				System.out.println("session fatory null");
+			}
+
+		}
+
+		String query = "update document  set dowloads = "+document.getDowloads()+1 + "WHERE id = " +document.getId();
+		
+		int i= session.createQuery(query).executeUpdate();
+		if(i!=0)
+			return true;
+		return false;
 	}
 }

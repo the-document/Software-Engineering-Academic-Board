@@ -4,10 +4,12 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -121,15 +123,20 @@ public class UserController {
 	}
 
 	@GetMapping("/logout")
-	@ResponseBody
-	public String LogOut(HttpSession httpSession) {
-		String result="fail";
+	public String LogOut(HttpServletRequest request,ModelMap modelMap) {
 		try {
-			httpSession.removeAttribute("user");
-			httpSession.invalidate();
-			result="success";
+			modelMap.clear();
+			request.getSession().setAttribute("user",null);
+			request.getSession().removeAttribute("user");
+			System.out.println("logouted");
+			request.getSession().invalidate();
+			
 		} catch (Exception e) {}
 		
-		return result;
+		
+		 
+		String referer = request.getHeader("Referer");
+		System.out.println("\n\n222"+referer);
+	    return "redirect:"+ referer;
 	}
 }

@@ -17,11 +17,14 @@
                 </div>
                 <div class="info">
                     <ul>
-                        <li> Kênh thông tin Sinh viên của BHT khoa CNPM - Trường ĐH CNTT - ĐHQG-HCM. Website do Ban học
+                        <li style="padding-bottom: 15px;"> Kênh thông tin Sinh viên của BHT khoa CNPM - Trường ĐH CNTT - ĐHQG-HCM. Website do Ban học
                             tập CNPM
                             thực hiện và quản lý.</li>
                         <li>
                             Phát triển: Nguyễn Hồng Phúc
+                        </li>
+                        <li>
+                            <p style="padding-left: 77px;padding-bottom: 15px;">Nguyễn Niê Đức Thịnh</p>
                         </li>
                         <li>
                             Chịu trách nhiệm nội dung: Lưu Biêu Nghị
@@ -30,21 +33,23 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <h4>Top bài viết</h4>
+                <h4 style="color:#fff;padding-bottom: 20px;">Chính sách</h4>
                 <ul>
-                    <li>Lập trình hướng đối tượng - phần 1</li>
-                    <li>Lập trình hướng đối tượng - phần 2</li>
-                    <li>Lập trình hướng đối tượng - phần 3</li>
+                    <li style="padding-bottom: 12px;">Chính sách điểm thưởng</li>
+                    <li style="padding-bottom: 12px;">Điều khoản dịch vụ</li>
+                    <li style="padding-bottom: 12px;">Phúc đẹp trai</li>
                 </ul>
             </div>
             <div class="col-lg-3">
-                <h4>Địa chỉ</h4>
-                <p>Đường Hàn Thuyên, Khu phố 6, P. Linh Trung, Q. Thủ Đức, TP Hồ Chí Minh</p>
+                <h4 style="color:#fff;padding-bottom: 20px;">Thông tin liên hệ</h4>
+                <p style="padding-bottom: 12px;">Địa chỉ: Đường Hàn Thuyên, Khu phố 6, P. Linh Trung, Q. Thủ Đức, TP Hồ Chí Minh</p>
+                <p style="padding-bottom: 12px;">Email: bht.cnpm.uit@gmail.com</p>
+                <p style="padding-bottom: 12px;">Hotline: 0366272703</p>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <h4>@2019 Website Ban học tập Đoàn khoa Công nghệ Phần mềm. All rights reserved.
+                <h4 style="color:#fff";>@2019 Website Ban học tập Đoàn khoa Công nghệ Phần mềm. All rights reserved.
                 </h4>
             </div>
         </div>
@@ -80,7 +85,7 @@
                         	<p class="login-text">Quên mật khẩu?</p>
 	                        <div class="row "  >
 	                        	 <p class="login-text" style="padding-left: 5px;padding-right: 5px">Chưa có tài khoản?</p>
-	                        	 <p class="login-text" style="padding-left: 5px;padding-right: 5px; color: #5B9BD5; font-weight: bold;">Hãy đăng ký</p>
+	                        	 <p onclick="openSignupModal()" class="login-text" style="padding-left: 5px;padding-right: 5px; color: #5B9BD5; font-weight: bold;">Hãy đăng ký</p>
 	                        </div>
 
 	                        <div class="logo form-item">

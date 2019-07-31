@@ -115,6 +115,54 @@ public class PostAccess implements IPost{
 		
 		return post;
 	}
+
+	
+	@Transactional
+	public List<Post> GetPostByTypeWithAmount(int count, String type) {
+		Session session;
+		try {
+			 session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			 session = sessionFactory.openSession();
+		}
+		
+		
+		String query="FROM post WHERE status=1 and type = '"+type+"'  ORDER BY views DESC	";
+		
+		List<Post> posts=null;
+		try {
+			posts= (List<Post>) session.createQuery(query).setMaxResults(count).getResultList();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+		
+		return posts;
+	}
+
+	@Transactional
+	public List<Post> GetPostOfAuthor(int idAuthor) {
+		Session session;
+		try {
+			 session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			 session = sessionFactory.openSession();
+		}
+		
+		
+		String query="FROM post WHERE status=1 and author= "+idAuthor+" ORDER BY views DESC";
+		List<Post> posts=null;
+		try {
+			posts= (List<Post>) session.createQuery(query).setMaxResults(4).getResultList();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+		
+
+		
+		return posts;
+	}
 	
 	
 

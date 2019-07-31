@@ -10,4 +10,6 @@ public interface IPost {
 	public List<Post> GetLatestEvents();
 	public List<Post> Get4LatestTutorial();
 	public Post GetPostById(String id);
+	public List<Post> GetPostByTypeWithAmount(int count,String type);
+	public List<Post> GetPostOfAuthor(int idAuthor);
 }

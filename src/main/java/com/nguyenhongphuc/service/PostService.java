@@ -30,6 +30,14 @@ public class PostService implements IPost{
 	public Post GetPostById(String id) {
 		return postAccess.GetPostById(id);
 	}
+
+	public List<Post> GetPostByTypeWithAmount(int count, String type) {
+		return postAccess.GetPostByTypeWithAmount(count, type);
+	}
+
+	public List<Post> GetPostOfAuthor(int idAuthor) {
+		return postAccess.GetPostOfAuthor(idAuthor);
+	}
 	
 	
 }

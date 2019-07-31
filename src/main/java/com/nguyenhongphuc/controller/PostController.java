@@ -32,9 +32,12 @@ public class PostController {
 		modelMap.clear();
 		
 		Post post =postService.GetPostById(id);
+		List<Post> sameContent=postService.GetPostByTypeWithAmount(4, post.getType());
+		List<Post> sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
 		
 		modelMap.addAttribute("post", post);
-		
+		modelMap.addAttribute("sameContent",sameContent);
+		modelMap.addAttribute("sameAuthor",sameAuthor);
 		
 		return "postdetail";
 	}

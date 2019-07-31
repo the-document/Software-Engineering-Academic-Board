@@ -245,16 +245,22 @@
 
 			<div class="slider-bar">
 				<p class="slider-bar-header" ">Cùng tác giả</p>
-				<p class="slider-bar-post-recomend">Khi nào ta biết yêu</p>
-				<p class="slider-bar-post-recomend">Cơn mưa chiều</p>
-				<p class="slider-bar-post-recomend">Mãi mãi là bao xa</p>
+				
+				
+				<c:forEach var="post" items="${sameAuthor }">
+					<p class="slider-bar-post-recomend">${post.getTitle()}</p>
+				</c:forEach>
+				
 			</div>
 
 			<div class="slider-bar">
+			
 				<p class="slider-bar-header" ">Cùng chủ đề</p>
-				<p class="slider-bar-post-recomend">Tớ đã dậy thì như thế nào</p>
-				<p class="slider-bar-post-recomend">Giới tính thật của tôi</p>
-				<p class="slider-bar-post-recomend">Bản lĩnh người lãnh đạo</p>
+				
+				<c:forEach var="post" items="${sameContent }">
+					<p class="slider-bar-post-recomend">${post.getTitle() }</p>
+				</c:forEach>
+				
 			</div>
 		</div>
 	</div>

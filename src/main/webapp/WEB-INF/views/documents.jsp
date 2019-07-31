@@ -327,5 +327,11 @@
 		
 		<!-- <script src="./src/js/page-js/home.js"></script> -->
     	<script src='<c:url value="/resource/JS/tai-lieu.js"/>'></script>
+    	
+    	<script type="text/javascript">
+			$(document).ready(function() {
+				  $("#documents").addClass("active");
+				});
+		</script>
 </body>
 </html>

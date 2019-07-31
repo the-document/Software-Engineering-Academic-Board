@@ -59,7 +59,7 @@
         <div class="modal-content animate">
             <div id="form-div">
                 <div class="logo form-item">
-                    <img src='<c:url value="resource/images/icons/logo.png"/>'>
+                    <img src='<c:url value="/resource/images/icons/logo.png"/>'>
                 </div>
                  <p id="login-notify" class="message-error"></p>
                 <div class="log-input main-input form-item ">
@@ -90,11 +90,11 @@
 
 	                        <div class="logo form-item">
 	                        	
-			                    <img src='<c:url value="resource/images/icons/google.png"/>'
+			                    <img src='<c:url value="/resource/images/icons/google.png"/>'
 			                    style="max-width: 40px;max-height: 40px; margin-bottom: 30px" />
 			                    
 			                    <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://localhost:8443/Software-Engineering-Academic-Board/login/facebook">
-				                    <img src='<c:url value="resource/images/icons/facebook.png"/>'
+				                    <img src='<c:url value="/resource/images/icons/facebook.png"/>'
 				                    style="max-width: 43px;max-height: 43px; margin-bottom: 30px"/>
 			                    </a>
 			                </div>
@@ -117,7 +117,7 @@
 
             <div id="form-div" style="width: 100%;align-items: stretch;">
             	<div class="logo form-item" style="position: absolute;margin-top: 30px; left: 46%;">
-	                    <img src='<c:url value="resource/images/icons/logo.png"/>'" />
+	                    <img src='<c:url value="/resource/images/icons/logo.png"/>'" />
 	           </div>
                 <div class="signup-form">
                 	
@@ -184,11 +184,11 @@
 		                        
 
 		                        	<div class="logo form-item">
-					                    <img src='<c:url value="resource/images/icons/google.png"/>' 
+					                    <img src='<c:url value="/resource/images/icons/google.png"/>' 
 					                    style="max-width: 40px;max-height: 40px; margin-bottom: 60px" />
 					                    
 					                    <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://localhost:8443/Software-Engineering-Academic-Board/login/facebook">
-					                    	<img src='<c:url value="resource/images/icons/facebook.png"/>'
+					                    	<img src='<c:url value="/resource/images/icons/facebook.png"/>'
 					                    	style="max-width: 43px;max-height: 43px; margin-bottom: 60px"/>
 					                    </a>
 					                    
@@ -207,15 +207,15 @@
 
             <div class="modal-close">
                 <button class="btn-close" onclick="closeSignupModal()">
-                <img src='<c:url value="resource/images/icons/close.png"/>' /></button>
+                <img src='<c:url value="/resource/images/icons/close.png"/>' /></button>
             </div>
         </div>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src='<c:url value="resource/JS/owl.carousel.js"/>'></script>
-    <script src='<c:url value="resource/JS/login.js"/>'></script>
+    <script src='<c:url value="/resource/JS/owl.carousel.js"/>'></script>
+    <script src='<c:url value="/resource/JS/login.js"/>'></script>
     <script>
         // Get the modal
         var modalLogin = document.getElementById('id01');

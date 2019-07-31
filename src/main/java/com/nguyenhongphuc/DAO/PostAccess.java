@@ -2,6 +2,7 @@ package com.nguyenhongphuc.DAO;
 
 import java.util.List;
 
+import javax.sound.midi.Soundbank;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -32,11 +33,16 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE type = 'SHARE' ORDER BY views DESC";
-		List<Post> posts= (List<Post>) session.createQuery(query).setMaxResults(5).getResultList();
-		
-		if(posts.isEmpty())
+		String query="FROM post WHERE status=1 and type = 'SHARE' ORDER BY views DESC";
+		List<Post> posts=null;
+		try {
+			posts= (List<Post>) session.createQuery(query).setMaxResults(5).getResultList();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			return null;
+		}
+		
+
 		
 		return posts;
 	}
@@ -51,11 +57,15 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE type = 'EVENT'  ORDER BY  postday DESC";
-		List<Post> posts= (List<Post>) session.createQuery(query).setMaxResults(5).getResultList();
+		String query="FROM post WHERE status=1 and type = 'EVENT'  ORDER BY  postday DESC";
 		
-		if(posts.isEmpty())
+		List<Post> posts=null;
+		try {
+			posts= (List<Post>) session.createQuery(query).setMaxResults(1).getResultList();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			return null;
+		}
 		
 		return posts;
 	}
@@ -70,13 +80,42 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE type = 'TUTORIAL'  ORDER BY views DESC	";
-		List<Post> posts= (List<Post>) session.createQuery(query).setMaxResults(5).getResultList();
+		String query="FROM post WHERE status=1 and type = 'TUTORIAL'  ORDER BY views DESC	";
 		
-		if(posts.isEmpty())
+		List<Post> posts=null;
+		try {
+			posts= (List<Post>) session.createQuery(query).setMaxResults(4).getResultList();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			return null;
+		}
 		
 		return posts;
 	}
+
+	
+	@Transactional
+	public Post GetPostById(String id) {
+		Session session;
+		try {
+			 session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			 session = sessionFactory.openSession();
+		}
+		
+		
+		String query="FROM post WHERE status=1 and id= "+id;
+		Post post=null;
+		try {
+			post= (Post) session.createQuery(query).getSingleResult();
+		} catch (Exception e) {
+			System.out.println("No post found."+ e.getMessage());
+		}
+		
+		
+		return post;
+	}
+	
+	
 
 }

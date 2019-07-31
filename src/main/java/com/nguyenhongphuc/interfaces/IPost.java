@@ -9,4 +9,5 @@ public interface IPost {
 	public List<Post> Get5LatestShare();
 	public List<Post> GetLatestEvents();
 	public List<Post> Get4LatestTutorial();
+	public Post GetPostById(String id);
 }

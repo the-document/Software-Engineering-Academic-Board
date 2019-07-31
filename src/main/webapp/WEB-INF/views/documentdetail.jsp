@@ -6,12 +6,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>${subject.getName()}</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-grid.css" rel="stylesheet"
+        type="text/css" />
+        
+    <link rel="stylesheet" type="text/css" href='<c:url value="/resource/css/owl.carousel.min.css"/>' />
+
+    <link rel="stylesheet" type="text/css" href='<c:url value="/resource/css/owl.theme.default.min.css"/>' />
+
+
+    <link rel="stylesheet" href='<c:url value="/resource/css/bth-theme.css"/>' type="text/css" />
+	<title>${subject.getName()}</title>
 </head>
 <body>
+		<jsp:include page="header.jsp"></jsp:include>
 		<!-- left================================================================== -->
-		<div style="position: absolute;width: 260px;height: 660px;left: -1px;top: 108px;background: #FFFFFF;">
+		<div style="width: 260px;height: 660px;left: -1px;top: 108px;background: #FFFFFF;">
 			<div style="position: absolute;width: 259px;height: 249px;left: 0px;top: 0px;background: #FFFFFF;border-radius: 30px">
 				<img alt="avatar" src="${subject.getAvatar() }" style="width:100%; height:100%">
 			</div>
@@ -48,30 +57,12 @@
 				
 		</div>
 		
-
-		<%-- <h4>Name: ${subject.getName()}</h4>
-		<h4>Desciption: ${subject.getDescription()}</h4>
 		
-		<img alt="avatar" src="${subject.getAvatar() }" style="width:200px;height:auto;"/>
-			
-		
-		<!-- <h4>Avatar: ${subject.getAvatar()}</h4> -->
-		<h4>Major: ${subject.getScope()}</h4>
-		<br/><br/><br/>
-		<c:forEach var="doc" items="${listTest}">
-			<br/>
-			<h5>Doc Name: ${doc.getName() }</h5>
-			<p>Type: ${doc.getType() }</p>
-			<p>Downloads: ${doc.getDowloads() }</p>
-			<p>Status: ${doc.getStatus() }</p>
-			<p>Des: ${doc.getDescription() }</p>
-			<div style="widh:100px height 100px">
-			<img alt="link" src="${doc.getUrl() }"/>
-			</div>
-			
-			
-			<p>Author: ${doc.getAuthor().getName() }</p>
-			<p>Category: ${doc.getCategory() }</p>
-		</c:forEach> --%>
+		<jsp:include page="footer.jsp"/>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				  $("#documents").addClass("active");
+				});
+		</script>
 </body>
 </html>

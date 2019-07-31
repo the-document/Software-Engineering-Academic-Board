@@ -36,6 +36,8 @@ public class Post {
 	Date postday;
 	Boolean status;
 	String type;
+	int readtime;
+	
 	public int getId() {
 		return id;
 	}
@@ -101,6 +103,18 @@ public class Post {
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	public String getIntrocontent() {
+		return introcontent;
+	}
+	public void setIntrocontent(String introcontent) {
+		this.introcontent = introcontent;
+	}
+	public int getReadtime() {
+		return readtime;
+	}
+	public void setReadtime(int readtime) {
+		this.readtime = readtime;
 	}
 	
 	

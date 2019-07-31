@@ -26,6 +26,10 @@ public class PostService implements IPost{
 	public List<Post> Get4LatestTutorial() {
 		return postAccess.Get4LatestTutorial();
 	}
+
+	public Post GetPostById(String id) {
+		return postAccess.GetPostById(id);
+	}
 	
 	
 }

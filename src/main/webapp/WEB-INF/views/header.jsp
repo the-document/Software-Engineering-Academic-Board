@@ -16,9 +16,12 @@
                 </div>
                 <div class="nav">
                     <ul>
-                        <li><a href="events">Cuộc thi</a class=".menu-bar-active"></li>
-                        <li><a class="active" href="documents">Tài liệu</a></li>
-                        <li><a href="posts">Bài viết</a></li>
+                        <li><a id="competition" href="http://localhost:8080/Software-Engineering-Academic-Board/competition">
+                        	Cuộc thi</a class=".menu-bar-active"></li>
+                        <li><a id="documents"  href="http://localhost:8080/Software-Engineering-Academic-Board/documents">
+                        	Tài liệu</a></li>
+                        <li><a id="posts" href="http://localhost:8080/Software-Engineering-Academic-Board/posts/detail/6">
+                        	Bài viết</a></li>
                     </ul>
                 </div>
             </div>

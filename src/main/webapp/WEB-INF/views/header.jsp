@@ -6,7 +6,10 @@
         <div class="nav-bar">
             <div class="nav-left">
                 <div class="logo-wraper">
-                   <img src='<c:url value="/resource/images/icons/logo.png"/>'>
+                <a href="http://localhost:8080/Software-Engineering-Academic-Board/">
+                	<img src='<c:url value="/resource/images/icons/logo.png"/>'>
+                </a>
+                   
                 </div>
                 <div class="main-input search-bar">
                     <div class="input-icon input">

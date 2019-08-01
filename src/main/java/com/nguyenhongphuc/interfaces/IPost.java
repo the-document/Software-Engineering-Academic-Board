@@ -12,4 +12,5 @@ public interface IPost {
 	public Post GetPostById(String id);
 	public List<Post> GetPostByTypeWithAmount(int count,String type);
 	public List<Post> GetPostOfAuthor(int idAuthor);
+	public List<Post> GetTopPost(int count);
 }

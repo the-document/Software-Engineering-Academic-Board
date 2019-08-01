@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href='<c:url value="/resource/css/owl.theme.default.min.css"/>' />
     <link rel="stylesheet" href='<c:url value="/resource/css/bth-theme.css"/>' type="text/css" />
 	
-	<title>BHT| ten bai viet</title>
+	<title>BHT| ${post.getTitle() }</title>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>

@@ -33,13 +33,18 @@ public class HomeController {
 	@GetMapping
 	public String Default(ModelMap modelMap,HttpServletRequest request) {
        
-		List<Post> shares=postService.Get5LatestShare();
-		List<Post> events=postService.GetLatestEvents();
-		List<Post> tutorials=postService.Get4LatestTutorial();
+//		List<Post> shares=postService.Get5LatestShare();
+//		List<Post> events=postService.GetLatestEvents();
+//		List<Post> tutorials=postService.Get4LatestTutorial();
+				
 		
-		modelMap.addAttribute("shares", shares);
-		modelMap.addAttribute("events", events);
-		modelMap.addAttribute("tutorials", tutorials);
+//		modelMap.addAttribute("shares", shares);
+//		modelMap.addAttribute("events", events);
+//		modelMap.addAttribute("tutorials", tutorials);
+		
+		List<Post> topPost=postService.GetTopPost(5);
+		modelMap.addAttribute("topPost", topPost);
+		
 		return "home";
 	}
 }

@@ -16,6 +16,8 @@ import com.nguyenhongphuc.entity.Post;
 import com.nguyenhongphuc.entity.User;
 import com.nguyenhongphuc.interfaces.IPost;
 
+import net.bytebuddy.asm.Advice.Return;
+
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class PostAccess implements IPost{
@@ -161,6 +163,27 @@ public class PostAccess implements IPost{
 		
 
 		
+		return posts;
+	}
+
+	@Transactional
+	public List<Post> GetTopPost(int count) {
+		Session session;
+		try {
+			 session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			 session = sessionFactory.openSession();
+		}
+		
+		
+		String query="FROM post WHERE status=1  ORDER BY views DESC";
+		List<Post> posts=null;
+		try {
+			posts= (List<Post>) session.createQuery(query).setMaxResults(count).getResultList();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
 		return posts;
 	}
 	

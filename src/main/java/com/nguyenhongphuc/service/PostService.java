@@ -38,6 +38,10 @@ public class PostService implements IPost{
 	public List<Post> GetPostOfAuthor(int idAuthor) {
 		return postAccess.GetPostOfAuthor(idAuthor);
 	}
+
+	public List<Post> GetTopPost(int count) {
+		return postAccess.GetTopPost(count);
+	}
 	
 	
 }

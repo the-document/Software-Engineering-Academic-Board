@@ -134,14 +134,15 @@
                        <img src='<c:url value="resource/images/posts/intro.jpg"/>' />
                     </div>
                     <div class="news-event-content half">
-                        <div class="intro">Chào các bạn, <br /> Đây là group chính thức của Ban học tập Đoàn
-                            khoa Công
-                            nghệ Phần mềm, nơi
-                            giúp các bạn trao đổi những thắc mắc liên quan tới học thuật, các hoạt động
-                            training, seminar... của Ban.
+                        <div class="intro">
+                        
+                        	<p id="id_5d43fa48426e47144871652" class="text_exposed_root text_exposed" style="text-align: justify;"><span class="text_exposed_show">Ch&agrave;o c&aacute;c bạn,<span></span></span></p>
+							<p class="text_exposed_root text_exposed" style="text-align: justify;"><span class="text_exposed_show">Ban học tập C&ocirc;ng nghệ Phần mềm l&agrave; tổ chức phi lợi nhuận, với mục đ&iacute;ch hỗ trợ c&aacute;c bạn sinh vi&ecirc;n trong qu&aacute; tr&igrave;nh học tập cũng như cung cấp c&aacute;c buổi seminar, c&aacute;c buổi &ocirc;n tập, cuộc thi gi&uacute;p sinh vi&ecirc;n cải thiện kỹ năng mềm, bổ sung kiến thức.</span></p>
+							<p class="text_exposed_root text_exposed" style="text-align: justify;"><span class="text_exposed_show">Ban học tập được vận h&agrave;nh bởi c&aacute;c th&agrave;nh vi&ecirc;n tự nguyện, c&oacute; tinh thần x&acirc;y dựng - chia sẻ kiến thức đến từ c&aacute;c khoa kh&aacute;c nhau, cũng như c&aacute;c kh&oacute;a từ&nbsp; K6 đến hiện tại...<br /></span></p>
+                        	
                         </div>
                         <div class="readmore-bar">
-                            <button class="function-button white">Đọc thêm</button>
+                            <button class="function-button white"><a href='<c:url value="/posts/detail/6"/>'>Đọc thêm</a></button>
                         </div>
                     </div>
                 </div>
@@ -198,6 +199,10 @@
             		.author-name{
             			margin-left: 5px; padding-top: 10px;
             		}
+            		
+            		a:hover{
+            			color:#fff;
+            		}
             	</style>
             	
             	<c:forEach var="post" items="${topPost}">
@@ -206,11 +211,13 @@
 	                        <img style="border-radius: 12px;" src="${post.getImage() }" />
 	                    </div>
 	                    <div style="color: #fff">
-	                        ${post.getTitle() }
+	                        <a href='<c:url value="/posts/detail/${post.getId()}"/>'>${post.getTitle()}</a>
 	                    </div>
 	                    <div class="author">
 	                    	<img src=" ${post.getAuthor().getAvatar()}" class="author-image">
-	                    		<p class="author-name"> ${post.getAuthor().getName() }</p>
+	                    		<p class="author-name">  
+	                    			<a href='<c:url value="/user/${post.getAuthor().getId()}"/>'>${post.getAuthor().getName() }</a>
+	                    		</p>
 	                    </div>
                 	</div>
             	</c:forEach>

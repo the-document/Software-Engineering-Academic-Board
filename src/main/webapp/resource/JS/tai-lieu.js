@@ -14,12 +14,12 @@ function addCategory(facultyName) {
                 //result+= data[i].name;
                 var div = document.createElement('div')
                 div.className ="items";
-                div.innerHTML = "   <div class=\"course-image\">"
-                            +"      <img src='"+data[0].avatar +"'/>"
+                div.innerHTML = " <a href=\"documents/"+data[i].id+"\">  <div class=\"course-image\">"
+                            +"      <img src='"+data[i].avatar +"'/>"
                             +"   </div>"
                             +'   <div class="course-name">'
                             +        data[i].name
-                            +"   </div>"  ;
+                            +"   </div> </a>"  ;
                 document.getElementById(facultyName).children[0].children[0].children[0].appendChild(div);
             }
         },

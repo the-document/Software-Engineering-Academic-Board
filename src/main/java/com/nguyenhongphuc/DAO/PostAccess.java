@@ -186,6 +186,28 @@ public class PostAccess implements IPost{
 		}
 		return posts;
 	}
+
+	
+	@Transactional
+	public Boolean Update(Post post) {
+		Session session;
+		try {
+			 session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			 session = sessionFactory.openSession();
+		}
+		
+		
+		String query="UPDATE post SET views = "+post.getViews()+" WHERE id = "+ post.getId();
+		int i= session.createQuery(query).executeUpdate();
+		
+		if(i!=0) {
+			
+			return true;
+		}
+		
+		return false;
+	}
 	
 	
 

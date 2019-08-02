@@ -207,14 +207,14 @@
 				<div id="header-reply-comment">
 					<div style="display: flex;">
 						<img class="post-avatar" src="https://www.thesprucepets.com/thmb/LS2xCGAy-VbbHSd9UAefbVF5wTI=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-182174009-58c5ad533df78c353c5700c8.jpg">	
-						<div id="author-comment">Vũ tuấn Hải</div>
+						<div id="author-comment">Nguyễn Hồng Phúc</div>
 					</div>
 					
 					<div id="time-comment">3 ngày trước</div>
 				</div>
 				
 				<div id="content-reply-comment">
-					Viết thế này thì ai cũng viết được, lấy giấy bút ra viết y vậy chứ khó gì đâu.
+					Cảm ơn tác giả, một bài viết quá tuyệt vời.
 				</div>
 			</div>
 		</div>
@@ -241,6 +241,10 @@
 					font-family: Roboto;
 					font-size: 1.2rem;
 				}
+				
+				a:hover{
+					color:#5B9BD5;
+				}
 			</style>
 
 			<div class="slider-bar">
@@ -248,7 +252,7 @@
 				
 				
 				<c:forEach var="post" items="${sameAuthor }">
-					<p class="slider-bar-post-recomend">${post.getTitle()}</p>
+					<p class="slider-bar-post-recomend"><a href='<c:url value="${post.getId()}"/>'>${post.getTitle()}</a></p>
 				</c:forEach>
 				
 			</div>
@@ -258,7 +262,7 @@
 				<p class="slider-bar-header" ">Cùng chủ đề</p>
 				
 				<c:forEach var="post" items="${sameContent }">
-					<p class="slider-bar-post-recomend">${post.getTitle() }</p>
+					<p class="slider-bar-post-recomend"><a href='<c:url value="${post.getId()}"/>'>${post.getTitle()}</a></p>
 				</c:forEach>
 				
 			</div>

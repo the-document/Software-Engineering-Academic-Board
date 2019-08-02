@@ -41,9 +41,14 @@ public class PostController {
 		List<Post> sameContent=postService.GetPostByTypeWithAmount(4, post.getType());
 		List<Post> sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
 		
+		post.setViews(post.getViews()+1);
+		postService.Update(post);
+		
 		modelMap.addAttribute("post", post);
 		modelMap.addAttribute("sameContent",sameContent);
 		modelMap.addAttribute("sameAuthor",sameAuthor);
+		
+		
 		
 		return "postdetail";
 	}

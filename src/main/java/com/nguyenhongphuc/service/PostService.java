@@ -42,6 +42,10 @@ public class PostService implements IPost{
 	public List<Post> GetTopPost(int count) {
 		return postAccess.GetTopPost(count);
 	}
+
+	public Boolean Update(Post post) {
+		return postAccess.Update(post);
+	}
 	
 	
 }

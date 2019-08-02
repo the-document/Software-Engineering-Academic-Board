@@ -32,7 +32,7 @@ public class HomeController {
 	
 	@GetMapping
 	public String Default(ModelMap modelMap,HttpServletRequest request) {
-       
+		modelMap.clear();
 //		List<Post> shares=postService.Get5LatestShare();
 //		List<Post> events=postService.GetLatestEvents();
 //		List<Post> tutorials=postService.Get4LatestTutorial();

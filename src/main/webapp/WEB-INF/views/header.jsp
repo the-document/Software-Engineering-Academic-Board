@@ -31,20 +31,20 @@
             <div class="nav-right">
                 <div class="user-menu">
                 	<c:choose>
-						<c:when test="${user==null }">
+						<c:when test="${useractive==null }">
 							<button id="login-btn" onclick="openLoginModal()">Login</button>
 						</c:when>
 						
 						<c:otherwise>
 							<div style="display: flex;" class="dropdown">
                     			<img id="nav-user-avatar" alt="ảnh đại diện"
-	                     			src="${user.getAvatar()}">
-		                    	<p id="nav-user-name"> ${user.getName()}</p>
+	                     			src="${useractive.getAvatar()}">
+		                    	<p id="nav-user-name"> ${useractive.getName()}</p>
 	
 			                    <ul class="dropdown-content">
-			                    	<li>Trang cá nhân</li>
+			                    	<li><a href='<c:url value="user/${useractive.getId()}"/>'>Trang cá nhân</a></li>
 			                    	<li>Điều khoản</li>
-			                    	<li><a href="user/logout">Đăng xuất</a></li>
+			                    	<li><a href='<c:url value="user/logout"/>'>Đăng xuất</a></li>
 			                    </ul>
                     		</div>
 						</c:otherwise>

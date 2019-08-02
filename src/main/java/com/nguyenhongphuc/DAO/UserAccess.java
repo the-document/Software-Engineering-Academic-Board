@@ -31,7 +31,7 @@ public class UserAccess implements IUser{
 		}
 		
 		
-		List<User> users= (List<User>) session.createQuery("from user where username = '"+id+"'").getResultList();
+		List<User> users= (List<User>) session.createQuery("from user where id = '"+id+"'").getResultList();
 		
 		if(users.isEmpty())
 			return null;

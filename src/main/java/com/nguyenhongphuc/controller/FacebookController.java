@@ -28,7 +28,7 @@ import com.restfb.Version;
 
 @Controller
 @RequestMapping("/login")
-@SessionAttributes("user")
+@SessionAttributes("useractive")
 public class FacebookController {
 
 	  public static String FACEBOOK_APP_ID = "889293998090512";
@@ -84,19 +84,19 @@ public class FacebookController {
 
 			User userInSystem=userSevirce.GetUserById(userID);
 			if ( userInSystem!=null) {
-				modelMap.addAttribute("user", userInSystem);
-				httpSession.setAttribute("user", userInSystem);
+				modelMap.addAttribute("useractive", userInSystem);
+				httpSession.setAttribute("useractive", userInSystem);
 				System.out.println("\nexist\n");
 				System.out.println(userInSystem.getName());
 			}
 			else {
 				User user = userSevirce.RegisterViaFacebook(userID,userName,userAvatar);
 				if (user!=null) {
-					modelMap.addAttribute("user", user);
+					modelMap.addAttribute("useractive", user);
 					System.out.println("registered...");
-					httpSession.setAttribute("user", user);
+					httpSession.setAttribute("useractive", user);
 				} else {
-					modelMap.addAttribute("user", user);
+					modelMap.addAttribute("useractive", user);
 					System.out.println("can't register...");
 					 return "redirect:/login";
 				}

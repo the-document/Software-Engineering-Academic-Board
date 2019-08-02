@@ -22,7 +22,7 @@ import com.nguyenhongphuc.service.CatalogService;
 
 @Controller
 @RequestMapping("/documents")
-@SessionAttributes("user")
+@SessionAttributes("useractive")
 public class CatagoryController {
 
 	@Autowired
@@ -31,8 +31,9 @@ public class CatagoryController {
 	@GetMapping
 	public String Default(ModelMap modelMap,HttpServletRequest request) {
 		
-		User user=(User) request.getSession().getAttribute("user");
-		modelMap.addAttribute("user", user);
+		modelMap.clear();	
+		User user=(User) request.getSession().getAttribute("useractive");
+		modelMap.addAttribute("useractive", user);
 		if (user==null) {
 			System.out.println("NULL");
 		}

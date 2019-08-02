@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.nguyenhongphuc.entity.Category;
 import com.nguyenhongphuc.entity.Document;
@@ -25,6 +26,7 @@ import com.nguyenhongphuc.service.UserService;
 
 @Controller
 @RequestMapping("/documents")
+@SessionAttributes("useractive")
 public class DocumentController {
 	private  static int POIN_OF_DOCUMENT=20;
 
@@ -38,7 +40,11 @@ public class DocumentController {
 	UserService userService;
 	
 	@GetMapping(path = "/{idSubject}")
-	public String Default(@PathVariable("idSubject") int idSubject,ModelMap modelMap) {
+	public String Default(@PathVariable("idSubject") int idSubject,ModelMap modelMap,HttpSession session) {
+		modelMap.clear();
+		User useractive=(User) session.getAttribute("useractive");
+		modelMap.addAttribute("useractive", useractive);
+		
 		
 		Category category = CatalogService.getCategory(idSubject);
 		modelMap.addAttribute("subject", category);
@@ -62,7 +68,11 @@ public class DocumentController {
 	
 	@GetMapping("/alldoc")
 	@ResponseBody
-	public List<Document> getAlDocuments() {
+	public List<Document> getAlDocuments(HttpSession session,ModelMap modelMap) {
+		modelMap.clear();
+		User useractive=(User) session.getAttribute("useractive");
+		modelMap.addAttribute("useractive", useractive);
+		
 		List<Document> docs=documentService.getAllDocuments();
 		return docs;
 	}

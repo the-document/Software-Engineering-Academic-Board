@@ -3,6 +3,7 @@ package com.nguyenhongphuc.controller;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,22 +12,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.nguyenhongphuc.entity.Post;
 import com.nguyenhongphuc.entity.User;
+import com.nguyenhongphuc.service.PostService;
 import com.nguyenhongphuc.service.UserService;
 
 @Controller
 @RequestMapping("/user")
-@SessionAttributes("user")
+@SessionAttributes("useractive")
 public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	PostService postService;
 	
 	@PostMapping("/register")
 	@ResponseBody
@@ -118,7 +125,7 @@ public class UserController {
 		
 	
 		userCheck.setPassword("********************");
-		httpSession.setAttribute("user", userCheck);
+		httpSession.setAttribute("useractive", userCheck);
 		return userCheck;
 	}
 
@@ -139,4 +146,25 @@ public class UserController {
 		System.out.println("\n\n222"+referer);
 	    return "redirect:"+ referer;
 	}
+
+	//===VIEW CONTROLL==================
+	@GetMapping(path = "/{id}")
+	public String GetProfileUserPAge(@PathVariable("id") String id,ModelMap modelMap, HttpSession session) {
+		modelMap.clear();
+		User userActive=(User) session.getAttribute("useractive");
+		modelMap.addAttribute("useractive", userActive);
+		
+		User user=userService.GetUserById(id);
+		if(user==null) {
+			return "redirect:/";
+		}
+		
+		List<Post> posts=postService.GetPostOfAuthor(user.getId());
+		modelMap.addAttribute("user", user);
+		modelMap.addAttribute("posts", posts);
+		
+		
+		return "user";
+	}
+	
 }

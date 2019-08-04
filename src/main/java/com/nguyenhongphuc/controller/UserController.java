@@ -126,6 +126,7 @@ public class UserController {
 	
 		userCheck.setPassword("********************");
 		httpSession.setAttribute("useractive", userCheck);
+		httpSession.setMaxInactiveInterval(300);
 		return userCheck;
 	}
 

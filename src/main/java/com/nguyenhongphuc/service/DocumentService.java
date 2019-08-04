@@ -39,8 +39,8 @@ public class DocumentService implements IDocument{
 		return documentAccess.getAllDocumentsUnapproved();
 	}
 
-	public Boolean UpdateViewsDocument(Document document) {
-		return documentAccess.UpdateViewsDocument(document);
+	public Boolean UpdateDocument(Document document) {
+		return documentAccess.UpdateDocument(document);
 	}
 
 }

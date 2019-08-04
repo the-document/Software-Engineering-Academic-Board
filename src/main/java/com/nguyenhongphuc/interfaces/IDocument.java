@@ -12,5 +12,5 @@ public interface IDocument {
 	public List<Document>getAllDocuments();
 	public Boolean UploadDocument(Document document);
 	public List<Document> getAllDocumentsUnapproved();
-	public Boolean UpdateViewsDocument(Document document);
+	public Boolean UpdateDocument(Document document);
 }

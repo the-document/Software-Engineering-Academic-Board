@@ -147,7 +147,7 @@ public class DocumentAccess implements IDocument {
 	}
 
 	@Transactional
-	public Boolean UpdateViewsDocument(Document document) {
+	public Boolean UpdateDocument(Document document) {
 		Session session;
 		try {
 			session = sessionFactory.getCurrentSession();
@@ -160,7 +160,11 @@ public class DocumentAccess implements IDocument {
 
 		}
 
-		String query = "update document  set dowloads = "+document.getDowloads()+1 + "WHERE id = " +document.getId();
+		String query = "update document  set dowloads = "+ (Integer)( document.getDowloads()+1) 
+				+" , status = "+ document.getStatus()
+				+" , name = '"+ document.getName()
+				+"' , url = '"+ document.getUrl()
+				+ "' WHERE id = " +document.getId();
 		
 		int i= session.createQuery(query).executeUpdate();
 		if(i!=0)

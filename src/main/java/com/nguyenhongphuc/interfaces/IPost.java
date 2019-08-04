@@ -14,4 +14,6 @@ public interface IPost {
 	public List<Post> GetPostOfAuthor(int idAuthor);
 	public List<Post> GetTopPost(int count);
 	public Boolean Update(Post post);
+	public List<Post> GetPostsUnActive();
+	public Post GetPostPreview(String id);
 }

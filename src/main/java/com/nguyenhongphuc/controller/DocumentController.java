@@ -86,7 +86,7 @@ public class DocumentController {
 			if(user.getPoint()>POIN_OF_DOCUMENT)
 			{
 				Document doc=documentService.GetDocumentsById(idDocument);
-				documentService.UpdateViewsDocument(doc);
+				documentService.UpdateDocument(doc);
 				//System.out.println(doc.getUrl());
 				user.setPoint(user.getPoint()-POIN_OF_DOCUMENT);
 				userService.UpdatePoint(user);
@@ -111,7 +111,9 @@ public class DocumentController {
 		document.setName(name);
 		document.setType(type);
 		document.setAuthor(user);
-		document.setCategory(category);
+		
+		Category cat=CatalogService.getCategory(category);
+		document.setCategory(cat);
 		document.setDowloads(0);
 		document.setStatus(false);
 		document.setUrl(url);

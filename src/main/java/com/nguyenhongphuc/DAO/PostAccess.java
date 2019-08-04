@@ -198,7 +198,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="UPDATE post SET views = "+post.getViews()+" WHERE id = "+ post.getId();
+		String query="UPDATE post SET views = "+post.getViews()+", status ="+ post.getStatus() +" WHERE id = "+ post.getId();
 		int i= session.createQuery(query).executeUpdate();
 		
 		if(i!=0) {
@@ -208,7 +208,48 @@ public class PostAccess implements IPost{
 		
 		return false;
 	}
-	
-	
 
+	@Transactional
+	public List<Post> GetPostsUnActive() {
+		Session session;
+		try {
+			 session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			 session = sessionFactory.openSession();
+		}
+		
+		
+		String query="FROM post WHERE status=0";
+		List<Post> posts=null;
+		try {
+			posts= (List<Post>) session.createQuery(query).getResultList();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+		return posts;
+	}
+
+	
+	public Post GetPostPreview(String id) {
+		Session session;
+		try {
+			 session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			 session = sessionFactory.openSession();
+		}
+		
+		
+		String query="FROM post WHERE id= "+id;
+		Post post=null;
+		try {
+			post= (Post) session.createQuery(query).getSingleResult();
+		} catch (Exception e) {
+			System.out.println("No post found."+ e.getMessage());
+		}
+		
+		
+		return post;
+	}
+		
 }

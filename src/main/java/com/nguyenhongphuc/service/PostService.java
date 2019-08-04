@@ -46,6 +46,14 @@ public class PostService implements IPost{
 	public Boolean Update(Post post) {
 		return postAccess.Update(post);
 	}
+
+	public List<Post> GetPostsUnActive() {
+		return postAccess.GetPostsUnActive();
+	}
+
+	public Post GetPostPreview(String id) {
+		return postAccess.GetPostPreview(id);
+	}
 	
 	
 }

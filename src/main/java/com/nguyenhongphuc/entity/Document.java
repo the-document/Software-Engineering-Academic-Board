@@ -21,12 +21,13 @@ public class Document {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "author")
 	User author;
-//	
-//	@OneToOne
-//	Category category;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "category")
+	Category category;
 	
 	//int author;
-	int category;
+	//int category;
 	
 	int dowloads;
 	Boolean status;
@@ -57,12 +58,12 @@ public class Document {
 	public void setAuthor(User author) {
 		this.author = author;
 	}
-//	public Category getCategory() {
-//		return category;
-//	}
-//	public void setCategory(Category category) {
-//		this.category = category;
-//	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	public int getDowloads() {
 		return dowloads;
 	}
@@ -93,12 +94,12 @@ public class Document {
 //	public void setAuthor(int author) {
 //		this.author = author;
 //	}
-	public int getCategory() {
-		return category;
-	}
-	public void setCategory(int category) {
-		this.category = category;
-	}
+//	public int getCategory() {
+//		return category;
+//	}
+//	public void setCategory(int category) {
+//		this.category = category;
+//	}
 	
 	
 }

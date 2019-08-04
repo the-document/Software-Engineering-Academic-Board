@@ -129,7 +129,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1 and type = '"+type+"'  ORDER BY views DESC	";
+		String query="FROM post WHERE status=1 and type = '"+type+"'  ORDER BY postday DESC	";
 		
 		List<Post> posts=null;
 		try {

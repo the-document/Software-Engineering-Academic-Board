@@ -27,7 +27,14 @@ public class PostController {
 
 	@GetMapping
 	public String Default(ModelMap modelMap) {
-		//return home posts.
+
+		List<Post> postShareList= postService.GetPostByTypeWithAmount(8, "share");
+		List<Post> postTutorialList= postService.GetPostByTypeWithAmount(4, "tutorial");
+		List<Post> postEventList= postService.GetPostByTypeWithAmount(4, "event");
+		
+		modelMap.addAttribute("postShareList", postShareList);
+		modelMap.addAttribute("postTutorialList", postTutorialList);
+		modelMap.addAttribute("postEventList", postEventList);
 		
 		return "post";
 	}

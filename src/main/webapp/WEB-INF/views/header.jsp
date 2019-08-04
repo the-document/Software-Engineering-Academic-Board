@@ -23,7 +23,7 @@
                         	Cuộc thi</a class=".menu-bar-active"></li>
                         <li><a id="documents"  href="http://localhost:8080/Software-Engineering-Academic-Board/documents">
                         	Tài liệu</a></li>
-                        <li><a id="posts" href="http://localhost:8080/Software-Engineering-Academic-Board/posts/detail/6">
+                        <li><a id="posts" href="http://localhost:8080/Software-Engineering-Academic-Board/posts">
                         	Bài viết</a></li>
                     </ul>
                 </div>
@@ -55,3 +55,4 @@
         </div>
     </header>
     
+<div style="with:100%;border-bottom: 1px solid #490; "></div>

@@ -4,6 +4,135 @@
 
 <!DOCTYPE html>
 
+<!-- toast popup -->
+	<style type="text/css">
+		#toast {
+		    visibility: hidden;
+		    max-width: 50px;
+		    height: 50px;
+		    /*margin-left: -125px;*/
+		    margin: auto;
+		    background-color: #333;
+		    color: #fff;
+		    text-align: center;
+		    border-radius: 2px;
+
+		    position: fixed;
+		    z-index: 5;
+		    left: 0;right:0;
+		    bottom: 30px;
+		    font-size: 17px;
+		    white-space: nowrap;
+		}
+		#toast #img{
+			width: 50px;
+			height: 50px;
+		    
+		    float: left;
+		    
+		    padding-top: 16px;
+		    padding-bottom: 16px;
+		    
+		    box-sizing: border-box;
+
+		    
+		    background-color: #111;
+		    color: #fff;
+		}
+		#toast #desc{
+
+		    
+		    color: #fff;
+		   
+		    padding: 16px;
+		    
+		    overflow: hidden;
+			white-space: nowrap;
+		}
+
+		#toast.show {
+		    visibility: visible;
+		    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+		    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+		}
+
+		@-webkit-keyframes fadein {
+		    from {bottom: 0; opacity: 0;} 
+		    to {bottom: 30px; opacity: 1;}
+		}
+
+		@keyframes fadein {
+		    from {bottom: 0; opacity: 0;}
+		    to {bottom: 30px; opacity: 1;}
+		}
+
+		@-webkit-keyframes expand {
+		    from {min-width: 50px} 
+		    to {min-width: 450px}
+		}
+
+		@keyframes expand {
+		    from {min-width: 50px}
+		    to {min-width: 450px}
+		}
+		@-webkit-keyframes stay {
+		    from {min-width: 450px} 
+		    to {min-width: 450px}
+		}
+
+		@keyframes stay {
+		    from {min-width: 450px}
+		    to {min-width: 450px}
+		}
+		@-webkit-keyframes shrink {
+		    from {min-width: 450px;} 
+		    to {min-width: 50px;}
+		}
+
+		@keyframes shrink {
+		    from {min-width: 450px;} 
+		    to {min-width: 50px;}
+		}
+
+		@-webkit-keyframes fadeout {
+		    from {bottom: 30px; opacity: 1;} 
+		    to {bottom: 60px; opacity: 0;}
+		}
+
+		@keyframes fadeout {
+		    from {bottom: 30px; opacity: 1;}
+		    to {bottom: 60px; opacity: 0;}
+		}
+	</style>
+	<div id="toast">
+		<div id="img">
+			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+			width="100%" height="100%"
+			viewBox="0 0 172 172"
+			style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><g id="surface1"><path d="M84.28,6.88c-10.4275,0 -18.92,8.4925 -18.92,18.92c0,10.4275 8.4925,18.92 18.92,18.92c10.4275,0 18.92,-8.4925 18.92,-18.92c0,-10.4275 -8.4925,-18.92 -18.92,-18.92zM51.6,55.04c-1.89469,0 -3.44,1.53188 -3.44,3.44v20.64c0,1.90813 1.54531,3.44 3.44,3.44h17.2v55.04h-17.2c-1.89469,0 -3.44,1.53188 -3.44,3.44v20.64c0,1.90813 1.54531,3.44 3.44,3.44h68.8c1.89469,0 3.44,-1.53187 3.44,-3.44v-20.64c0,-1.90812 -1.54531,-3.44 -3.44,-3.44h-17.2v-79.12c0,-1.90812 -1.54531,-3.44 -3.44,-3.44z"></path></g></g></g></svg>
+		</div>
+
+		<div id="desc">notify</div>
+	</div>
+
+	<script type="text/javascript">
+
+		function launch_toast() {
+		    var x = document.getElementById("toast")
+		    x.className = "show";
+		   
+		    setTimeout(function(){ 
+			    x.className = x.className.replace("show", "");
+		     }, 5000);
+		}
+
+		function refresh() {
+	        window.location.reload(true);
+	             
+	     }
+		
+	</script>
+
 <footer class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -53,8 +182,11 @@
                 </h4>
             </div>
         </div>
-    </footer>
-    
+</footer>
+
+
+
+<!-- login/register -->    
    <div id="id01" class="modal login-form">
         <div class="modal-content animate">
             <div id="form-div">

@@ -22,6 +22,7 @@ import com.nguyenhongphuc.entity.Post;
 import com.nguyenhongphuc.entity.User;
 import com.nguyenhongphuc.service.CatalogService;
 import com.nguyenhongphuc.service.PostService;
+import com.nguyenhongphuc.service.UserService;
 
 @Controller
 @RequestMapping("/posts")
@@ -33,6 +34,9 @@ public class PostController {
 
 	@Autowired
 	CatalogService catalogSevice;
+	
+	@Autowired
+	UserService userService;
 
 	@GetMapping
 	public String Default(ModelMap modelMap) {
@@ -127,57 +131,55 @@ public class PostController {
 			@RequestParam String image, @RequestParam String cata,
 			@RequestParam String type,@RequestParam String content, HttpSession httpSession) {
 		
-		User user=(User) httpSession.getAttribute("useractive");
-		
-		if(user==null)
-			return "You have login to upload";
-		
-		if(title.isEmpty())
-			return "Title can't be empty";
-		
-		if(intro.isEmpty())
-			return "Intro can't be empty";
-		
-		
-		if(type.equals("-1"))
-			return "Please choose a post type";
-		
-		if(content.isEmpty())
-			return "Content can't be empty";
-		
-		//ok can save===============================
-		if(image.isEmpty())
-			image="image";
-		
-		Post post=new Post();
-		post.setTitle(title);
-		post.setIntrocontent(intro);
-		post.setImage(image);
 		try {
-			Category category=catalogSevice.getCategory(Integer.parseInt(cata));
-			post.setCategory(category);
+			
+			User user=(User) httpSession.getAttribute("useractive");
+			if(user==null)
+				return "You have login to upload";			
+			if(title.isEmpty())
+				return "Title can't be empty";			
+			if(intro.isEmpty())
+				return "Intro can't be empty";						
+			if(type.equals("-1"))
+				return "Please choose a post type";		
+			if(content.isEmpty())
+				return "Content can't be empty";
+			
+			//ok can save===============================
+			if(image.isEmpty())
+				image="https://png.pngtree.com/png-vector/20190215/ourlarge/pngtree-satelliteantennaradarspacedish-line-icon-png-image_537586.jpg";
+			
+			Post post=new Post();
+			post.setTitle(title);
+			post.setIntrocontent(intro);
+			post.setImage(image);
+			try {
+				Category category=catalogSevice.getCategory(Integer.parseInt(cata));
+				post.setCategory(category);
+			} catch (Exception e) {
+				post.setCategory(null);
+			}
+					
+			post.setViewcount(0);
+			post.setUpvote(0);
+			post.setContent(content);
+			User realUser=userService.GetUserById(user.getId()+"");
+			post.setAuthor(realUser);
+			post.setReadtime(content.length()/900);
+			
+			long millis=System.currentTimeMillis();  
+	        Date date=new java.sql.Date(millis);  
+			post.setPostday(date);
+			post.setPoststatus(false);
+			post.setType(type);
+			
+			Boolean result= postService.SavePost(post);
+			if(result==false)
+				return "Can't save, try again later";
+			
+			return "Success, the post will be broesed within 24h!";
 		} catch (Exception e) {
-			post.setCategory(null);
+			return "Can't save, try again later";
 		}
-				
-		post.setViewcount(0);
-		post.setUpvote(0);
-		content="hehe";
-		post.setContent(content);
-		post.setAuthor(user);
-		post.setReadtime(content.length()/900);
-		
-		long millis=System.currentTimeMillis();  
-        Date date=new java.sql.Date(millis);  
-		post.setPostday(date);
-		post.setPoststatus(false);
-		post.setType(type);
-
-		
-		Boolean result= postService.SavePost(post);
-		if(result==false)
-			return "fail to save";
-		
-		return "success";
 	}
 }

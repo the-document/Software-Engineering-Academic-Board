@@ -24,8 +24,11 @@ function UploadPost() {
         dataType : 'text',
         timeout : 100000,
         success : function(data) {
-            console.log("SUCCESS: ", data);
-            
+            console.log("IN SUCCESS: ", data);
+            $("#desc").text(data);
+            launch_toast();
+            if(data=="Success, the post will be broesed within 24h!")
+            	setTimeout(refresh, 5000);
         },
         	error : function(e) {
         		console.log("ERROR: ", e);

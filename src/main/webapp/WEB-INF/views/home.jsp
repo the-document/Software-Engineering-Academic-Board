@@ -99,9 +99,12 @@
                         <button class="function-button">
                             Upload
                         </button>
-                        <button class="function-button">
-                            Viết bài
-                        </button>
+                        
+                        <a href="posts/upload">
+	                        <button class="function-button">
+	                           Viết bài
+	                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

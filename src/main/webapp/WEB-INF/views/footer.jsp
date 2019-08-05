@@ -120,7 +120,7 @@
 		function launch_toast() {
 		    var x = document.getElementById("toast")
 		    x.className = "show";
-		   
+		   	console.log("toast");
 		    setTimeout(function(){ 
 			    x.className = x.className.replace("show", "");
 		     }, 5000);

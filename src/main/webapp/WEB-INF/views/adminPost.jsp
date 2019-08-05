@@ -29,7 +29,7 @@
 		.sidebar {
 		  width: 160px !important;
 		  background-color: #212529;
-		  min-height: calc(100vh - 56px);
+		  min-height: calc(80vh - 56px);
 		}
 
 		.navbar-nav {

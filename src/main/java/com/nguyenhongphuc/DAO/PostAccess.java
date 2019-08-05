@@ -261,17 +261,7 @@ public class PostAccess implements IPost{
 			 session = sessionFactory.openSession();
 		}
 		
-//		String query= "insert into post (author, category, content, image,"
-//				+ " introcontent, like, postday, readtime, "
-//				+ "status, title, type, views)"
-//				+ " values ("+post.getAuthor().getId()+","+ post.getCategory().getId()+",'"
-//				+ post.getContent() +"','"+ post.getImage()+"','"+ post.getIntrocontent()
-//				+ "',"+post.getLike()+","+ post.getPostday()+","+ post.getReadtime()
-//				+ ","+post.getStatus()+",'"+post.getTitle()+"','"+ post.getType()+"'," +post.getViews()+")";
-//				
-//		System.out.println(query);
-//		
-//		int key= session.createQuery(query).executeUpdate();
+
 		int key= (Integer) session.save(post);
 		System.out.println("saved");
 		if(key!=0)

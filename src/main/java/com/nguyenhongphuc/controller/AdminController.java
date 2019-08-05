@@ -1,5 +1,6 @@
 package com.nguyenhongphuc.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -18,19 +19,29 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.nguyenhongphuc.entity.Document;
 import com.nguyenhongphuc.entity.Post;
 import com.nguyenhongphuc.entity.User;
+import com.nguyenhongphuc.service.BrowsePostService;
 import com.nguyenhongphuc.service.DocumentService;
 import com.nguyenhongphuc.service.PostService;
+import com.nguyenhongphuc.service.UserService;
+import com.nguyenhongphuc.entity.BrowsePost;
 
 @Controller
 @RequestMapping("/admin")
 @SessionAttributes("useractive")
 public class AdminController {
+	public static int POINT_PER_POST=20;
 	
 	@Autowired
 	DocumentService documentService;
 	
 	@Autowired
 	PostService postService;
+	
+	@Autowired
+	UserService UserService;
+	
+	@Autowired
+	BrowsePostService browsePostService;
 	
 	@GetMapping
 	public String Default(ModelMap modelMap, HttpSession session) {
@@ -107,14 +118,34 @@ public class AdminController {
 	
 	@PostMapping(path = "/posts/browse")
 	@ResponseBody
-	public String BrowsePost(@RequestParam String id) {
+	public String BrowsePost(@RequestParam String id,HttpSession httpSession) {
 		
 		Post post=postService.GetPostPreview(id);
 		post.setPoststatus(true);
 		Boolean bool=postService.Update(post);
 		
 		if(bool)
+		{
+			//plus point for user
+			User user=UserService.GetUserById(post.getAuthor().getId()+"");
+			user.setPoint(user.getPoint()+POINT_PER_POST);
+			UserService.UpdatePoint(user);
+			
+			//save history
+			BrowsePost browsePost=new BrowsePost();
+			User browserUserId=(User) httpSession.getAttribute("useractive");
+			User browserUser=UserService.GetUserById(browserUserId.getId()+"");
+			browsePost.setAuthor(browserUser);
+			browsePost.setPost(post);
+			long millis=System.currentTimeMillis();  
+			Date date=new java.sql.Date(millis);  
+			browsePost.setBrowsetime(date);
+			
+			browsePostService.SaveHistoryBrowsePost(browsePost);
+			
 			return "success";
+		}
+			
 		
 		return "fail";
 	}

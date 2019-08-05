@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-@Entity(name = "browsedocuments")
-public class Browsedocuments {
+@Entity(name = "browsepost")
+public class BrowsePost {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,35 +22,44 @@ public class Browsedocuments {
 	User author;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "document")
-	Document document;
+	@JoinColumn(name = "post")
+	Post post;
 	
 	Date browsetime;
-	
-	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public User getAuthor() {
 		return author;
 	}
+
 	public void setAuthor(User author) {
 		this.author = author;
 	}
-	public Document getDocument() {
-		return document;
+
+	
+
+	public Post getPost() {
+		return post;
 	}
-	public void setDocument(Document document) {
-		this.document = document;
+
+	public void setPost(Post post) {
+		this.post = post;
 	}
+
 	public Date getBrowsetime() {
 		return browsetime;
 	}
+
 	public void setBrowsetime(Date browsetime) {
 		this.browsetime = browsetime;
 	}
+	
 	
 }

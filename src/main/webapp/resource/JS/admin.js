@@ -18,12 +18,16 @@ function BrowseDocument(docId) {
 			{
 				console.log("in success:");
 				$(id).addClass("success");
+				$("#desc").text(data);
+		        launch_toast();
 			}
 				
 			else
 			{
 				console.log("in fail:");
 				$(id).addClass("fail");
+				 $("#desc").text(data);
+		            launch_toast();
 			}
 		},
 		error: function (e){
@@ -55,6 +59,8 @@ function BrowsePost(postId) {
 				console.log("in fail:");
 				$(id).addClass("fail");
 			}
+			$("#desc").text(data);
+	        launch_toast();
 		},
 		error: function (e){
 			console.log("ERROR:",e);

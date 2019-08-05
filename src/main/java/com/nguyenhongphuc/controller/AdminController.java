@@ -110,7 +110,7 @@ public class AdminController {
 	public String BrowsePost(@RequestParam String id) {
 		
 		Post post=postService.GetPostPreview(id);
-		post.setStatus(true);
+		post.setPoststatus(true);
 		Boolean bool=postService.Update(post);
 		
 		if(bool)

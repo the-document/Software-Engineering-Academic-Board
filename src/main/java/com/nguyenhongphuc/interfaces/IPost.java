@@ -16,4 +16,5 @@ public interface IPost {
 	public Boolean Update(Post post);
 	public List<Post> GetPostsUnActive();
 	public Post GetPostPreview(String id);
+	public Boolean SavePost(Post post);
 }

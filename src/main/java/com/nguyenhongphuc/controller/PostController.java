@@ -1,5 +1,6 @@
 package com.nguyenhongphuc.controller;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +11,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.nguyenhongphuc.entity.Category;
 import com.nguyenhongphuc.entity.Post;
 import com.nguyenhongphuc.entity.User;
+import com.nguyenhongphuc.service.CatalogService;
 import com.nguyenhongphuc.service.PostService;
 
 @Controller
@@ -24,6 +30,9 @@ public class PostController {
 	
 	@Autowired
 	PostService postService;
+
+	@Autowired
+	CatalogService catalogSevice;
 
 	@GetMapping
 	public String Default(ModelMap modelMap) {
@@ -53,7 +62,7 @@ public class PostController {
 			List<Post> sameAuthor=new ArrayList<Post>();
 			sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
 			
-			post.setViews(post.getViews()+1);
+			post.setViewcount(post.getViewcount()+1);
 			postService.Update(post);
 			
 			
@@ -85,7 +94,7 @@ public class PostController {
 					List<Post> sameAuthor=new ArrayList<Post>();
 					sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
 					
-					post.setViews(post.getViews()+1);
+					post.setViewcount(post.getViewcount()+1);
 					postService.Update(post);
 					
 					
@@ -103,4 +112,72 @@ public class PostController {
 		return "redirect:/";
 	}
 
+	@GetMapping("/upload")
+	public String GetUploadView(ModelMap modelMap) {
+		
+		List<Category> categories=catalogSevice.getAllCatetory();
+		modelMap.addAttribute("categories", categories);
+		
+		return "postUpload";
+	}
+
+	@PostMapping("/upload")
+	@ResponseBody
+	public String PostUpload(@RequestParam String title, @RequestParam String intro,
+			@RequestParam String image, @RequestParam String cata,
+			@RequestParam String type,@RequestParam String content, HttpSession httpSession) {
+		
+		User user=(User) httpSession.getAttribute("useractive");
+		
+		if(user==null)
+			return "You have login to upload";
+		
+		if(title.isEmpty())
+			return "Title can't be empty";
+		
+		if(intro.isEmpty())
+			return "Intro can't be empty";
+		
+		
+		if(type.equals("-1"))
+			return "Please choose a post type";
+		
+		if(content.isEmpty())
+			return "Content can't be empty";
+		
+		//ok can save===============================
+		if(image.isEmpty())
+			image="image";
+		
+		Post post=new Post();
+		post.setTitle(title);
+		post.setIntrocontent(intro);
+		post.setImage(image);
+		try {
+			Category category=catalogSevice.getCategory(Integer.parseInt(cata));
+			post.setCategory(category);
+		} catch (Exception e) {
+			post.setCategory(null);
+		}
+				
+		post.setViewcount(0);
+		post.setUpvote(0);
+		content="hehe";
+		post.setContent(content);
+		post.setAuthor(user);
+		post.setReadtime(content.length()/900);
+		
+		long millis=System.currentTimeMillis();  
+        Date date=new java.sql.Date(millis);  
+		post.setPostday(date);
+		post.setPoststatus(false);
+		post.setType(type);
+
+		
+		Boolean result= postService.SavePost(post);
+		if(result==false)
+			return "fail to save";
+		
+		return "success";
+	}
 }

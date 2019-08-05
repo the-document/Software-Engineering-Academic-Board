@@ -3,6 +3,7 @@ package com.nguyenhongphuc.entity;
 import java.sql.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,8 +26,8 @@ public class Post {
 	@JoinColumn(name = "category")
 	Category category;
 	
-	int views;
-	int like;
+	int viewcount;
+	int upvote;
 	String content;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -34,7 +35,7 @@ public class Post {
 	User author;
 	
 	Date postday;
-	Boolean status;
+	Boolean poststatus;
 	String type;
 	int readtime;
 	
@@ -62,17 +63,28 @@ public class Post {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	public int getViews() {
-		return views;
-	}
-	public void setViews(int views) {
-		this.views = views;
-	}
+
 	public int getLike() {
-		return like;
+		return upvote;
 	}
-	public void setLike(int like) {
-		this.like = like;
+
+	public int getViewcount() {
+		return viewcount;
+	}
+	public void setViewcount(int viewcount) {
+		this.viewcount = viewcount;
+	}
+	public int getUpvote() {
+		return upvote;
+	}
+	public void setUpvote(int upvote) {
+		this.upvote = upvote;
+	}
+	public Boolean getPoststatus() {
+		return poststatus;
+	}
+	public void setPoststatus(Boolean poststatus) {
+		this.poststatus = poststatus;
 	}
 	public String getContent() {
 		return content;
@@ -92,12 +104,7 @@ public class Post {
 	public void setPostday(Date postday) {
 		this.postday = postday;
 	}
-	public Boolean getStatus() {
-		return status;
-	}
-	public void setStatus(Boolean status) {
-		this.status = status;
-	}
+
 	public String getType() {
 		return type;
 	}

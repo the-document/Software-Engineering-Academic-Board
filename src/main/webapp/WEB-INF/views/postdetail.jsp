@@ -128,11 +128,11 @@
 				<div id="action-bar">
 					<div style="display: flex;">
 						<img id="upvote-icon" src="https://img.icons8.com/color/48/000000/sort-up.png">
-						<div style="padding-left: 9px;padding-top: 9px;">${post.getLike()} upvotes</div>
+						<div style="padding-left: 9px;padding-top: 9px;">${post.getUpvote()} upvotes</div>
 					</div>
 					
 					<div style="display: flex;">
-						<div style="padding-top: 9px;padding-right: 50px;">${post.getViews()} views</div>
+						<div style="padding-top: 9px;padding-right: 50px;">${post.getViewcount()} views</div>
 						<img id="bookmark-icon" src='<c:url value="/resource/images/icons/icon-bookmark.png"/>'>
 						<img id="facebook-icon"  src='<c:url value="/resource/images/icons/facebook.png"/>'>
 						<img id="more-infor-icon"  src='<c:url value="/resource/images/icons/icon-more.png"/>'>

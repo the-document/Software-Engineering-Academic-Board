@@ -35,7 +35,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1 and type = 'SHARE' ORDER BY views DESC";
+		String query="FROM post WHERE status=1 and type = 'SHARE' ORDER BY viewcount DESC";
 		List<Post> posts=null;
 		try {
 			posts= (List<Post>) session.createQuery(query).setMaxResults(5).getResultList();
@@ -82,7 +82,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1 and type = 'TUTORIAL'  ORDER BY views DESC	";
+		String query="FROM post WHERE status=1 and type = 'TUTORIAL'  ORDER BY viewcount DESC	";
 		
 		List<Post> posts=null;
 		try {
@@ -106,7 +106,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1 and id= "+id;
+		String query="FROM post WHERE poststatus=1 and id= "+id;
 		Post post=null;
 		try {
 			post= (Post) session.createQuery(query).getSingleResult();
@@ -129,7 +129,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1 and type = '"+type+"'  ORDER BY postday DESC	";
+		String query="FROM post WHERE poststatus=1 and type = '"+type+"'  ORDER BY postday DESC	";
 		
 		List<Post> posts=null;
 		try {
@@ -152,7 +152,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1 and author= "+idAuthor+" ORDER BY views DESC";
+		String query="FROM post WHERE poststatus=1 and author= "+idAuthor+" ORDER BY viewcount DESC";
 		List<Post> posts=null;
 		try {
 			posts= (List<Post>) session.createQuery(query).setMaxResults(4).getResultList();
@@ -176,7 +176,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1  ORDER BY views DESC";
+		String query="FROM post WHERE poststatus=1  ORDER BY viewcount DESC";
 		List<Post> posts=null;
 		try {
 			posts= (List<Post>) session.createQuery(query).setMaxResults(count).getResultList();
@@ -198,7 +198,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="UPDATE post SET views = "+post.getViews()+", status ="+ post.getStatus() +" WHERE id = "+ post.getId();
+		String query="UPDATE post SET viewcount = "+post.getViewcount()+", poststatus ="+ post.getPoststatus() +" WHERE id = "+ post.getId();
 		int i= session.createQuery(query).executeUpdate();
 		
 		if(i!=0) {
@@ -219,7 +219,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=0";
+		String query="FROM post WHERE poststatus=0";
 		List<Post> posts=null;
 		try {
 			posts= (List<Post>) session.createQuery(query).getResultList();
@@ -230,7 +230,7 @@ public class PostAccess implements IPost{
 		return posts;
 	}
 
-	
+	@Transactional
 	public Post GetPostPreview(String id) {
 		Session session;
 		try {
@@ -250,6 +250,37 @@ public class PostAccess implements IPost{
 		
 		
 		return post;
+	}
+
+	@Transactional
+	public Boolean SavePost(Post post) {
+		Session session;
+		try {
+			 session = sessionFactory.getCurrentSession();
+		} catch (Exception e) {
+			 session = sessionFactory.openSession();
+		}
+		
+//		String query= "insert into post (author, category, content, image,"
+//				+ " introcontent, like, postday, readtime, "
+//				+ "status, title, type, views)"
+//				+ " values ("+post.getAuthor().getId()+","+ post.getCategory().getId()+",'"
+//				+ post.getContent() +"','"+ post.getImage()+"','"+ post.getIntrocontent()
+//				+ "',"+post.getLike()+","+ post.getPostday()+","+ post.getReadtime()
+//				+ ","+post.getStatus()+",'"+post.getTitle()+"','"+ post.getType()+"'," +post.getViews()+")";
+//				
+//		System.out.println(query);
+//		
+//		int key= session.createQuery(query).executeUpdate();
+		int key= (Integer) session.save(post);
+		System.out.println("saved");
+		if(key!=0)
+			return true;
+			else {
+				System.out.println("can't save");
+				return false;
+			}
+		
 	}
 		
 }

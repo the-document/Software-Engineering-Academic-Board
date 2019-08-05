@@ -54,6 +54,10 @@ public class PostService implements IPost{
 	public Post GetPostPreview(String id) {
 		return postAccess.GetPostPreview(id);
 	}
+
+	public Boolean SavePost(Post post) {
+		return postAccess.SavePost(post);
+	}
 	
 	
 }

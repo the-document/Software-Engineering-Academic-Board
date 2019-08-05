@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.nguyenhongphuc.entity.Document;
 import com.nguyenhongphuc.entity.Post;
 import com.nguyenhongphuc.entity.User;
+import com.nguyenhongphuc.service.BrowseDocumentService;
 import com.nguyenhongphuc.service.BrowsePostService;
 import com.nguyenhongphuc.service.DocumentService;
 import com.nguyenhongphuc.service.PostService;
 import com.nguyenhongphuc.service.UserService;
 import com.nguyenhongphuc.entity.BrowsePost;
+import com.nguyenhongphuc.entity.Browsedocuments;
 
 @Controller
 @RequestMapping("/admin")
@@ -42,6 +44,9 @@ public class AdminController {
 	
 	@Autowired
 	BrowsePostService browsePostService;
+	
+	@Autowired
+	BrowseDocumentService browseDocumentService;
 	
 	@GetMapping
 	public String Default(ModelMap modelMap, HttpSession session) {
@@ -81,7 +86,7 @@ public class AdminController {
 	
 	@PostMapping(path = "/documents/browse")
 	@ResponseBody
-	public String BrowseDocument(@RequestParam String id,@RequestParam String docName, @RequestParam String Url) {
+	public String BrowseDocument(@RequestParam String id,@RequestParam String docName, @RequestParam String Url,HttpSession httpSession) {
 		
 		Document document=documentService.GetDocumentsById(id);
 		document.setName(docName);
@@ -90,7 +95,27 @@ public class AdminController {
 		
 		Boolean bool=documentService.UpdateDocument(document);
 		if(bool)
+		{
+			//plus point for user
+			User user=UserService.GetUserById(document.getAuthor().getId()+"");
+			user.setPoint(user.getPoint()+POINT_PER_POST);
+			UserService.UpdatePoint(user);
+			
+			//save history
+			Browsedocuments browseDoc=new Browsedocuments();
+			User browserUserId=(User) httpSession.getAttribute("useractive");
+			User browserUser=UserService.GetUserById(browserUserId.getId()+"");
+			browseDoc.setAuthor(browserUser);
+			browseDoc.setDocument(document);
+			long millis=System.currentTimeMillis();  
+			Date date=new java.sql.Date(millis);  
+			browseDoc.setBrowsetime(date);
+			
+			browseDocumentService.SaveHistoryDocument(browseDoc);
+			
 			return "success";
+		}
+			
 		
 		return "fail";
 	}

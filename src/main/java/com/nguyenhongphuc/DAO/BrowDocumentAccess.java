@@ -1,5 +1,7 @@
 package com.nguyenhongphuc.DAO;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,16 +10,18 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.nguyenhongphuc.entity.BrowsePost;
-import com.nguyenhongphuc.interfaces.IBrowsePost;
+import com.nguyenhongphuc.entity.Browsedocuments;
+import com.nguyenhongphuc.interfaces.IBrowseDocument;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class BrowsePostAccess implements IBrowsePost{
-
+public class BrowDocumentAccess implements IBrowseDocument{
+	
 	@Autowired
 	SessionFactory sessionFactory;
-	
-	public Boolean SaveHistoryBrowsePost(BrowsePost browsePost) {
+
+	@Transactional
+	public Boolean SaveHistoryDocument(Browsedocuments browsedocuments) {
 		Session session;
 		try {
 			 session = sessionFactory.getCurrentSession();
@@ -26,7 +30,7 @@ public class BrowsePostAccess implements IBrowsePost{
 		}
 		
 
-		int key= (Integer) session.save(browsePost);
+		int key= (Integer) session.save(browsedocuments);
 		System.out.println("saved");
 		if(key!=0)
 			return true;
@@ -37,5 +41,4 @@ public class BrowsePostAccess implements IBrowsePost{
 	}
 
 	
-
 }

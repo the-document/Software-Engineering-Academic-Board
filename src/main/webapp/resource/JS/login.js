@@ -6,7 +6,7 @@ function loginNormal() {
 	console.log(password);
 	$.ajax({
 		type: "POST",
-		url: "user/login",
+		url: "http://localhost:8080/Software-Engineering-Academic-Board/user/login",
 		data:{
 			username:username,
 			password:password

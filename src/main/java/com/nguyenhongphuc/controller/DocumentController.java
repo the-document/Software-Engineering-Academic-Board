@@ -59,9 +59,9 @@ public class DocumentController {
 	
 	@GetMapping(path = "/{idSubject}/ajax/{name-type-documents}")
 	@ResponseBody
-	public List<Document> getDocumentsInSpecialType(@PathVariable("idSubject") int idSubject, @PathVariable("name-type-documents") String type){
+	public List<Document> getDocumentsInSpecialType(@PathVariable("idSubject") String idSubject, @PathVariable("name-type-documents") String type){
 		
-		List<Document> listdocuments=documentService.getDocumentsInSpecialType(idSubject+"", type);
+		List<Document> listdocuments=documentService.getDocumentsInSpecialType(idSubject, type);
 	
 		return listdocuments;
 	}
@@ -78,10 +78,11 @@ public class DocumentController {
 	}
 	
 	@GetMapping(path = "/{idSubject}/download/{idDocument}")
+	@ResponseBody
 	public String Default(@PathVariable("idSubject") int idSubject,
 			@PathVariable("idDocument") String idDocument,HttpSession session) {
 		
-		User user=(User) session.getAttribute("user");
+		User user=(User) session.getAttribute("useractive");
 		if(user!=null) {
 			if(user.getPoint()>POIN_OF_DOCUMENT)
 			{
@@ -90,12 +91,15 @@ public class DocumentController {
 				//System.out.println(doc.getUrl());
 				user.setPoint(user.getPoint()-POIN_OF_DOCUMENT);
 				userService.UpdatePoint(user);
-				return "redirect:"+doc.getUrl();
-			}			
+				return doc.getUrl();
+			}	
+			else {
+				return "failscore";
+			}
 		}
 		
 		//return "Bạn phải đăng nhập để hoàn thành tác vụ";
-		return "redirect:/documents/"+idSubject;
+		return "faillogin";
 	}
 
 	@PostMapping("/upload")

@@ -161,6 +161,26 @@
     
     
 </div>
+
+	<style type="text/css">
+		.btn-create-post{
+			position: absolute;right: 139px; 
+			bottom:83px; width: 50px;height: 50px;
+			 border-radius: 50%;border: 2px solid #ff0000;
+			 text-align: center;
+			 background-color: #fff;
+		}
+		.btn-create-post:hover{
+			background-color: #59ff00;
+		}
+	</style>
+	<div class="btn-create-post">
+		<a href="posts/upload">
+			<img style="width: 70%;padding-top: 5px; " src='<c:url value="resource/images/icons/create.png"/>'>
+		</a>
+	</div>
+	
+ 	
 	<jsp:include page="footer.jsp"/>
 	<script type="text/javascript">
 			$(document).ready(function() {

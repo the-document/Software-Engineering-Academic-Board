@@ -19,7 +19,7 @@ public class PostService implements IPost{
 		return postAccess.Get5LatestShare();
 	}
 
-	public List<Post> GetLatestEvents() {
+	public Post GetLatestEvents() {
 		return postAccess.GetLatestEvents();
 	}
 

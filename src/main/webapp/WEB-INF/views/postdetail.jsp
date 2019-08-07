@@ -269,6 +269,10 @@
 		</div>
 	</div>
 
+	<div style="position: absolute;right: 100px; bottom:50px; width: 50px;height: 50px; border-radius: 50%;border: 2px solid #ff0000;text-align: center;">
+		<img style="width: 70%;padding-top: 5px; " src='<c:url value="resource/images/icons/create.png"/>'>
+	</div>
+
 	<jsp:include page="footer.jsp"/>
 	<script type="text/javascript">
 			$(document).ready(function() {

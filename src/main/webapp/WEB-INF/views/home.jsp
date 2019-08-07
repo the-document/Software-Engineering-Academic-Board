@@ -28,34 +28,35 @@
                 <div class="carousel">
                     <div id="home-carousel" class="owl-carousel owl-theme half">
                         <div class="img">
-                            <img src="./src/img/home/home1.jpg" />
+                            <img src=" ${ lastevent.getImage()}" />
 
                         </div>
                         <div class="img">
-                            <img src="./src/img/home/home2.jpg" />
+                            <img src='<c:url value="/resource/images/posts/graduating.jpg"/>' />
 
                         </div>
                         <div class="img">
-                            <img src="./src/img/home/home3.jpg" />
+                             <img src='<c:url value="/resource/images/posts/hdkhoaluan.jpg"/>' />
 
                         </div>
                         <div class="img">
-                            <img src="./src/img/home/home4.jpg" />
+                             <img src='<c:url value="/resource/images/posts/dautruongit.JPG"/>' />
 
                         </div>
                         <div class="img">
-                            <img src="./src/img/home/home5.jpg" />
-
+                             <img src='<c:url value="/resource/images/posts/tochuckynangbc.jpg"/>' />
                         </div>
 
                     </div>
                     <div class="title half">
-                        <h2>Hoạt động training thành công tốt đẹp</h2>
-                        <p>Từ ngày 12/06/2019 - 17/06/2019 Chuỗi trainging của ban học tập Công nghệ phần mềm đã diễn
-                            ra, và thành công tốt đẹp</p>
+                        <h2>${ lastevent.getTitle()}</h2>
+                        <p>${ lastevent.getIntrocontent()}</p>
 
                         <div class="readmore-bar" style="margin-top: 21%;">
-                            <button class="function-button white">Đọc thêm</button>
+                        <a href="posts/${lastevent.getId()}">
+                        	 <button class="function-button white btn-hover">Đọc thêm</button>
+                        </a>
+                           
                         </div>
                     </div>
 
@@ -81,8 +82,8 @@
                     </div>
                     <div class="mt-20 flex-center">
                         <div class="main-input">
-                            <input class="input-signup" placeholder="Điền email của bạn" type="text" />
-                            <div class="go-icon">
+                            <input id="email-quick" class="input-signup" placeholder="Điền email của bạn" type="text" />
+                            <div id="go-to-register" onclick="openSignupModal()" class="go-icon">
                                 <img src='<c:url value="resource/images/icons/icon-right.png"/>' />
                             </div>
                         </div>
@@ -96,12 +97,13 @@
                         Đóng góp nhiều hơn
                     </div>
                     <div class="mt-20 flex-center">
-                        <button class="function-button">
+                     <a href="documents/1">
+                        <button class="function-button btn-hover">
                             Upload
                         </button>
-                        
+                     </a>
                         <a href="posts/upload">
-	                        <button class="function-button">
+	                        <button class="function-button btn-hover">
 	                           Viết bài
 	                        </button>
                         </a>
@@ -145,7 +147,7 @@
                         	
                         </div>
                         <div class="readmore-bar">
-                            <button class="function-button white"><a href='<c:url value="/posts/detail/6"/>'>Đọc thêm</a></button>
+                            <button class="function-button white btn-hover"><a href='<c:url value="/posts/detail/6"/>'>Đọc thêm</a></button>
                         </div>
                     </div>
                 </div>
@@ -232,6 +234,8 @@
     </main>
     
 	<jsp:include page="footer.jsp"></jsp:include>
+	
+	<script src='<c:url value="/resource/JS/home.js"/>'></script>
 	
 </body>
 </html>

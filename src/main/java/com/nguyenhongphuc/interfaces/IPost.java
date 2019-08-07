@@ -7,7 +7,7 @@ import com.nguyenhongphuc.entity.Post;
 public interface IPost {
 	
 	public List<Post> Get5LatestShare();
-	public List<Post> GetLatestEvents();
+	public Post GetLatestEvents();
 	public List<Post> Get4LatestTutorial();
 	public Post GetPostById(String id);
 	public List<Post> GetPostByTypeWithAmount(int count,String type);

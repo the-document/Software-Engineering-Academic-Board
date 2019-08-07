@@ -16,7 +16,7 @@
 	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" />
 
     <link rel="stylesheet" href='<c:url value="/resource/css/bth-theme.css"/>' type="text/css" />
-	<title>${subject.getName()} </title>
+	<title>BHT| ${subject.getName()} </title>
 </head>
 <body>
 		<jsp:include page="header.jsp"></jsp:include>
@@ -156,7 +156,7 @@
                                     <i alt="Tải" class="fas fa-download"></i>
                                     <div id="count_select_doc" value="0">0</div>
                                 </li> 
-                                <li id="btn-upload">
+                                <li id="btn-upload ">
                                     <i class="fas fa-upload"></i>
                                 </li>
                                 <li>

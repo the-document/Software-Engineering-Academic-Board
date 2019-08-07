@@ -45,6 +45,9 @@ public class HomeController {
 		List<Post> topPost=postService.GetTopPost(5);
 		modelMap.addAttribute("topPost", topPost);
 		
+		Post lastestEvent=(Post) postService.GetLatestEvents();
+		modelMap.addAttribute("lastevent", lastestEvent);
+		
 		return "home";
 	}
 }

@@ -35,7 +35,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1 and type = 'SHARE' ORDER BY viewcount DESC";
+		String query="FROM post WHERE poststatus=1 and type = 'SHARE' ORDER BY viewcount DESC";
 		List<Post> posts=null;
 		try {
 			posts= (List<Post>) session.createQuery(query).setMaxResults(5).getResultList();
@@ -50,7 +50,7 @@ public class PostAccess implements IPost{
 	}
 
 	@Transactional
-	public List<Post> GetLatestEvents() {
+	public Post GetLatestEvents() {
 		Session session;
 		try {
 			 session = sessionFactory.getCurrentSession();
@@ -59,17 +59,17 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1 and type = 'EVENT'  ORDER BY  postday DESC";
+		String query="FROM post WHERE poststatus=1 and type = 'EVENT'  ORDER BY  postday DESC";
 		
 		List<Post> posts=null;
 		try {
 			posts= (List<Post>) session.createQuery(query).setMaxResults(1).getResultList();
+			return posts.get(0);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return null;
 		}
 		
-		return posts;
 	}
 
 	@Transactional
@@ -82,7 +82,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE status=1 and type = 'TUTORIAL'  ORDER BY viewcount DESC	";
+		String query="FROM post WHERE poststatus=1 and type = 'TUTORIAL'  ORDER BY viewcount DESC	";
 		
 		List<Post> posts=null;
 		try {

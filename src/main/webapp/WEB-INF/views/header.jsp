@@ -2,6 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
+<style type="text/css">
+		.btn-hover:hover{
+			color: #fff;
+			background-color: #e8f0fe !important;
+		}
+	</style>
+	
 <header class="container">
         <div class="nav-bar">
             <div class="nav-left">
@@ -32,7 +39,7 @@
                 <div class="user-menu">
                 	<c:choose>
 						<c:when test="${useractive==null }">
-							<button id="login-btn" onclick="openLoginModal()">Login</button>
+							<button class="btn-hover" id="login-btn" onclick="openLoginModal()">Login</button>
 						</c:when>
 						
 						<c:otherwise>

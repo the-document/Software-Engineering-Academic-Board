@@ -1,3 +1,9 @@
+$("#email-quick").keyup(function(event) {
+    if (event.keyCode === 13) {
+    	$("#register-username").val($("#email-quick").val());
+        $("#go-to-register").click();
+    }
+});
 
 function loginNormal() {
 	var username =$("#username").val();
@@ -26,7 +32,6 @@ function loginNormal() {
 		}
 	});
 }
-
 
 function register() {
 	var username =$("#register-username").val();

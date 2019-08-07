@@ -52,6 +52,9 @@ public class DocumentController {
 		List<Document> listTest=documentService.GetTest(idSubject+"");
 		modelMap.addAttribute("listTest", listTest);
 		
+		List<Category> listCategories=CatalogService.getAllCatetory();
+		modelMap.addAttribute("listCategories", listCategories);
+		
 		//System.out.println("\n\nresult\n\n\n"+listTest.get(0).getAuthor());
 		return "documentdetail";
 	}
@@ -79,7 +82,7 @@ public class DocumentController {
 	
 	@GetMapping(path = "/{idSubject}/download/{idDocument}")
 	@ResponseBody
-	public String Default(@PathVariable("idSubject") int idSubject,
+	public String GetDowloadDoc(@PathVariable("idSubject") int idSubject,
 			@PathVariable("idDocument") String idDocument,HttpSession session) {
 		
 		User user=(User) session.getAttribute("useractive");
@@ -107,9 +110,10 @@ public class DocumentController {
 	public String Upload(@RequestParam String type,@RequestParam int category,
 			@RequestParam String url,@RequestParam String name,HttpSession session) {
 		
-		User user=(User) session.getAttribute("user");
+		System.out.println("uploading...");
+		User user=(User) session.getAttribute("useractive");
 		if(user==null)
-			return "Bạn phải đăng nhập để thực hiện tác vụ này";
+			return "loginerror";
 		
 		Document document=new Document();
 		document.setName(name);
@@ -124,9 +128,9 @@ public class DocumentController {
 		
 		Boolean result=documentService.UploadDocument(document);
 		if(result==false)
-		return "Thêm thất bại, vui lòng thử lại sau";
+		return "fail";
 		else {
-			return "Thêm thành công, tài liệu đang được chờ duyệt";
+			return "sucess";
 		}
 	}
 

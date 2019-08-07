@@ -203,7 +203,7 @@ function DowloadDocument(idSubject){
                     $.ajax({
                 		type: "GET",
                 		url: "http://localhost:8080/Software-Engineering-Academic-Board/documents/"+idSubject+"/download/"+id+"",
-                		 async: false,
+                		async: false,
                 		data: {
                 			
                 		},
@@ -249,12 +249,49 @@ function ShowSelectSubject() {
 
 function UploadDocument() {
     closeModal(`upload-modal2`);
-    console.log($(`#typedoc`).val());
-    console.log($(`#typesubject`).val());
-    console.log($(`#namedoc`).val());
-    console.log($(`#linkdoc`).val());
+    var typedoc=$(`#typedoc`).val();
+    var typeobject=$(`#typesubject`).val();
+    var name=$(`#namedoc`).val();
+    var link=$(`#linkdoc`).val();
+ 
+    //if no option selected
+    if(typedoc=="noselected"||typeobject=="noselected")
+    	{
+	    	$("#desc").text("Bạn chưa chọn môn học hoặc danh mục. !");
+	        launch_toast();
+	        return;
+    	}
 
     //start uploading
+    $.ajax({
+    	type: "POST",
+    	url: "http://localhost:8080/Software-Engineering-Academic-Board/documents/upload",
+    	data: {
+    		type :typedoc,
+    		category:typeobject,
+    		url:link,
+    		name:name
+		},
+		dataType: "text",
+		timeout:100000,
+		success: function (data) {
+			var mess;
+			if(data=="loginerror"){
+				mess="Bạn phải đăng nhập để upload !"
+			}else
+			if(data=="fail"){
+				mess="Thêm thất bại, vui lòng thử lại sau !"
+			}
+			else
+				mess="Thêm thành công, tài liệu đang được chờ duyệt !"
+				
+			$("#desc").text(mess);
+	        launch_toast();
+		},
+		error: function (e){
+			console.log("ERROR:",e);
+		}
+    });
 }
 
 $( document ).ready(function() {

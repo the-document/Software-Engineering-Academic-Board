@@ -64,6 +64,18 @@
                 		font-size: 1.5rem;
                 		text-align: left;
                 	}
+        .submit-upload-btn{
+        	margin-top: 19px;
+        	border-radius: 17px;
+            line-height: 32px;
+            width: 103px; 
+            background-color: #5B9BD5;
+            border:none;
+            box-shadow: 1px 3px 0px #E5E5E5;
+            font-family: Rosario;
+            font-size: 1.2rem;
+            color: #fff;
+         }
     </style>
 
     <main class="container">
@@ -198,19 +210,15 @@
                                         </select>
 
                                         <select id="typesubject" class="round" style="margin-top: 40px; border-radius: 18px;">
-                                        	 <option value="noselected" selected>Chọn môn học</option>
-                                            <option value="dethi">Đề thi</option>
-                                            <option value="baigiang">Bài giảng</option>
-                                            <option value="training">Training</option>
-                                            <option value="video">Video</option>
-                                            <option value="sach">Sách</option>
+                                        	<option value="noselected" selected>Chọn môn học</option>
+                                            
+                                            <c:forEach var="cate" items="${ listCategories}">
+                                            	<option value="${cate.getId()}">${cate.getName()}</option>
+                                            </c:forEach>
                                         </select>
 
 
-                                        <input onclick="ShowSelectSubject()" style="margin-top: 19px;border-radius: 17px;
-                                        line-height: 32px;width: 103px; background-color: #5B9BD5;
-                                        border:none;box-shadow: 1px 3px 0px #E5E5E5;
-                                        font-family: Rosario;font-size: 1.2rem;color: #fff;"
+                                        <input onclick="ShowSelectSubject()" class="submit-upload-btn"
                                         	type="button" value="Tiếp tục" />
                                     </form>
 
@@ -226,15 +234,12 @@
                                     <form style="text-align: center;" >
 
 
-                                        <input id="namedoc" value="hehe" type="text" name="" class="round upload-model-input-text"  />
-                                        <input id="linkdoc" value="linkne" type="text" name="" class="round upload-model-input-text" /> 
+                                        <input id="namedoc" placeholder="Tên tài liệu" type="text" name="" class="round upload-model-input-text"  />
+                                        <input id="linkdoc" placeholder="Đường dẫn" type="text" name="" class="round upload-model-input-text" /> 
 
 
-                                        <input onclick="UploadDocument()" style="margin-top: 19px;border-radius: 17px;
-                                        line-height: 32px;width: 103px; background-color: #5B9BD5;
-                                        border:none;box-shadow: 1px 3px 0px #E5E5E5;
-                                        font-family: Rosario;font-size: 1.2rem;color: #fff;"
-                                        	type="button" value="upload" />
+                                        <input onclick="UploadDocument()" class="submit-upload-btn"
+                                        	type="button" value="upload" >
                                     </form>
 
                                 </div>

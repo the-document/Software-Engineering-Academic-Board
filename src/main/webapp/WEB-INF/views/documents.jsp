@@ -18,7 +18,7 @@
 
 
     <link rel="stylesheet" href='<c:url value="/resource/css/bth-theme.css"/>' type="text/css" />
-    <title>Ban học tập Công nghệ phần mềm | Trang chủ</title>
+    <title>BHT| Tài liệu</title>
 </head>
 <body >
 		<jsp:include page="header.jsp"/>

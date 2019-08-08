@@ -156,7 +156,7 @@
                                     <i alt="Tải" class="fas fa-download"></i>
                                     <div id="count_select_doc" value="0">0</div>
                                 </li> 
-                                <li id="btn-upload ">
+                                <li id="btn-upload " onclick="showUploadModal()">
                                     <i class="fas fa-upload"></i>
                                 </li>
                                 <li>

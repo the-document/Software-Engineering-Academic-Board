@@ -16,7 +16,7 @@
 
 
     <link rel="stylesheet" href='<c:url value="/resource/css/bth-theme.css"/>' type="text/css" />
-	<title>Academic board|Home</title>
+	<title>BHT| Trang chủ</title>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>

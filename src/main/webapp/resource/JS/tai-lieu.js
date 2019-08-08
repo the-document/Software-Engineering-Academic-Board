@@ -295,6 +295,6 @@ function UploadDocument() {
 }
 
 $( document ).ready(function() {
-    $('#btn-upload').click(showUploadModal)
+//    $('#btn-upload').click(showUploadModal)
 });
 

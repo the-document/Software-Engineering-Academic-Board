@@ -23,7 +23,7 @@
 		
 	</style>
 	
-	<title>BHT| Post upload</title>
+	<title>BHT| Viết bài</title>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>

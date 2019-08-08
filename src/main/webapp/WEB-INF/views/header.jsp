@@ -13,7 +13,7 @@
         <div class="nav-bar">
             <div class="nav-left">
                 <div class="logo-wraper">
-                <a href="http://localhost:8080/Software-Engineering-Academic-Board/">
+                <a href="https://academicboard.herokuapp.com/">
                 	<img src='<c:url value="/resource/images/icons/logo.png"/>'>
                 </a>
                    
@@ -26,11 +26,11 @@
                 </div>
                 <div class="nav">
                     <ul>
-                        <li><a id="competition" href="http://localhost:8080/Software-Engineering-Academic-Board/competition">
+                        <li><a id="competition" href="https://academicboard.herokuapp.com/competition">
                         	Cuộc thi</a class=".menu-bar-active"></li>
-                        <li><a id="documents"  href="http://localhost:8080/Software-Engineering-Academic-Board/documents">
+                        <li><a id="documents"  href="https://academicboard.herokuapp.com/documents">
                         	Tài liệu</a></li>
-                        <li><a id="posts" href="http://localhost:8080/Software-Engineering-Academic-Board/posts">
+                        <li><a id="posts" href="https://academicboard.herokuapp.com/posts">
                         	Bài viết</a></li>
                     </ul>
                 </div>
@@ -49,9 +49,9 @@
 		                    	<p id="nav-user-name"> ${useractive.getName()}</p>
 	
 			                    <ul class="dropdown-content">
-			                    	<li><a href='<c:url value="user/${useractive.getId()}"/>'>Trang cá nhân</a></li>
+			                    	<li><a href='<c:url value="https://academicboard.herokuapp.com/user/${useractive.getId()}"/>'>Trang cá nhân</a></li>
 			                    	<li>Điều khoản</li>
-			                    	<li><a href='<c:url value="user/logout"/>'>Đăng xuất</a></li>
+			                    	<li><a href='<c:url value="https://academicboard.herokuapp.com/user/logout"/>'>Đăng xuất</a></li>
 			                    </ul>
                     		</div>
 						</c:otherwise>

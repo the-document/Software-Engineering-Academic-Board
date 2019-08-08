@@ -113,7 +113,7 @@ function focusMenuDocument(idBtnDocument,space) {
         var subject=$(`#subjectID`).attr("value");
         $.ajax({
     		type: "GET",
-    		url: "http://localhost:8080/Software-Engineering-Academic-Board/documents/"+subject+"/ajax/"+space+"",
+    		url: "https://academicboard.herokuapp.com/documents/"+subject+"/ajax/"+space+"",
     		
     		data: {
     			
@@ -202,7 +202,7 @@ function DowloadDocument(idSubject){
                     //using ajax to post request
                     $.ajax({
                 		type: "GET",
-                		url: "http://localhost:8080/Software-Engineering-Academic-Board/documents/"+idSubject+"/download/"+id+"",
+                		url: "https://academicboard.herokuapp.com/documents/"+idSubject+"/download/"+id+"",
                 		async: false,
                 		data: {
                 			
@@ -265,7 +265,7 @@ function UploadDocument() {
     //start uploading
     $.ajax({
     	type: "POST",
-    	url: "http://localhost:8080/Software-Engineering-Academic-Board/documents/upload",
+    	url: "https://academicboard.herokuapp.com/documents/upload",
     	data: {
     		type :typedoc,
     		category:typeobject,

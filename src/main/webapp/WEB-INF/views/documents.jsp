@@ -103,10 +103,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="description">
-                                Đại số tuyến tính là một ngành toán học nghiên cứu về không gian vectơ, hệ phương trình
-                                tuyến
-                                tính
-                                và các phép biến ...
+                                Các môn học cơ sở ngành là những môn học rất quan trọng, là nền tảng để học tốt các môn học khi đi vào chuyên ngành
                             </div>
                         </div>
                     </div>
@@ -148,10 +145,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="description">
-                                Đại số tuyến tính là một ngành toán học nghiên cứu về không gian vectơ, hệ phương trình
-                                tuyến
-                                tính
-                                và các phép biến ...
+                                Ngành Kỹ thuật phần mềm đào tạo những kiến thức liên quan đến quy trình phát triển phần mềm một cách chuyên nghiệp nhằm tạo ra sản phẩm phần mềm đạt chất lượng cao, đáp ứng các nhu cầu nghiệp vụ cụ thể trong nền sản xuất của xã hội.
                             </div>
                         </div>
                     </div>
@@ -179,10 +173,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="description">
-                                Đại số tuyến tính là một ngành toán học nghiên cứu về không gian vectơ, hệ phương trình
-                                tuyến
-                                tính
-                                và các phép biến ...
+                                Hoạt động trong lĩnh vực này không những đòi hỏi phải nắm vững kiến thức và kỹ năng về khoa học máy tính và công nghệ thông tin mà còn phải am hiểu tương đối chính xác về các khái niệm, về bản chất, hành vi và cơ chế hoạt động của hệ thống quản lý nhằm hỗ trợ ra quyết định một cách kịp thời, chuẩn xác, đáp ứng nhu cầu phát triển của hệ thống. 
                             </div>
                         </div>
                     </div>
@@ -210,10 +201,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="description">
-                                Đại số tuyến tính là một ngành toán học nghiên cứu về không gian vectơ, hệ phương trình
-                                tuyến
-                                tính
-                                và các phép biến ...
+                                Đến với ngành học này, bạn sẽ hiểu và làm chủ được những công nghệ mạng phổ biến như thư tín điện tử, truyền tải tập tin, truyền thông thông tin, hay những công nghệ tiên tiến như điện toán đám mây, tính toán lưới, tính toán di động, xây dựng và vận hành data center, an toàn và bảo mật thông tin.
                             </div>
                         </div>
                     </div>
@@ -242,10 +230,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="description">
-                                Đại số tuyến tính là một ngành toán học nghiên cứu về không gian vectơ, hệ phương trình
-                                tuyến
-                                tính
-                                và các phép biến ...
+                               Công nghệ thông tin là một ngành học được đào tạo để sử dụng máy tính và các phần mềm máy tính để phân phối và xử lý các dữ liệu thông tin, đồng thời dùng để trao đổi, lưu trữ và chuyển đổi các dữ liệu thông tin dưới nhiều hình thức khác nhau.
                             </div>
                         </div>
 
@@ -274,10 +259,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="description">
-                                Đại số tuyến tính là một ngành toán học nghiên cứu về không gian vectơ, hệ phương trình
-                                tuyến
-                                tính
-                                và các phép biến ...
+                                Cung cấp các kỹ năng lập trình trên máy tính, Smartphone, tablet, các hệ thống nhúng sử dụng các ngôn ngữ như: Assembly, C, C++, System C, Java, C#, Verilog/VHDL.
                             </div>
                         </div>
 
@@ -307,10 +289,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="description">
-                                Đại số tuyến tính là một ngành toán học nghiên cứu về không gian vectơ, hệ phương trình
-                                tuyến
-                                tính
-                                và các phép biến ...
+                                ngành Khoa học máy tính đóng vai trò rất quan trọng trong việc xây dựng các nền tảng nghiên cứu, phát triển các công nghệ trong tương lai, đặc biệt là những nghiên cứu ứng dụng thiết thực trong cuộc sống
                             </div>
                         </div>
                     </div>

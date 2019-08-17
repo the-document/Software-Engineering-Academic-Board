@@ -144,7 +144,7 @@
 
                     </div>
                 </div>
-                <div class="info">
+                <div class="info-footer">
                     <ul>
                         <li style="padding-bottom: 15px;"> Kênh thông tin Sinh viên của BHT khoa CNPM - Trường ĐH CNTT - ĐHQG-HCM. Website do Ban học
                             tập CNPM
@@ -162,19 +162,25 @@
                 </div>
             </div>
             <div class="col-lg-3">
-                <h4 style="color:#fff;padding-bottom: 20px;">Chính sách</h4>
-                <ul>
-                    <li style="padding-bottom: 12px;">Chính sách điểm thưởng</li>
-                    <li style="padding-bottom: 12px;">Điều khoản dịch vụ</li>
-                    <li style="padding-bottom: 12px;">Phúc đẹp trai</li>
-                </ul>
+                <div class="info-footer">
+                    <h4 style="color:#fff;padding-bottom: 20px;">Chính sách</h4>
+                    <ul>
+                        <li style="padding-bottom: 12px;">Chính sách điểm thưởng</li>
+                        <li style="padding-bottom: 12px;">Điều khoản dịch vụ</li>
+                        <li style="padding-bottom: 12px;">Phúc đẹp trai</li>
+                    </ul>
+                </div>
+                
             </div>
             <div class="col-lg-3">
-                <h4 style="color:#fff;padding-bottom: 20px;">Thông tin liên hệ</h4>
-                <p style="padding-bottom: 12px;">Địa chỉ: Đường Hàn Thuyên, Khu phố 6, P. Linh Trung, Q. Thủ Đức, TP Hồ Chí Minh</p>
-                <p style="padding-bottom: 12px;">Email: bht.cnpm.uit@gmail.com</p>
-                <p style="padding-bottom: 12px;">Hotline: 0366272703</p>
+                 <div class="info-footer">
+                    <h4 style="color:#fff;padding-bottom: 20px;">Thông tin liên hệ</h4>
+                    <p style="padding-bottom: 12px;">Địa chỉ: Đường Hàn Thuyên, Khu phố 6, P. Linh Trung, Q. Thủ Đức, TP Hồ Chí Minh</p>
+                    <p style="padding-bottom: 12px;">Email: bht.cnpm.uit@gmail.com</p>
+                    <p style="padding-bottom: 12px;">Hotline: 0366272703</p>
+                </div>
             </div>
+
         </div>
         <div class="row">
             <div class="col-12">

@@ -75,7 +75,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-4 border-right">
+            <div class="col-lg-4 border-right" style="margin-top: 15px;" >
                 <div>
                     <div class="function-title">
                         Tạo tài khoản miễn phí
@@ -91,7 +91,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 text-center">
+            <div class="col-lg-4 text-center" style="margin-top: 15px;">
                 <div>
                     <div class="function-title">
                         Đóng góp nhiều hơn
@@ -215,7 +215,7 @@
 	                    <div class="post-image">
 	                        <img style="border-radius: 12px;" src="${post.getImage() }" />
 	                    </div>
-	                    <div style="color: #fff">
+	                    <div style="color: #fff;padding: 7px;">
 	                        <a href='<c:url value="/posts/detail/${post.getId()}"/>'>${post.getTitle()}</a>
 	                    </div>
 	                    <div class="author">

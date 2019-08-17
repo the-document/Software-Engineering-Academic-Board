@@ -88,9 +88,8 @@
                         </div>
                         <div class="course-name" style="height: 300px;">
                             <h4>${subject.getName()}</h4>
-                            <p>
-                                Đại số tuyến tính là một ngành toán học nghiên cứu về không gian vectơ, hệ phương trình
-                                tuyến tính và các phép biến ...
+                            <p class="hint-text" style=" max-height: 169px;text-align: start;white-space: initial;width: auto;">
+                                ${subject.getDescription()}
                             </p>
                             <div class="btn-area">
                                 <button style="border-radius: 12px;background-color: #fff;width: 107px;line-height: 31px;">
@@ -140,111 +139,111 @@
 
                     </div>
                     <div class="bottom-bar">
-                        <div>
-                            <ul class="bottom-menu">
-                            	<div id="subjectID" value="${subject.getId()}"></div>
-                                <li onclick="focusMenuDocument(`dethibtn`,`dethi`)" id="dethibtn" class="active menu-document">Đề thi</li>
-                                <li onclick="focusMenuDocument(`baigiangbtn`,`baigiang`)" id="baigiangbtn" class="menu-document">Bài giảng</li>
-                                <li onclick="focusMenuDocument(`trainingbtn`,`training`)" id="trainingbtn" class="menu-document">Training</li>
-                                <li onclick="focusMenuDocument(`videobtn`,`video`)" id="videobtn" class="menu-document">Video</li>
-                                <li onclick="focusMenuDocument(`sachbtn`,`sach`)" id="sachbtn" class="menu-document">Sách</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="bottom-menu func-button">
-                                <li onclick="DowloadDocument(${subject.getId() })">
-                                    <i alt="Tải" class="fas fa-download"></i>
-                                    <div id="count_select_doc" value="0">0</div>
-                                </li> 
-                                <li id="btn-upload " onclick="showUploadModal()">
-                                    <i class="fas fa-upload"></i>
-                                </li>
-                                <li>
-                                    <i class="fas fa-heart"></i>
-                                </li>
-                                <li>
-                                    <i class="fas fa-info"></i>
-                                </li>
-                                <li>
-                                    <i class="fas fa-save"></i>
-                                </li>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <ul class="bottom-menu">
+                                	<div id="subjectID" value="${subject.getId()}"></div>
+                                    <li onclick="focusMenuDocument(`dethibtn`,`dethi`)" id="dethibtn" class="active menu-document">Đề thi</li>
+                                    <li onclick="focusMenuDocument(`baigiangbtn`,`baigiang`)" id="baigiangbtn" class="menu-document">Bài giảng</li>
+                                    <li onclick="focusMenuDocument(`trainingbtn`,`training`)" id="trainingbtn" class="menu-document">Training</li>
+                                    <li onclick="focusMenuDocument(`videobtn`,`video`)" id="videobtn" class="menu-document">Video</li>
+                                    <li onclick="focusMenuDocument(`sachbtn`,`sach`)" id="sachbtn" class="menu-document">Sách</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-5">
+                                <ul class="bottom-menu func-button">
+                                    <li onclick="DowloadDocument(${subject.getId() })">
+                                        <i alt="Tải" class="fas fa-download"></i>
+                                        <div id="count_select_doc" value="0">0</div>
+                                    </li> 
+                                    <li id="btn-upload " onclick="showUploadModal()">
+                                        <i class="fas fa-upload"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-heart"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-info"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-save"></i>
+                                    </li>
 
-                                <style type="text/css">
-                                    		.round{
-												background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), radial-gradient(#ddd 70%, transparent 72%);
-												background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - .5em) .5em;
-												background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
-												background-repeat: no-repeat;
-												-webkit-appearance: none;
-												-moz-appearance: none;
-												border: 1px solid #555C6F;
-												width: 239px !important;
-												}
-											#upload-modal2 {
-											    display: none;
-											}
+                                    <style type="text/css">
+                                        		.round{
+    												background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), radial-gradient(#ddd 70%, transparent 72%);
+    												background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - .5em) .5em;
+    												background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+    												background-repeat: no-repeat;
+    												-webkit-appearance: none;
+    												-moz-appearance: none;
+    												border: 1px solid #555C6F;
+    												width: 239px !important;
+    												}
+    											#upload-modal2 {
+    											    display: none;
+    											}
 
-											#upload-modal2.active {
-											    display: block;
-											}
+    											#upload-modal2.active {
+    											    display: block;
+    											}
 
-                                </style>
+                                    </style>
 
-                                <div id="upload-modal" class="upload-ui">
-                                    <h3>upload tài liệu 1/2</h3>
-                                    <span id="modal-close"
-                                    
-                                    onclick='closeModal("upload-modal")'
-                                    class="close"><i class="fas fa-times" style="padding: 8px;"></i></span>
-                                    <form style="text-align: center;" >
+                                    <div id="upload-modal" class="upload-ui">
+                                        <h3>upload tài liệu 1/2</h3>
+                                        <span id="modal-close"
+                                        
+                                        onclick='closeModal("upload-modal")'
+                                        class="close"><i class="fas fa-times" style="padding: 8px;"></i></span>
+                                        <form style="text-align: center;" >
 
-                                    	
+                                        	
 
-                                        <select id="typedoc" class="round" style="margin-top: 40px; border-radius: 18px;">
-                                            <option value="noselected" selected>chọn loại tài liệu</option>
-                                            <option value="dethi">Đề thi</option>
-                                            <option value="baigiang">Bài giảng</option>
-                                            <option value="training">Training</option>
-                                            <option value="video">Video</option>
-                                            <option value="sach">Sách</option>
-                                        </select>
+                                            <select id="typedoc" class="round" style="margin-top: 40px; border-radius: 18px;">
+                                                <option value="noselected" selected>chọn loại tài liệu</option>
+                                                <option value="dethi">Đề thi</option>
+                                                <option value="baigiang">Bài giảng</option>
+                                                <option value="training">Training</option>
+                                                <option value="video">Video</option>
+                                                <option value="sach">Sách</option>
+                                            </select>
 
-                                        <select id="typesubject" class="round" style="margin-top: 40px; border-radius: 18px;">
-                                        	<option value="noselected" selected>Chọn môn học</option>
-                                            
-                                            <c:forEach var="cate" items="${ listCategories}">
-                                            	<option value="${cate.getId()}">${cate.getName()}</option>
-                                            </c:forEach>
-                                        </select>
-
-
-                                        <input onclick="ShowSelectSubject()" class="submit-upload-btn"
-                                        	type="button" value="Tiếp tục" />
-                                    </form>
-
-                                </div>
+                                            <select id="typesubject" class="round" style="margin-top: 40px; border-radius: 18px;">
+                                            	<option value="noselected" selected>Chọn môn học</option>
+                                                
+                                                <c:forEach var="cate" items="${ listCategories}">
+                                                	<option value="${cate.getId()}">${cate.getName()}</option>
+                                                </c:forEach>
+                                            </select>
 
 
-                                <div id="upload-modal2" class="upload-ui">
-                                    <h3>upload tài liệu 2/2</h3>
-                                    <span id="modal-close2"
-                                    
-                                    onclick='closeModal("upload-modal2")'
-                                    class="close"><i class="fas fa-times" style="padding: 8px;"></i></span>
-                                    <form style="text-align: center;" >
+                                            <input onclick="ShowSelectSubject()" class="submit-upload-btn"
+                                            	type="button" value="Tiếp tục" />
+                                        </form>
+
+                                    </div>
 
 
-                                        <input id="namedoc" placeholder="Tên tài liệu" type="text" name="" class="round upload-model-input-text"  />
-                                        <input id="linkdoc" placeholder="Đường dẫn" type="text" name="" class="round upload-model-input-text" /> 
+                                    <div id="upload-modal2" class="upload-ui">
+                                        <h3>upload tài liệu 2/2</h3>
+                                        <span id="modal-close2"
+                                        
+                                        onclick='closeModal("upload-modal2")'
+                                        class="close"><i class="fas fa-times" style="padding: 8px;"></i></span>
+                                        <form style="text-align: center;" >
 
 
-                                        <input onclick="UploadDocument()" class="submit-upload-btn"
-                                        	type="button" value="upload" >
-                                    </form>
+                                            <input id="namedoc" placeholder="Tên tài liệu" type="text" name="" class="round upload-model-input-text"  />
+                                            <input id="linkdoc" placeholder="Đường dẫn" type="text" name="" class="round upload-model-input-text" /> 
 
-                                </div>
 
-                            </ul>
+                                            <input onclick="UploadDocument()" class="submit-upload-btn"
+                                            	type="button" value="upload" >
+                                        </form>
+
+                                    </div>
+                                </ul>
                         </div>
                     </div>
                 </div>

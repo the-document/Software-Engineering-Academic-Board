@@ -186,6 +186,7 @@ section.carousel {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-bar .nav-left {
@@ -201,6 +202,7 @@ section.carousel {
 .nav-bar .nav-left .nav ul{
     list-style-type: none;
     display: flex;  
+    flex-wrap: wrap;
 }
 
 /*BEGIN EDIT*/
@@ -280,7 +282,7 @@ section.carousel {
 
 .main-input {
     position: relative;
-
+    
 }
 
 .main-input input {
@@ -457,8 +459,7 @@ section {
 .courses {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-
+    justify-content: start;
 }
 
 .courses .items {
@@ -538,7 +539,7 @@ section {
 .course-info .course-image {
     width: 100%;
     text-align: center;
-    height: 200px;
+    height: 100%;
 
 }
 
@@ -601,6 +602,8 @@ section {
     justify-content: space-between;
 }
 
+
+
 .bottom-bar .bottom-menu {
     display: flex;
     list-style: none;
@@ -608,7 +611,7 @@ section {
 }
 
 .bottom-bar .bottom-menu li {
-    padding: 5px 14px;
+    padding: 5px 0px;
     cursor: pointer;
 }
 
@@ -617,7 +620,7 @@ section {
 }
 
 .bottom-bar .bottom-menu.func-button li {
-    margin: 0 12px;
+    margin: 0 20px;
 }
 
 .bottom-bar .bottom-menu.func-button li:hover {
@@ -778,6 +781,15 @@ footer ul {
     width: 50%;
 }
 
+.hint-text{
+            -o-text-overflow: ellipsis;   /* Opera */
+            text-overflow: ellipsis;   /* IE, Safari (WebKit) */
+            overflow:hidden;              /* don't show excess chars */
+            white-space:nowrap;           /* force single line */
+            width: 180px;
+            color: #fff; text-align: center;
+        }
+
 /* Zoom animation */
 
 @-webkit-keyframes animatezoom {
@@ -803,3 +815,109 @@ footer ul {
     0% { opacity: 0; -moz-transform: translateY(-100%); }   
   100% { opacity: 1; -moz-transform: translateY(0); }
 }
+
+@media only screen and (max-width: 991px) {
+    .bottom-bar .bottom-menu {
+        justify-content: center;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+            .search-bar {
+                display: none;
+            }
+
+            
+
+            .nav ul {
+/*                  flex-direction: column;
+*/                  flex-wrap: wrap;
+            }
+            .bottom-bar .bottom-menu {
+
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+             .nav-bar {
+                flex-direction: column;
+             }
+
+            .nav-bar .nav-left {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;    
+            }
+
+            .nav-left>div {
+                margin-right: 0;
+            }
+
+            #login-btn {
+                margin-right: 0;     
+            }
+
+            #nav-user-name {
+                color: #5B9BD5;
+                margin: auto;
+                padding-left: 5px;
+                padding-right: 0px;
+            }
+
+            .nav-bar .nav-left .nav ul li{
+            	margin-right: 10px;
+                margin-top: 5px;
+            }
+
+            .info-footer{
+                border-bottom: 2px solid;
+                padding-bottom: 5px;
+                margin-bottom: 10px;
+            }
+            .document-area {
+                height: auto;
+                overflow-y: scroll;
+                padding: 5px;
+            }
+
+            /*home page*/
+            .carousel {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .half {
+                width: 100%;
+            }
+
+            .news-event {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .news-event .news-event-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: scale-down;
+            }
+
+            .courses .items {
+                width: 160px;
+                align-self: stretch;
+                text-align: center;
+                padding: 15px;
+                border-radius: 20px;
+                border: 1px solid #e5e5e5;
+                margin: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .description{
+                display: none;
+            }
+}
+

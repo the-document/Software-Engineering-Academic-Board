@@ -13,12 +13,12 @@
         
         	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-	        <property name="url" value="jdbc:mysql://localhost:3306/academicboard"/>
+	        <!-- <property name="url" value="jdbc:mysql://localhost:3306/academicboard"/>
 	        <property name="username" value="root"/>
-	        <property name="password" value=""/> 
-	        <!-- <property name="url" value="jdbc:mysql://johnny.heliohost.org:3306/nguyenho_academicboard"/>
+	        <property name="password" value=""/>  -->
+	        <property name="url" value="jdbc:mysql://johnny.heliohost.org:3306/nguyenho_academicboard"/>
 	        <property name="username" value="nguyenho_admin"/>
-	        <property name="password" value="A221198a"/> -->
+	        <property name="password" value="A221198a"/> 
 	        <property name="connectionProperties" value="useUnicode=yes;characterEncoding=utf8;"/>
 			</bean>
 	

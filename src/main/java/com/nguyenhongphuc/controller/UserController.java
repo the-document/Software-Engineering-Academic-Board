@@ -43,6 +43,14 @@ public class UserController {
 			@RequestParam String password2) {
 		
 		User user =new User();
+		
+		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+	    if(!username.matches(regex))
+	    {
+	    	user.setName("Định dạng email không đúng!");
+			return user; //id= 0 mean err
+	    }
+	    
 		if(!password.equals(password2)) {
 			user.setName("Mật khẩu không khớp!");
 			return user; //id= 0 mean err

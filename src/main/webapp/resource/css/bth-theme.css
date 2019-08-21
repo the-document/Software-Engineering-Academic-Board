@@ -543,6 +543,12 @@ section {
 
 }
 
+.course-image img{
+    max-width: 172px;
+	max-height: 172px;
+
+}
+
 .course-info .course-image img {
     width: 50%;
 }

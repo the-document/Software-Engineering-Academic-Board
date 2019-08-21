@@ -17,9 +17,11 @@ function addCategory(facultyName) {
                 div.innerHTML = " <a href=\"documents/"+data[i].id+"\">  <div class=\"course-image\">"
                             +"      <img src='"+data[i].avatar +"'/>"
                             +"   </div>"
-                            +'   <div class="course-name">'
+                           /* +'   <div class="course-name">'
                             +        data[i].name
-                            +"   </div> </a>"  ;
+                            +"   </div> </a>"  ;*/
+                           
+                            +"    </a>"  ;
                 document.getElementById(facultyName).children[0].children[0].children[0].appendChild(div);
             }
         },

@@ -52,7 +52,7 @@
 									<div class="course-image">
 										<img src='<c:url value="${value.getAvatar() }"/>'>
 									</div>
-									<div class="course-name">${value.getName() }</div>
+									<%-- <div class="course-name">${value.getName() }</div> --%>
 								</a>
 							</div>
 					</c:forEach>

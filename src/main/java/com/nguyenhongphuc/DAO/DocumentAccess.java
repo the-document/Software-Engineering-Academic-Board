@@ -22,6 +22,7 @@ public class DocumentAccess implements IDocument {
 	SessionFactory sessionFactory;
 
 	//Document da duoc duyet
+	@Transactional
 	public List<Document> GetTest(String category) {
 		Session session;
 		try {
@@ -43,6 +44,7 @@ public class DocumentAccess implements IDocument {
 		return list;
 	}
 
+	@Transactional
 	public List<Document> getDocumentsInSpecialType(String category, String type) {
 		Session session;
 		try {
@@ -63,6 +65,7 @@ public class DocumentAccess implements IDocument {
 	}
 
 	//document khac- same name
+	@Transactional
 	public Document GetDocumentsById(String idDoc) {
 		Session session;
 		try {
@@ -83,6 +86,7 @@ public class DocumentAccess implements IDocument {
 		return doc;
 	}
 
+	@Transactional
 	public Boolean UploadDocument(Document document) {
 		Session session;
 		try {
@@ -105,6 +109,7 @@ public class DocumentAccess implements IDocument {
 		}
 	}
 
+	@Transactional
 	public List<Document> getAllDocuments() {
 		Session session;
 		try {
@@ -125,6 +130,7 @@ public class DocumentAccess implements IDocument {
 		return docs;
 	}
 
+	@Transactional
 	public List<Document> getAllDocumentsUnapproved(){
 		Session session;
 		try {

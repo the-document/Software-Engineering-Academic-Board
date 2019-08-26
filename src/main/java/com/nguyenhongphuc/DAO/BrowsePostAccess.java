@@ -1,5 +1,7 @@
 package com.nguyenhongphuc.DAO;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ public class BrowsePostAccess implements IBrowsePost{
 	@Autowired
 	SessionFactory sessionFactory;
 	
+	@Transactional
 	public Boolean SaveHistoryBrowsePost(BrowsePost browsePost) {
 		Session session;
 		try {

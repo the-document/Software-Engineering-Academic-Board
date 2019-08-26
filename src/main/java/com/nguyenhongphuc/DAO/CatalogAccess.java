@@ -45,6 +45,7 @@ public class CatalogAccess implements ICatalog{
 		return lists;
 	}
 
+	@Transactional
 	public List<Category> getCategoryFor(String major) {
 		Session session;
 		try {
@@ -66,6 +67,7 @@ public class CatalogAccess implements ICatalog{
 		return lists;
 	}
 
+	@Transactional
 	public Category getCategory(int id) {
 		Session session;
 		try {
@@ -87,6 +89,7 @@ public class CatalogAccess implements ICatalog{
 		return category;
 	}
 
+	@Transactional
 	public List<Category> getAllCatetory() {
 		Session session;
 		try {

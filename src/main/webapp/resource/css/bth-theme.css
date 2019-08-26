@@ -546,7 +546,7 @@ section {
 .course-image img{
     max-width: 172px;
 	max-height: 172px;
-
+    width: 100%;
 }
 
 .course-info .course-image img {

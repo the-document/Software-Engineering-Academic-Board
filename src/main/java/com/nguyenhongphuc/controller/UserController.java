@@ -44,6 +44,12 @@ public class UserController {
 		
 		User user =new User();
 		
+		//check empty
+		if(username.isEmpty()||name.isEmpty()||password.isEmpty()||password2.isEmpty()) {
+			user.setName("Bạn phải điền tất cả các trường!");
+			return user; //id= 0 mean err
+		}
+		
 		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 	    if(!username.matches(regex))
 	    {

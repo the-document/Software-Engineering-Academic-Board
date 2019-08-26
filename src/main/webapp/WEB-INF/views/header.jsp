@@ -23,7 +23,7 @@
                     <div class="input-icon input">
                         <img src='<c:url value="/resource/images/icons/icon-search.png"/>'>
                     </div>
-                    <input class="" type="text"  style="width: 310px;" />
+                    <input class="" type="text"  style="width: 310px                ;" />
                 </div>
 
                 <div class="nav">

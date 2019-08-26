@@ -5,6 +5,55 @@ $("#email-quick").keyup(function(event) {
     }
 });
 
+//login popup
+$("#username").keyup(function(event) {
+    if (event.keyCode === 13) {
+    
+        $("#login-btn-onclick").click();
+    }
+});
+
+$("#password").keyup(function(event) {
+    if (event.keyCode === 13) {
+    
+        $("#login-btn-onclick").click();
+    }
+});
+
+//login and register popup
+$("#register-username").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#regiser-btn").click();
+    }
+});
+$("#register-name").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#regiser-btn").click();
+    }
+});
+$("#register-password").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#regiser-btn").click();
+    }
+});
+$("#register-password2").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#regiser-btn").click();
+    }
+});
+
+$("#username-popup2").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#login-btn-f2").click();
+    }
+});
+$("#password-popup2").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#login-btn-f2").click();
+    }
+});
+
+
 function loginNormal() {
 	var username =$("#username").val();
 	var password =$("#password").val();
@@ -12,7 +61,7 @@ function loginNormal() {
 	console.log(password);
 	$.ajax({
 		type: "POST",
-		url: "http://localhost:8080/Software-Engineering-Academic-Board/user/login",
+		url: "https://academicboard.herokuapp.com/user/login",
 		data:{
 			username:username,
 			password:password
@@ -41,7 +90,7 @@ function register() {
 
 	$.ajax({
 		type: "POST",
-		url: "user/register",
+		url: "https://academicboard.herokuapp.com/user/register",
 		data:{
 			username:username,
 			name:name,
@@ -78,7 +127,7 @@ function loginNormalPopupRegister() {
 	console.log(password);
 	$.ajax({
 		type: "POST",
-		url: "user/login",
+		url: "https://academicboard.herokuapp.com/user/login",
 		data:{
 			username:username,
 			password:password
@@ -87,7 +136,7 @@ function loginNormalPopupRegister() {
 		timeout:100000,
 		success: function (data) {
 			if(data.id==0)
-				$("#login-notify").text(data.name);
+				$("#login-notify2").text(data.name);
 			else
 			{
 				location.reload();

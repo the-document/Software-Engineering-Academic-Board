@@ -26,7 +26,7 @@
 		}	
 
 		#left-bar{
-			background-color: #3435;
+			/*background-color: #3435;*/
 			height: 0px;
 		}
 	
@@ -144,7 +144,7 @@
 			
 		</div>
 
-		<div class="col-lg-4 " style="background-color: #490;height: 0px;"></div>
+		<div class="col-lg-4 " style="/*background-color: #490;*/height: 0px;"></div>
 	</div>
 
 	<!-- PART COMMENT -->
@@ -233,6 +233,7 @@
 					text-align: center;
 					font-size: 1.5rem;
 					margin-bottom: 10px;
+					color: #5B9BD5;
 				}
 
 				.slider-bar-post-recomend{
@@ -270,7 +271,7 @@
 	</div>
 
 	<div style="position: absolute;right: 100px; bottom:50px; width: 50px;height: 50px; border-radius: 50%;border: 2px solid #ff0000;text-align: center;">
-		<img style="width: 70%;padding-top: 5px; " src='<c:url value="resource/images/icons/create.png"/>'>
+		<img style="width: 70%;padding-top: 5px; " src='<c:url value="https://academicboard.herokuapp.com/resource/images/icons/create.png"/>'>
 	</div>
 
 	<jsp:include page="footer.jsp"/>

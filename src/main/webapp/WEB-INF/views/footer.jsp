@@ -209,7 +209,7 @@
                     <input id="password" class="text-input" type="password" placeholder="Mật khẩu" name="password" required />
                 </div>
                 <div class="form-item">
-                    <button class="btn-login" onclick="loginNormal()">
+                    <button id="login-btn-onclick" class="btn-login" onclick="loginNormal()">
                     	Login
                     </button>
                    
@@ -228,7 +228,7 @@
 
 	                        <div class="logo form-item">
 	                        	
-			                    <img src='<c:url value="/resource/images/icons/google.png"/>'
+			                    <img src='<c:url value="/resource/images/icons/google2.png"/>'
 			                    style="max-width: 40px;max-height: 40px; margin-bottom: 30px" />
 			                    
 			                    <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://localhost:8443/Software-Engineering-Academic-Board/login/facebook">
@@ -264,7 +264,7 @@
                         		 bold; margin-top: 40px;margin-bottom: 30px; ">
                     		ĐĂNG KÝ
                 		</div>
-                		<p id="refister-notify"></p>
+                		<p id="refister-notify2"></p>
                         <div class="register-input log-input main-input form-item">
                             <img class="register-icon-input" src="<c:url value="/resource/images/icons/username.png"/>" />
                             <input id="register-username" type="email" placeholder="bht@example.com" name="username" required />
@@ -282,7 +282,7 @@
                             <input id="register-password2" type="password" placeholder="Nhập lại mật khẩu" name="password" required />
                         </div>
                         <div class="register-input form-item">
-                            <button class="btn-register" onclick="register()">Register</button>
+                            <button id="regiser-btn" class="btn-register" onclick="register()">Register</button>
                         </div>
                        
                         <!-- <div class="form-itema">
@@ -308,7 +308,7 @@
 		                    <input id="password-popup2" class="text-input" type="password" placeholder="Mật khẩu" name="password" required />
                 		</div>
                 		<div class="form-item" style="display: flex; justify-content: center;">
-		                    <button class="btn-login register-input" onclick="loginNormalPopupRegister()"> Login</button>
+		                    <button id="login-btn-f2" class="btn-login register-input" onclick="loginNormalPopupRegister()"> Login</button>
                 		</div>
 
                 		<div class="form-itema">
@@ -322,10 +322,10 @@
 		                        
 
 		                        	<div class="logo form-item">
-					                    <img src='<c:url value="/resource/images/icons/google.png"/>' 
+					                    <img src='<c:url value="/resource/images/icons/google2.png"/>' 
 					                    style="max-width: 40px;max-height: 40px; margin-bottom: 60px" />
 					                    
-					                    <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://localhost:8443/Software-Engineering-Academic-Board/login/facebook">
+					                    <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://academicboard.herokuapp.com/Software-Engineering-Academic-Board/login/facebook">
 					                    	<img src='<c:url value="/resource/images/icons/facebook.png"/>'
 					                    	style="max-width: 43px;max-height: 43px; margin-bottom: 60px"/>
 					                    </a>
@@ -361,7 +361,8 @@
 
 
         function openLoginModal() {
-            modalLogin.style.display = "block"
+            $("#login-notify").text("");
+            modalLogin.style.display = "block";
         }
 
         function closeLoginModal() {
@@ -373,7 +374,8 @@
         }
 
         function closeSignupModal() {
-            modalSignup.style.display = "none"
+            modalSignup.style.display = "none";
+            modalLogin.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it

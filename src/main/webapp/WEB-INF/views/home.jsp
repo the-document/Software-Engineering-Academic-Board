@@ -53,7 +53,7 @@
                         <p>${ lastevent.getIntrocontent()}</p>
 
                         <div class="readmore-bar" style="margin-top: 21%;">
-                        <a href="posts/${lastevent.getId()}">
+                        <a href="posts/detail/${lastevent.getId()}">
                         	 <button class="function-button white btn-hover">Đọc thêm</button>
                         </a>
                            
@@ -75,7 +75,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-4 border-right" style="margin-top: 15px;" >
+            <div class="col-lg-4 border-right" style="padding-top: 15px;" >
                 <div>
                     <div class="function-title">
                         Tạo tài khoản miễn phí

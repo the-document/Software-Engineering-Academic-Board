@@ -46,11 +46,19 @@ h4{
     line-height: 35px;box-shadow: 0 2px #a0a0a0; text-align: center;
 }
 
+.btn-login:hover{
+	background-color: #b835f0;
+}
+
 .btn-register{
     width: 300px; font-size:14px;background: #fff;
     border: none;border-radius: 10px; margin-top: 10px; color: #000;
     line-height: 35px;box-shadow: 0 2px #a0a0a0; text-align: center;
     margin-top: 30px;
+}
+
+.btn-register:hover{
+    background-color: #b835f0;
 }
 
 .login-text{

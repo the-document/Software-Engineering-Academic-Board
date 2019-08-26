@@ -1,57 +1,63 @@
 $("#email-quick").keyup(function(event) {
-    if (event.keyCode === 13) {
+    openRegisterForm();
+});
+
+function openRegisterForm() {
+	if (event.keyCode === 13) {
     	$("#register-username").val($("#email-quick").val());
         $("#go-to-register").click();
     }
-});
+}
+
 
 //login popup
 $("#username").keyup(function(event) {
-    if (event.keyCode === 13) {
-    
-        $("#login-btn-onclick").click();
-    }
+    requireLogin();
 });
 
 $("#password").keyup(function(event) {
-    if (event.keyCode === 13) {
+    requireLogin();
+});
+
+function requireLogin() {
+	if (event.keyCode === 13) {
     
         $("#login-btn-onclick").click();
     }
-});
+}
 
 //login and register popup
 $("#register-username").keyup(function(event) {
-    if (event.keyCode === 13) {
-        $("#regiser-btn").click();
-    }
+    requireRegister();
 });
 $("#register-name").keyup(function(event) {
-    if (event.keyCode === 13) {
-        $("#regiser-btn").click();
-    }
+    requireRegister();
 });
 $("#register-password").keyup(function(event) {
-    if (event.keyCode === 13) {
-        $("#regiser-btn").click();
-    }
+    requireRegister();
 });
 $("#register-password2").keyup(function(event) {
-    if (event.keyCode === 13) {
-        $("#regiser-btn").click();
-    }
+    requireRegister();
 });
 
-$("#username-popup2").keyup(function(event) {
-    if (event.keyCode === 13) {
-        $("#login-btn-f2").click();
+function requireRegister() {
+	if (event.keyCode === 13) {
+        $("#regiser-btn").click();
     }
+}
+
+$("#username-popup2").keyup(function(event) {
+     requireLogin2(); 
 });
 $("#password-popup2").keyup(function(event) {
-    if (event.keyCode === 13) {
+    requireLogin2(); 
+});
+
+function requireLogin2() {
+	if (event.keyCode === 13) {
         $("#login-btn-f2").click();
     }
-});
+}
 
 
 function loginNormal() {

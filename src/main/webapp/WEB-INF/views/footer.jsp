@@ -6,6 +6,14 @@
 
 <!-- toast popup -->
 	<style type="text/css">
+        #hay-dang-ky{
+            padding-left: 5px;padding-right: 5px; color: #5B9BD5; font-weight: bold;
+        }
+
+        #hay-dang-ky:hover{
+            color: #b835f0;
+        }
+
 		#toast {
 		    visibility: hidden;
 		    max-width: 50px;
@@ -223,7 +231,7 @@
                         	<p class="login-text">Quên mật khẩu?</p>
 	                        <div class="row "  >
 	                        	 <p class="login-text" style="padding-left: 5px;padding-right: 5px">Chưa có tài khoản?</p>
-	                        	 <p onclick="openSignupModal()" class="login-text" style="padding-left: 5px;padding-right: 5px; color: #5B9BD5; font-weight: bold;">Hãy đăng ký</p>
+	                        	 <p onclick="openSignupModal()" class="login-text" id="hay-dang-ky">Hãy đăng ký</p>
 	                        </div>
 
 	                        <div class="logo form-item">

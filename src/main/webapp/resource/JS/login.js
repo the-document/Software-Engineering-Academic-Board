@@ -89,6 +89,8 @@ function loginNormal() {
 }
 
 function register() {
+	//console.log("in register");
+	//$("#refister-notify").text("Thất bại: ");
 	var username =$("#register-username").val();
 	var name =$("#register-name").val();
 	var password =$("#register-password").val();

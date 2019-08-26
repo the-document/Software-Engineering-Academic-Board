@@ -272,7 +272,7 @@
                         		 bold; margin-top: 40px;margin-bottom: 30px; ">
                     		ĐĂNG KÝ
                 		</div>
-                		<p id="refister-notify2"></p>
+                		<p id="refister-notify"></p>
                         <div class="register-input log-input main-input form-item">
                             <img class="register-icon-input" src="<c:url value="/resource/images/icons/username.png"/>" />
                             <input id="register-username" type="email" placeholder="bht@example.com" name="username" required />

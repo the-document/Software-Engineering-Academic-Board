@@ -11,21 +11,32 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd
         ">
         
-        	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		        <!-- <property name="url" value="jdbc:mysql://localhost:3306/academicboard"/>
+		        
+		        <property name="url" value="jdbc:mysql://localhost:3306/academicboard"/>
 		        <property name="username" value="root"/>
-		        <property name="password" value=""/>  -->
-		        <!-- <property name="url" value="jdbc:mysql://johnny.heliohost.org:3306/nguyenho_academicboard"/>
+		        <property name="password" value=""/> 
+		        <property name="url" value="jdbc:mysql://johnny.heliohost.org:3306/nguyenho_academicboard"/>
 		        <property name="username" value="nguyenho_admin"/>
-		        <property name="password" value="A221198a"/>  -->
+		        <property name="password" value="A221198a"/> 
 		        
 		        <property name="url" value="jdbc:mysql://remotemysql.com:3306/hF8HqGM0OF"/>
 		        <property name="username" value="hF8HqGM0OF"/>
 		        <property name="password" value="bKOxCLJXLs"/> 
 		        
 		        <property name="connectionProperties" value="useUnicode=yes;characterEncoding=utf8;"/>
+			</bean> -->
+			
+			<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			    <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+			   	<property name="url" value="jdbc:sqlserver://bhtcnpm-db-server.database.windows.net:1433;database=bhtcnpm-db;" />
+			    <property name="username" value="bhtcnpm-db-admin-21115" />
+			    <property name="password" value="FchtaHQVb3l4dhUBPoHyqvko0bvX0sui" />	
+			
 			</bean>
+		
+			    
 	
 			<!-- DUNG DE KET NOI DEN DB -->
 			<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">

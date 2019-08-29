@@ -12,55 +12,55 @@
     <link rel="stylesheet" type="text/css" href='<c:url value="/resource/css/owl.carousel.min.css"/>' />
     <link rel="stylesheet" type="text/css" href='<c:url value="/resource/css/owl.theme.default.min.css"/>' />
     <link rel="stylesheet" href='<c:url value="/resource/css/bth-theme.css"/>' type="text/css" />
-	
+
 	<title>BHT| ${post.getTitle() }</title>
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-		
+
 	<style type="text/css">
 		.post-avatar{
 			border-radius: 50%;
 			width: 59px;height: 59px;
 			border: solid 3px #2ECC71;
-		}	
+		}
 
 		#left-bar{
 			/*background-color: #3435;*/
 			height: 0px;
 		}
-	
+
 		#post-header{
-			font-family: Roboto; 
+			font-family: Roboto;
 			font-size: 3rem;
 			padding-top: 20px;
 		}
-	
+
 		#post-quote{
-			font-size: 1.2rem; 
+			font-size: 1.2rem;
 			margin: 14px;
 			font-style: italic;
 		}
-	
+
 		#post-infor{
 			display: flex;
 			flex-direction: row;
 			font-size: 1.2rem;
 			justify-content: space-between;
 		}
-	
+
 		#post-time{
 			margin-right: 20px;
 			color: #C4C4C4;
 			padding-top: 18px;
 		}
-	
+
 		#post-content{
 			font-family: Roboto;
 			padding-top: 20px;
 			font-size: 1.2rem;
 		}
-	
+
 		#action-bar{
 			display: flex;
 			justify-content: space-between;
@@ -70,36 +70,34 @@
 			border-bottom: 1px solid #5B9BD5;
 			padding-bottom: 10px;
 		}
-	
+
 		#upvote-icon{
 			width: 36px;
 			height: 36px;
 			border-radius: 50%;
 			border: 2px solid #5B9BD5;
 		}
-	
+
 		#bookmark-icon{
 			width: 36px;
 			height: 36px;
 			margin-right: 15px;
 		}
-	
+
 		#facebook-icon{
 			width: 36px;
 			height: 36px;
 			margin-right: 15px;
 		}
-	
+
 		#more-infor-icon{
 			width: 36px;
 			height: 36px;
 		}
 	</style>
-
+<div class="container">
 	<div class="row">
-		<div class="col-lg-2 col-md-1" id="left-bar"></div>
-
-		<div class="col-lg-6 col-md-8">
+		<div class="col-lg-8 col-md-8">
 			<div  style="height: auto;">
 				<div id="post-header"> ${post.getTitle() }</div>
 
@@ -115,12 +113,12 @@
 							<div style="color: #5B9BD5;padding-left: 5px; ">${post.getType()}</div>
 						</div>
 					</div>
-					
-					
+
+
 					<div id="post-time"> ${post.getReadtime()} phút đọc,      ${post.getPostday()}</div>
 				</div>
 				<div id="post-content">
-					<p style="line-height: 26px;"> 
+					<p style="line-height: 26px;">
 						${post.getContent()}
 					</p>
 				</div>
@@ -130,24 +128,23 @@
 						<img id="upvote-icon" src="https://img.icons8.com/color/48/000000/sort-up.png">
 						<div style="padding-left: 9px;padding-top: 9px;">${post.getUpvote()} upvotes</div>
 					</div>
-					
+
 					<div style="display: flex;">
 						<div style="padding-top: 9px;padding-right: 50px;">${post.getViewcount()} views</div>
 						<img id="bookmark-icon" src='<c:url value="/resource/images/icons/icon-bookmark.png"/>'>
 						<img id="facebook-icon"  src='<c:url value="/resource/images/icons/facebook.png"/>'>
 						<img id="more-infor-icon"  src='<c:url value="/resource/images/icons/icon-more.png"/>'>
 					</div>
-					
+
 				</div>
 			</div>
 
-			
+
 		</div>
 
 		<div class="col-lg-4 " style="/*background-color: #490;*/height: 0px;"></div>
 	</div>
-
-	<!-- PART COMMENT -->
+  <!-- PART COMMENT -->
 
 	<div class="row">
 		<style type="text/css">
@@ -177,7 +174,7 @@
 			}
 
 			#time-comment{
-				padding-top: 15px; 
+				padding-top: 15px;
 				color: #C4C4C4;
 				 padding-right: 15px;
 			}
@@ -195,8 +192,7 @@
 			}
 		</style>
 
-		<div class="col-lg-2 col-md-1"></div>
-		<div class="col-lg-6 col-md-8" id ="post-temlate">
+		<div class="col-lg-8 col-md-8" id ="post-temlate">
 			<div style="display: flex;">
 				Bạn có cảm nhận gì về bài viết của <div style="color: #5B9BD5; padding-left: 10px;">${post.getAuthor().getName()}</div>
 			</div>
@@ -206,13 +202,13 @@
 			<div style=" margin-top: 20px;">
 				<div id="header-reply-comment">
 					<div style="display: flex;">
-						<img class="post-avatar" src="https://www.thesprucepets.com/thmb/LS2xCGAy-VbbHSd9UAefbVF5wTI=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-182174009-58c5ad533df78c353c5700c8.jpg">	
+						<img class="post-avatar" src="https://www.thesprucepets.com/thmb/LS2xCGAy-VbbHSd9UAefbVF5wTI=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-182174009-58c5ad533df78c353c5700c8.jpg">
 						<div id="author-comment">Nguyễn Hồng Phúc</div>
 					</div>
-					
+
 					<div id="time-comment">3 ngày trước</div>
 				</div>
-				
+
 				<div id="content-reply-comment">
 					Cảm ơn tác giả, một bài viết quá tuyệt vời.
 				</div>
@@ -242,7 +238,7 @@
 					font-family: Roboto;
 					font-size: 1.2rem;
 				}
-				
+
 				a:hover{
 					color:#5B9BD5;
 				}
@@ -250,25 +246,27 @@
 
 			<div class="slider-bar">
 				<p class="slider-bar-header" ">Cùng tác giả</p>
-				
-				
+
+
 				<c:forEach var="post" items="${sameAuthor }">
 					<p class="slider-bar-post-recomend"><a href='<c:url value="${post.getId()}"/>'>${post.getTitle()}</a></p>
 				</c:forEach>
-				
+
 			</div>
 
 			<div class="slider-bar">
-			
+
 				<p class="slider-bar-header" ">Cùng chủ đề</p>
-				
+
 				<c:forEach var="post" items="${sameContent }">
 					<p class="slider-bar-post-recomend"><a href='<c:url value="${post.getId()}"/>'>${post.getTitle()}</a></p>
 				</c:forEach>
-				
+
 			</div>
 		</div>
 	</div>
+</div>
+
 
 	<div style="position: absolute;right: 100px; bottom:50px; width: 50px;height: 50px; border-radius: 50%;border: 2px solid #ff0000;text-align: center;">
 		<img style="width: 70%;padding-top: 5px; " src='<c:url value="https://academicboard.herokuapp.com/resource/images/icons/create.png"/>'>

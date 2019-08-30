@@ -36,7 +36,7 @@ public class DocumentAccess implements IDocument {
 
 		}
 
-		String query = "from document  " + "WHERE type  ='DETHI' and category= " + category+" and status = 1";
+		String query = "from document  " + "WHERE typedoc  ='DETHI' and category= " + category+" and status = 1";
 		// String query="from document d ,user a WHERE d.author=a.id and type ='DETHI'
 		// and category="+category;
 		List<Document> list = (List<Document>) session.createQuery(query).getResultList();
@@ -58,7 +58,7 @@ public class DocumentAccess implements IDocument {
 
 		}
 
-		String query = "from document  " + "WHERE type  ='" + type + "' and category= " + category+" and status = 1";
+		String query = "from document  " + "WHERE typedoc  ='" + type + "' and category= " + category+" and status = 1";
 		List<Document> list = (List<Document>) session.createQuery(query).getResultList();
 
 		return list;
@@ -168,8 +168,8 @@ public class DocumentAccess implements IDocument {
 
 		String query = "update document  set dowloads = "+ (Integer)( document.getDowloads()+1) 
 				+" , status = "+ document.getStatus()
-				+" , name = '"+ document.getName()
-				+"' , url = '"+ document.getUrl()
+				+" , name = '"+ document.getNamedoc()
+				+"' , url = '"+ document.getUrldoc()
 				+ "' WHERE id = " +document.getId();
 		
 		int i= session.createQuery(query).executeUpdate();

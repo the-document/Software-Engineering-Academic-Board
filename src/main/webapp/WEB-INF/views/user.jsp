@@ -108,7 +108,7 @@
 		<div class="row " id="user-infor">
 			<div id="infor" class="col-md-6" style="padding-top: 13px;">
 				<div class="name">
-					<p>${user.getName()}</p>
+					<p>${user.getFullname()}</p>
 					<%
 						String username=((User) request.getAttribute("user")).getUsername();
 						String pre=username.split("@")[0];
@@ -156,18 +156,18 @@
 										<img style="width: 40px;height: 40px; border-radius:  50%;" src='<c:url value="${user.getAvatar()}"/>'>
 									</div>
 									<div style="color: #C4C4C4;font-size: 1.4rem;padding-left: 8px;">Đã đăng trong</div>
-									<div style="color: #4F1111;font-size: 1.4rem; padding-left: 5px;">${post.getType()}</div>
+									<div style="color: #4F1111;font-size: 1.4rem; padding-left: 5px;">${post.getTypePost()}</div>
 									<div>
 										<img style="width: 25px;height: 25px;margin-left: 19px;"
 									 	src='<c:url value="/resource/images/icons/pin.png"/>'>
 									 </div>
 								</div>
-								<div style="color: #C4C4C4;font-size: 1.4rem;">#${post.getCategory().getName()}</div>
+								<div style="color: #C4C4C4;font-size: 1.4rem;">#${post.getCategory().getNamecategory()}</div>
 							</div>
 							
 						</div>
 						<div class="post-image col-sm-12">
-							<img style="max-width: 100%;max-height: 318px;padding: 18px;" src='<c:url value="${post.getImage()}"/>'>
+							<img style="max-width: 100%;max-height: 318px;padding: 18px;" src='<c:url value="${post.getImageUrl()}"/>'>
 						</div>
 						<div class="post-title" style="font-family: Rosario; font-size: 1.5rem;">
 							${post.getTitle()}

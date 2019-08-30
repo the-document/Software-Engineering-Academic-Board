@@ -14,7 +14,7 @@
             <div class="nav-left">
 
                 <div class="logo-wraper " >
-                    <a href="https://academicboard.herokuapp.com/">
+                    <a href="/">
                 		<img src='<c:url value="/resource/images/icons/logo.png"/>'>
                 	</a>
                 </div>
@@ -28,11 +28,11 @@
 
                 <div class="nav">
                     <ul>
-                        <li><a id="competition" href="https://academicboard.herokuapp.com/competition">
+                        <li><a id="competition" href="/competition">
                         	Cuộc thi</a class=".menu-bar-active"></li>
-                        <li><a id="documents"  href="https://academicboard.herokuapp.com/documents">
+                        <li><a id="documents"  href="/documents">
                         	Tài liệu</a></li>
-                        <li><a id="posts" href="https://academicboard.herokuapp.com/posts">
+                        <li><a id="posts" href="/posts">
                         	Bài viết</a></li>
                     </ul>
                 </div>

@@ -46,25 +46,25 @@ public class UserController {
 		
 		//check empty
 		if(username.isEmpty()||name.isEmpty()||password.isEmpty()||password2.isEmpty()) {
-			user.setName("Bạn phải điền tất cả các trường!");
+			user.setFullname("Bạn phải điền tất cả các trường!");
 			return user; //id= 0 mean err
 		}
 		
 		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 	    if(!username.matches(regex))
 	    {
-	    	user.setName("Định dạng email không đúng!");
+	    	user.setFullname("Định dạng email không đúng!");
 			return user; //id= 0 mean err
 	    }
 	    
 		if(!password.equals(password2)) {
-			user.setName("Mật khẩu không khớp!");
+			user.setFullname("Mật khẩu không khớp!");
 			return user; //id= 0 mean err
 		}
 		
 		User userCheckExist=userService.GetUserByUsername(username);
 		if(userCheckExist!=null) {
-			user.setName("Tên đăng nhập đã tồn tại!");
+			user.setFullname("Tên đăng nhập đã tồn tại!");
 			return user; //id= 0 mean err
 		}
 		
@@ -81,19 +81,19 @@ public class UserController {
 		}
 		
 		user.setUsername(username);
-		user.setName(name);
-		user.setPassword(savePass);
+		user.setFullname(name);
+		user.setPass(savePass);
 		user.setAvatar("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ohqZNJMaI4irCuvXh2wUHJuj_Yup6uaRM21bjwQ1tJ9er0k5");
 		user.setPoint(1000);
 		user.setPosition("Member");
 		
 		Boolean result=userService.SaveUser(user);
 		if(result==false) {
-			user.setName("Lỗi đăng ký, thử lại sau!");
+			user.setFullname("Lỗi đăng ký, thử lại sau!");
 			return user; //id= 0 mean err
 		}
 		
-		user.setPassword("********************");
+		user.setPass("********************");
 		return user;
 		//return null;
 	}
@@ -116,7 +116,7 @@ public class UserController {
 		
 		User userCheck=userService.GetUserByUsername(username);
 		if(userCheck==null) {
-			user.setName("Tài khoản không tồn tại");
+			user.setFullname("Tài khoản không tồn tại");
 			return user;
 		}
 
@@ -132,13 +132,13 @@ public class UserController {
 			e.printStackTrace();
 		}
 			
-		if(!savePass.equals(userCheck.getPassword())) {
-			user.setName("Mật khẩu không đúng");
+		if(!savePass.equals(userCheck.getPass())) {
+			user.setFullname("Mật khẩu không đúng");
 			return user;
 		}
 		
 	
-		userCheck.setPassword("********************");
+		userCheck.setPass("********************");
 		httpSession.setAttribute("useractive", userCheck);
 		httpSession.setMaxInactiveInterval(300);
 		return userCheck;

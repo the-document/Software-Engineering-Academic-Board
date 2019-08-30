@@ -110,7 +110,7 @@
 
 						<div style="padding: 5px;font-size: 1.2rem;padding-top: 17px;display: flex;justify-content: space-between;">
 							Đã đăng trong
-							<div style="color: #5B9BD5;padding-left: 5px; ">${post.getType()}</div>
+							<div style="color: #5B9BD5;padding-left: 5px; ">${post.getTypePost()}</div>
 						</div>
 					</div>
 
@@ -194,7 +194,7 @@
 
 		<div class="col-lg-8 col-md-8" id ="post-temlate">
 			<div style="display: flex;">
-				Bạn có cảm nhận gì về bài viết của <div style="color: #5B9BD5; padding-left: 10px;">${post.getAuthor().getName()}</div>
+				Bạn có cảm nhận gì về bài viết của <div style="color: #5B9BD5; padding-left: 10px;">${post.getAuthor().getFullname()}</div>
 			</div>
 
 			<input type="text" name="comment" placeholder="Để lại bình luận" id="commment-box">

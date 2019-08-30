@@ -35,7 +35,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE poststatus=1 and type = 'SHARE' ORDER BY viewcount DESC";
+		String query="FROM post WHERE poststatus=1 and typePost = 'SHARE' ORDER BY viewcount DESC";
 		List<Post> posts=null;
 		try {
 			posts= (List<Post>) session.createQuery(query).setMaxResults(5).getResultList();
@@ -59,14 +59,14 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE poststatus=1 and type = 'EVENT'  ORDER BY  postday DESC";
+		String query="FROM post WHERE poststatus=1 and typePost = 'EVENT'  ORDER BY  postday DESC";
 		
 		List<Post> posts=null;
 		try {
-			posts= (List<Post>) session.createQuery(query).setMaxResults(1).getResultList();
+			posts= (List<Post>)session.createQuery(query).setMaxResults(1).getResultList();
 			return posts.get(0);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("lastest event - "+e.getMessage());
 			return null;
 		}
 		
@@ -82,7 +82,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE poststatus=1 and type = 'TUTORIAL'  ORDER BY viewcount DESC	";
+		String query="FROM post WHERE poststatus=1 and typePost = 'TUTORIAL'  ORDER BY viewcount DESC	";
 		
 		List<Post> posts=null;
 		try {
@@ -129,7 +129,7 @@ public class PostAccess implements IPost{
 		}
 		
 		
-		String query="FROM post WHERE poststatus=1 and type = '"+type+"'  ORDER BY postday DESC	";
+		String query="FROM post WHERE poststatus=1 and typePost = '"+type+"'  ORDER BY postday DESC	";
 		
 		List<Post> posts=null;
 		try {
@@ -189,6 +189,7 @@ public class PostAccess implements IPost{
 
 	
 	@Transactional
+	//view and status
 	public Boolean Update(Post post) {
 		Session session;
 		try {

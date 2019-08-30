@@ -115,7 +115,7 @@ function focusMenuDocument(idBtnDocument,space) {
         var subject=$(`#subjectID`).attr("value");
         $.ajax({
     		type: "GET",
-    		url: "https://academicboard.herokuapp.com/documents/"+subject+"/ajax/"+space+"",
+    		url: "/documents/"+subject+"/ajax/"+space+"",
     		
     		data: {
     			
@@ -134,8 +134,8 @@ function focusMenuDocument(idBtnDocument,space) {
 	        	        tr.id=data[i].id;
 	        	        
 	        	        //tr.onclick = SetFocusRow(data[i].id+"");
-	        	        tr.innerHTML=" <td >"+ data[i].name+"</td> "
-	        	                    +" <td>"+ data[i].author.name+"</td> "
+	        	        tr.innerHTML=" <td >"+ data[i].namedoc+"</td> "
+	        	                    +" <td>"+ data[i].author.fullname+"</td> "
 	        	                    +" <td>"+ data[i].dowloads+"</td> ";
 	        	        document.getElementById(space).appendChild(tr);
 	        	        //$(`#${data[i].id}`).click(SetFocusRow(data[i].id));
@@ -204,7 +204,7 @@ function DowloadDocument(idSubject){
                     //using ajax to post request
                     $.ajax({
                 		type: "GET",
-                		url: "https://academicboard.herokuapp.com/documents/"+idSubject+"/download/"+id+"",
+                		url: "/documents/"+idSubject+"/download/"+id+"",
                 		async: false,
                 		data: {
                 			
@@ -267,7 +267,7 @@ function UploadDocument() {
     //start uploading
     $.ajax({
     	type: "POST",
-    	url: "https://academicboard.herokuapp.com/documents/upload",
+    	url: "/documents/upload",
     	data: {
     		type :typedoc,
     		category:typeobject,

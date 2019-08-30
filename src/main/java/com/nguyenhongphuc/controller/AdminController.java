@@ -89,8 +89,8 @@ public class AdminController {
 	public String BrowseDocument(@RequestParam String id,@RequestParam String docName, @RequestParam String Url,HttpSession httpSession) {
 		
 		Document document=documentService.GetDocumentsById(id);
-		document.setName(docName);
-		document.setUrl(Url);
+		document.setNamedoc(docName);
+		document.setUrldoc(Url);
 		document.setStatus(true);
 		
 		Boolean bool=documentService.UpdateDocument(document);
@@ -160,7 +160,7 @@ public class AdminController {
 			BrowsePost browsePost=new BrowsePost();
 			User browserUserId=(User) httpSession.getAttribute("useractive");
 			User browserUser=UserService.GetUserById(browserUserId.getId()+"");
-			browsePost.setAuthor(browserUser);
+			browsePost.setBrowser(browserUser);
 			browsePost.setPost(post);
 			long millis=System.currentTimeMillis();  
 			Date date=new java.sql.Date(millis);  

@@ -15,8 +15,8 @@ public class Document {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 	
-	String name;
-	String type;
+	String namedoc;
+	String typedoc;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "author")
@@ -31,8 +31,8 @@ public class Document {
 	
 	int dowloads;
 	Boolean status;
-	String description;
-	String url;
+	String about;
+	String urldoc;
 	
 	public int getId() {
 		return id;
@@ -40,18 +40,7 @@ public class Document {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public User getAuthor() {
 		return author;
 	}
@@ -76,18 +65,31 @@ public class Document {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-	public String getDescription() {
-		return description;
+	public String getNamedoc() {
+		return namedoc;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setNamedoc(String namedoc) {
+		this.namedoc = namedoc;
 	}
-	public String getUrl() {
-		return url;
+	public String getTypedoc() {
+		return typedoc;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+	public void setTypedoc(String typedoc) {
+		this.typedoc = typedoc;
 	}
+	public String getAbout() {
+		return about;
+	}
+	public void setAbout(String about) {
+		this.about = about;
+	}
+	public String getUrldoc() {
+		return urldoc;
+	}
+	public void setUrldoc(String urldoc) {
+		this.urldoc = urldoc;
+	}
+	
 //	public int getAuthor() {
 //		return author;
 //	}

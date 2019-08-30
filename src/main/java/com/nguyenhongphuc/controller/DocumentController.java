@@ -94,7 +94,7 @@ public class DocumentController {
 				//System.out.println(doc.getUrl());
 				user.setPoint(user.getPoint()-POIN_OF_DOCUMENT);
 				userService.UpdatePoint(user);
-				return doc.getUrl();
+				return doc.getUrldoc();
 			}	
 			else {
 				return "failscore";
@@ -116,15 +116,15 @@ public class DocumentController {
 			return "loginerror";
 		
 		Document document=new Document();
-		document.setName(name);
-		document.setType(type);
+		document.setNamedoc(name);
+		document.setTypedoc(type);
 		document.setAuthor(user);
 		
 		Category cat=CatalogService.getCategory(category);
 		document.setCategory(cat);
 		document.setDowloads(0);
 		document.setStatus(false);
-		document.setUrl(url);
+		document.setUrldoc(url);
 		
 		Boolean result=documentService.UploadDocument(document);
 		if(result==false)

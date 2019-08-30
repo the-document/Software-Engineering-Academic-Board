@@ -39,7 +39,7 @@ public class CatalogAccess implements ICatalog{
 		}
 		
 		
-		String query = "FROM category WHERE scope = 'Đại cương'";
+		String query = "FROM category WHERE scope = 'generalSubject'";
 		List<Category> lists= (List<Category>)session.createQuery(query).getResultList();
 		//System.out.println("size list:\n"+lists.size());
 		return lists;

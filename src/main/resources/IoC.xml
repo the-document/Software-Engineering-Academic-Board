@@ -48,7 +48,7 @@
 		        <!-- XD LOAI TRUY VAN CUA CSDL MYSQL -->
 		        <property name="hibernateProperties">
 		        	<props>
-		        		<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+		        		<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
 		        		<!-- CHO PHEP HIEN THI CAU TRUY VA -->
 		        		<prop key="hibernate.show_sql">true</prop>
 		        	</props>

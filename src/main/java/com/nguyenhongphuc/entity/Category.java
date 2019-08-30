@@ -15,8 +15,8 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
-	String name;
-	String description;
+	String namecategory;
+	String about;
 	String avatar;
 	String scope;
 	
@@ -27,17 +27,18 @@ public class Category {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	
+	public String getNamecategory() {
+		return namecategory;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNamecategory(String namecategory) {
+		this.namecategory = namecategory;
 	}
-	public String getDescription() {
-		return description;
+	public String getAbout() {
+		return about;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setAbout(String about) {
+		this.about = about;
 	}
 	public String getAvatar() {
 		return avatar;

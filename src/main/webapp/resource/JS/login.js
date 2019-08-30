@@ -67,7 +67,7 @@ function loginNormal() {
 	console.log(password);
 	$.ajax({
 		type: "POST",
-		url: "https://academicboard.herokuapp.com/user/login",
+		url: "/user/login",
 		data:{
 			username:username,
 			password:password
@@ -98,7 +98,7 @@ function register() {
 
 	$.ajax({
 		type: "POST",
-		url: "https://academicboard.herokuapp.com/user/register",
+		url: "/user/register",
 		data:{
 			username:username,
 			name:name,
@@ -135,7 +135,7 @@ function loginNormalPopupRegister() {
 	console.log(password);
 	$.ajax({
 		type: "POST",
-		url: "https://academicboard.herokuapp.com/user/login",
+		url: "/user/login",
 		data:{
 			username:username,
 			password:password

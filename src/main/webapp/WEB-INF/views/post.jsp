@@ -86,7 +86,7 @@
         	<div class="col-lg-3 col-md-3  col-8  col-sm-4 ">
 	            <div style="align-items: center; max-width: 200px;" class="post-card">
 	                    <div class="post-image">
-	                        <img style="border-radius: 12px;" src='<c:url value="${share.getImage()}"/>' />
+	                        <img style="border-radius: 12px;" src='<c:url value="${share.getImageUrl()}"/>' />
 	                    </div>
 	                    <div class="hint-text" >
 	                        <a style="font-size: 1.2rem;" href='<c:url value="/posts/detail/${share.getId()}"/>'>${share.getTitle()}</a>
@@ -94,7 +94,7 @@
 	                    <div class="author">
 	                        <img src="https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png" class="author-image">
 	                        <p class="author-name">  
-	                            <a href='<c:url value="/user/${share.getAuthor().getId()}"/>'>${share.getAuthor().getName()}</a>
+	                            <a href='<c:url value="/user/${share.getAuthor().getId()}"/>'>${share.getAuthor().getFullname()}</a>
 	                        </p>
 	                    </div>
 	            </div>
@@ -114,7 +114,7 @@
         	<div class="col-lg-3 col-md-3  col-8  col-sm-4 ">
 	            <div style="align-items: center; max-width: 200px;" class="post-card">
 	                    <div class="post-image">
-	                        <img style="border-radius: 12px;" src='<c:url value="${tutorial.getImage()}"/>' />
+	                        <img style="border-radius: 12px;" src='<c:url value="${tutorial.getImageUrl()}"/>' />
 	                    </div>
 	                    <div class="hint-text" >
 	                        <a style="font-size: 1.2rem;" href='<c:url value="/posts/detail/${tutorial.getId()}"/>'>${tutorial.getTitle()}</a>
@@ -122,7 +122,7 @@
 	                    <div class="author">
 	                        <img src="https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png" class="author-image">
 	                        <p class="author-name">  
-	                            <a href='<c:url value="/user/${tutorial.getAuthor().getId()}"/>'>${tutorial.getAuthor().getName()}</a>
+	                            <a href='<c:url value="/user/${tutorial.getAuthor().getId()}"/>'>${tutorial.getAuthor().getFullname()}</a>
 	                        </p>
 	                    </div>
 	            </div>
@@ -142,7 +142,7 @@
         	<div class="col-lg-3 col-md-3  col-8  col-sm-4 ">
 	            <div style="align-items: center; max-width: 200px;" class="post-card">
 	                    <div class="post-image">
-	                        <img style="border-radius: 12px;" src='<c:url value="${event.getImage()}"/>' />
+	                        <img style="border-radius: 12px;" src='<c:url value="${event.getImageUrl()}"/>' />
 	                    </div>
 	                    <div class="hint-text" >
 	                        <a style="font-size: 1.2rem;" href='<c:url value="/posts/detail/${event.getId()}"/>'>${event.getTitle()}</a>
@@ -150,7 +150,7 @@
 	                    <div class="author">
 	                        <img src="https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png" class="author-image">
 	                        <p class="author-name">  
-	                            <a href='<c:url value="/user/${event.getAuthor().getId()}"/>'>${event.getAuthor().getName()}</a>
+	                            <a href='<c:url value="/user/${event.getAuthor().getId()}"/>'>${event.getAuthor().getFullname()}</a>
 	                        </p>
 	                    </div>
 	            </div>

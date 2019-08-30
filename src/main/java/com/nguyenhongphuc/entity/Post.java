@@ -18,7 +18,7 @@ public class Post {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 	
-	String image;
+	String imageUrl;
 	String title;
 	String introcontent;
 	
@@ -36,21 +36,28 @@ public class Post {
 	
 	Date postday;
 	Boolean poststatus;
-	String type;
+	String typePost;
 	int readtime;
 	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+	public String getTypePost() {
+		return typePost;
+	}
+	public void setTypePost(String typePost) {
+		this.typePost = typePost;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -105,12 +112,7 @@ public class Post {
 		this.postday = postday;
 	}
 
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public String getIntrocontent() {
 		return introcontent;
 	}

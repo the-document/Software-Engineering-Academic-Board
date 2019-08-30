@@ -62,7 +62,7 @@ public class PostController {
 		modelMap.addAttribute("post", post);
 		try {
 			List<Post> sameContent=new ArrayList<Post>();
-			sameContent=postService.GetPostByTypeWithAmount(4, post.getType());
+			sameContent=postService.GetPostByTypeWithAmount(4, post.getTypePost());
 			List<Post> sameAuthor=new ArrayList<Post>();
 			sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
 			
@@ -94,7 +94,7 @@ public class PostController {
 				modelMap.addAttribute("post", post);
 				try {
 					List<Post> sameContent=new ArrayList<Post>();
-					sameContent=postService.GetPostByTypeWithAmount(4, post.getType());
+					sameContent=postService.GetPostByTypeWithAmount(4, post.getTypePost());
 					List<Post> sameAuthor=new ArrayList<Post>();
 					sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
 					
@@ -152,7 +152,7 @@ public class PostController {
 			Post post=new Post();
 			post.setTitle(title);
 			post.setIntrocontent(intro);
-			post.setImage(image);
+			post.setImageUrl(image);
 			try {
 				Category category=catalogSevice.getCategory(Integer.parseInt(cata));
 				post.setCategory(category);
@@ -171,7 +171,7 @@ public class PostController {
 	        Date date=new java.sql.Date(millis);  
 			post.setPostday(date);
 			post.setPoststatus(false);
-			post.setType(type);
+			post.setTypePost(type);
 			
 			Boolean result= postService.SavePost(post);
 			if(result==false)

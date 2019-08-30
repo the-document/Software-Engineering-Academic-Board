@@ -28,7 +28,7 @@
                 <div class="carousel">
                     <div id="home-carousel" class="owl-carousel owl-theme half">
                         <div class="img">
-                            <img src=" ${ lastevent.getImage()}" />
+                            <img src=" ${ lastevent.getImageUrl()}" />
 
                         </div>
                         <div class="img">
@@ -213,7 +213,7 @@
             	<c:forEach var="post" items="${topPost}">
             		<div class="col-lg-2 post-card">
 	                    <div class="post-image">
-	                        <img style="border-radius: 12px;" src="${post.getImage() }" />
+	                        <img style="border-radius: 12px;" src="${post.getImageUrl() }" />
 	                    </div>
 	                    <div style="color: #fff;padding: 7px;">
 	                        <a href='<c:url value="/posts/detail/${post.getId()}"/>'>${post.getTitle()}</a>
@@ -221,7 +221,7 @@
 	                    <div class="author">
 	                    	<img src=" ${post.getAuthor().getAvatar()}" class="author-image">
 	                    		<p class="author-name">  
-	                    			<a href='<c:url value="/user/${post.getAuthor().getId()}"/>'>${post.getAuthor().getName() }</a>
+	                    			<a href='<c:url value="/user/${post.getAuthor().getId()}"/>'>${post.getAuthor().getFullname() }</a>
 	                    		</p>
 	                    </div>
                 	</div>

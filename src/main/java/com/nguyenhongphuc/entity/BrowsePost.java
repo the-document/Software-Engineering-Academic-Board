@@ -18,8 +18,8 @@ public class BrowsePost {
 	int id;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "author")
-	User author;
+	@JoinColumn(name = "browser")
+	User browser;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "post")
@@ -35,15 +35,17 @@ public class BrowsePost {
 		this.id = id;
 	}
 
-	public User getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(User author) {
-		this.author = author;
-	}
+	
 
 	
+
+	public User getBrowser() {
+		return browser;
+	}
+
+	public void setBrowser(User browser) {
+		this.browser = browser;
+	}
 
 	public Post getPost() {
 		return post;

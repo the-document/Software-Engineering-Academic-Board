@@ -16,7 +16,7 @@
 	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" />
 
     <link rel="stylesheet" href='<c:url value="/resource/css/bth-theme.css"/>' type="text/css" />
-	<title>BHT| ${subject.getName()} </title>
+	<title>BHT| ${subject.getNamecategory()} </title>
 </head>
 <body>
 		<jsp:include page="header.jsp"></jsp:include>
@@ -87,9 +87,9 @@
                             <img src='<c:url value="/${subject.getAvatar() }"/>' />
                         </div>
                         <div class="course-name" style="height: 300px;">
-                            <h4>${subject.getName()}</h4>
+                            <h4>${subject.getNamecategory()}</h4>
                             <p class="hint-text" style=" max-height: 169px;text-align: start;white-space: initial;width: auto;">
-                                ${subject.getDescription()}
+                                ${subject.getAbout()}
                             </p>
                             <div class="btn-area">
                                 <button style="border-radius: 12px;background-color: #fff;width: 107px;line-height: 31px;">
@@ -114,8 +114,8 @@
                             	
                             	<c:forEach var="data" items="${listTest}">
                             		<tr id="${data.getId()}" class="doc-row" onclick="SetFocusRow(`${data.getId()}`)">
-	                                <td>${data.getName()}</td>
-	                                <td>${data.getAuthor().getName()}</td>
+	                                <td>${data.getNamedoc()}</td>
+	                                <td>${data.getAuthor().getFullname()}</td>
 	                                <td>${data.getDowloads()}</td>
 	                            </tr>
                             	</c:forEach>
@@ -213,7 +213,7 @@
                                             	<option value="noselected" selected>Chọn môn học</option>
                                                 
                                                 <c:forEach var="cate" items="${ listCategories}">
-                                                	<option value="${cate.getId()}">${cate.getName()}</option>
+                                                	<option value="${cate.getId()}">${cate.getNamecategory()}</option>
                                                 </c:forEach>
                                             </select>
 

@@ -87,7 +87,7 @@ public class FacebookController {
 				modelMap.addAttribute("useractive", userInSystem);
 				httpSession.setAttribute("useractive", userInSystem);
 				System.out.println("\nexist\n");
-				System.out.println(userInSystem.getName());
+				System.out.println(userInSystem.getFullname());
 			}
 			else {
 				User user = userSevirce.RegisterViaFacebook(userID,userName,userAvatar);

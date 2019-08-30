@@ -31,7 +31,7 @@ public class UserAccess implements IUser{
 		}
 		
 		
-		List<User> users= (List<User>) session.createQuery("from user where id = '"+id+"'").getResultList();
+		List<User> users= (List<User>) session.createQuery("from users where id = '"+id+"'").getResultList();
 		
 		if(users.isEmpty())
 			return null;
@@ -49,7 +49,7 @@ public class UserAccess implements IUser{
 		}
 		
 		
-		List<User> users= (List<User>) session.createQuery("from user where username = '"+username+"'").getResultList();
+		List<User> users= (List<User>) session.createQuery("from users where username = '"+username+"'").getResultList();
 		
 		if(users.isEmpty())
 			return null;
@@ -81,7 +81,7 @@ public class UserAccess implements IUser{
 		try {
 			User user=new User();
 			user.setUsername(id);
-			user.setName(name);
+			user.setFullname(name);
 			user.setPosition("Member");
 			user.setPoint(1000);
 			user.setAvatar(avatar);
@@ -125,7 +125,7 @@ public class UserAccess implements IUser{
 //					+", point = "+user.getPoint()+" ,description = "+user.getDescription()
 //					+", avatar = "+user.getAvatar()+" ,token ="+user.getToken()+ " WHERE id="+user.getId();
 			
-			String query = "UPDATE user SET point = " +user.getPoint()+ " WHERE id="+user.getId();
+			String query = "UPDATE users SET point = " +user.getPoint()+ " WHERE id="+user.getId();
 			int i= session.createQuery(query).executeUpdate();
 			
 			if(i!=0) {

@@ -5,23 +5,41 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name = "user")
+@Entity(name = "users")
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int    id;
 	String username;
-	String password;
-	String name;
+	String pass;
+	String fullname;
 	String major;
 	String position;
 	int    point;
-	String description;
+	String about;
 	String avatar;
  	String token;
  	
  	
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	public String getFullname() {
+		return fullname;
+	}
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+	public String getAbout() {
+		return about;
+	}
+	public void setAbout(String about) {
+		this.about = about;
+	}
 	public int getId() {
 		return id;
 	}
@@ -34,18 +52,7 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getMajor() {
 		return major;
 	}
@@ -64,12 +71,7 @@ public class User {
 	public void setPoint(int point) {
 		this.point = point;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	
 	public String getAvatar() {
 		return avatar;
 	}

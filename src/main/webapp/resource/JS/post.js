@@ -40,39 +40,41 @@ function UploadPost() {
 function makeComment() {
     if (event.keyCode === 13) {
         var message = $("#commment-box").val();
-        var name=$("#nav-user-name").val();
+        var name=$("#nav-user-name").text();
         $("#commment-box").val("");
-        if(!name){
-            openLoginModal();
-            return;
+        //console.log(name);
+        if(name){
+            //console.log(message);
+
+            var div= document.createElement('div'); 
+            div.className="box-view-one-cmt";
+            //div.innerHTML = '<div style=" margin-top: 20px;">'
+            div.innerHTML =     '<div id="header-reply-comment">'
+                +   '<div style="display: flex;">'
+                +       '<img class="post-avatar" src="">'
+                +            '<div id="author-comment">'+name+'</div>'
+                +   "</div>"
+
+                +        '<div id="time-comment">just now</div>'
+                +    "</div>"
+
+                +    '<div id="content-reply-comment">'
+                +        message
+                +    "</div>"
+                +"</div>"
+
+            document.getElementById("post-temlate").appendChild(div);
+            //query insert here
+            //===========================================================================
+            
         }
-        console.log(message);
-
-        var div= document.createElement('div'); 
-        div.className="box-view-one-cmt";
-        //div.innerHTML = '<div style=" margin-top: 20px;">'
-        div.innerHTML =     '<div id="header-reply-comment">'
-            +   '<div style="display: flex;">'
-            +       '<img class="post-avatar" src="">'
-            +            '<div id="author-comment">'+name+'</div>'
-            +   "</div>"
-
-            +        '<div id="time-comment">just now</div>'
-            +    "</div>"
-
-            +    '<div id="content-reply-comment">'
-            +        message
-            +    "</div>"
-            +"</div>"
-
-        document.getElementById("post-temlate").appendChild(div);
-        //query insert here
-        //===========================================================================
+        else
+        openLoginModal();
     }
 }
 
 function MakeUpvote() {
-    var name=$("#nav-user-name").val();
+    var name=$("#nav-user-name").text();
     if(!name){
         openLoginModal();
         return;

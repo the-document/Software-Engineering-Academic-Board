@@ -40,6 +40,7 @@
 
             <div class="nav-right ">
                 <div class="user-menu">
+                   
                    <c:choose>
 						<c:when test="${useractive==null }">
 							<button class="btn-hover" id="login-btn" onclick="openLoginModal()">Login</button>

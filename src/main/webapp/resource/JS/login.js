@@ -76,7 +76,9 @@ function loginNormal() {
 		timeout:100000,
 		success: function (data) {
 			if(data.id==0)
-				$("#login-notify").text(data.name);
+				{
+					$("#login-notify").text(data.fullname);	
+				}
 			else
 			{
 				location.reload();
@@ -112,7 +114,7 @@ function register() {
 			{
 				$("#refister-notify").removeClass("message-success");
 				$("#refister-notify").addClass("message-error");
-				$("#refister-notify").text("Thất bại: " +data.name);
+				$("#refister-notify").text("Thất bại: " +data.fullname);
 			}
 			else
 			{
@@ -143,8 +145,9 @@ function loginNormalPopupRegister() {
 		dataType: 'json',
 		timeout:100000,
 		success: function (data) {
+			
 			if(data.id==0)
-				$("#login-notify2").text(data.name);
+				$("#login-notify2").text(data.fullname);				
 			else
 			{
 				location.reload();

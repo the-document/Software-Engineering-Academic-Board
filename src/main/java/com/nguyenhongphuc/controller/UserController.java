@@ -148,12 +148,14 @@ public class UserController {
 	public String LogOut(HttpServletRequest request,ModelMap modelMap) {
 		try {
 			modelMap.clear();
-			request.getSession().setAttribute("user",null);
-			request.getSession().removeAttribute("user");
+			request.getSession().setAttribute("useractive",null);
+			request.getSession().removeAttribute("useractive");
 			System.out.println("logouted");
 			request.getSession().invalidate();
 			
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 		
 		 

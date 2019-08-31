@@ -239,7 +239,7 @@
 			                    <img src='<c:url value="/resource/images/icons/google2.png"/>'
 			                    style="max-width: 40px;max-height: 40px; margin-bottom: 30px" />
 			                    
-			                    <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://localhost:8443/Software-Engineering-Academic-Board/login/facebook">
+			                    <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://academicboard.herokuapp.com/login/facebook">
 				                    <img src='<c:url value="/resource/images/icons/facebook.png"/>'
 				                    style="max-width: 43px;max-height: 43px; margin-bottom: 30px"/>
 			                    </a>
@@ -305,7 +305,7 @@
                     				font-weight: bold; margin-top: 40px;margin-bottom: 30px;">
                     		ĐĂNG NHẬP
                     	</div>
-                       
+                        <p id="login-notify2" class="message-error"></p>
                         <div class="register-input log-input main-input form-item">
                     		<img class="register-icon-input-login" src="<c:url value="/resource/images/icons/username.png"/>" />
                     		<input id="username-popup2" class="text-input" " type="text" placeholder="Tên đăng nhập" name="username" required />
@@ -333,7 +333,7 @@
 					                    <img src='<c:url value="/resource/images/icons/google2.png"/>' 
 					                    style="max-width: 40px;max-height: 40px; margin-bottom: 60px" />
 					                    
-					                    <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://academicboard.herokuapp.com/Software-Engineering-Academic-Board/login/facebook">
+					                    <a href="https://www.facebook.com/dialog/oauth?client_id=889293998090512&redirect_uri=https://academicboard.herokuapp.com/login/facebook">
 					                    	<img src='<c:url value="/resource/images/icons/facebook.png"/>'
 					                    	style="max-width: 43px;max-height: 43px; margin-bottom: 60px"/>
 					                    </a>
@@ -378,6 +378,7 @@
         }
 
         function openSignupModal() {
+        	$("#login-notify2").text("");
             modalSignup.style.display = "block"
         }
 

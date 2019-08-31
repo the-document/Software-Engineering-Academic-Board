@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.nguyenhongphuc.entity.Category;
+import com.nguyenhongphuc.entity.Comment;
 import com.nguyenhongphuc.entity.Post;
 import com.nguyenhongphuc.entity.User;
 import com.nguyenhongphuc.service.CatalogService;
+import com.nguyenhongphuc.service.CommentService;
 import com.nguyenhongphuc.service.PostService;
 import com.nguyenhongphuc.service.UserService;
 
@@ -37,6 +39,9 @@ public class PostController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	CommentService commentService;
 
 	@GetMapping
 	public String Default(ModelMap modelMap) {
@@ -63,8 +68,12 @@ public class PostController {
 		try {
 			List<Post> sameContent=new ArrayList<Post>();
 			sameContent=postService.GetPostByTypeWithAmount(4, post.getTypePost());
+			
 			List<Post> sameAuthor=new ArrayList<Post>();
 			sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
+			
+			List<Comment> comments=new ArrayList<Comment>();
+			comments=commentService.GetCommentOfPost(post.getId());
 			
 			post.setViewcount(post.getViewcount()+1);
 			postService.Update(post);
@@ -72,6 +81,7 @@ public class PostController {
 			
 			modelMap.addAttribute("sameContent",sameContent);
 			modelMap.addAttribute("sameAuthor",sameAuthor);
+			modelMap.addAttribute("comments",comments);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

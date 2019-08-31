@@ -104,7 +104,7 @@
 	</style>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-8 col-md-8">
+		<div class="col-lg-8 col-md-12 col-sm-12 col-12">
 			<div  style="height: auto;">
 				<div id="post-header"> ${post.getTitle() }</div>
 
@@ -155,7 +155,7 @@
   <!-- PART COMMENT -->
 
 	<div class="row">
-		<style type="text/css">
+		<style type="text/css">	
 			#post-temlate{
 				font-family: Roboto;
 				padding-top: 50px;
@@ -220,12 +220,29 @@
 			}
 		</style>
 
-		<div class="col-lg-8 col-md-8" id ="post-temlate">
+		<div class="col-lg-8 col-md-12 col-sm-12 col-12" id ="post-temlate">
 			<div style="display: flex;">
 				Bạn có cảm nhận gì về bài viết của <div style="color: #5B9BD5; padding-left: 10px;">${post.getAuthor().getFullname()}</div>
 			</div>
 
 			<input type="text" name="comment" placeholder="Để lại bình luận" id="commment-box">
+
+			<c:forEach var="comment" items="${comments}">
+        		<div class="box-view-one-cmt">
+					<div id="header-reply-comment">
+						<div style="display: flex;">
+							<img class="post-avatar" src="<c:url value='${comment.getAuthor().getAvatar()}'/>">
+							<div id="author-comment">${comment.getAuthor().getFullname()}</div>
+						</div>
+
+						<div id="time-comment">${comment.getCommentTime()}</div>
+					</div>
+
+					<div id="content-reply-comment">
+						${comment.getContent()}
+					</div>
+				</div>
+        	</c:forEach>
 
 			<div class="box-view-one-cmt">
 				<div id="header-reply-comment">

@@ -33,7 +33,7 @@ public class FacebookController {
 
 	  public static String FACEBOOK_APP_ID = "889293998090512";
 	  public static String FACEBOOK_APP_SECRET = "fde2e71e8791a839dd681d41650c4e35";
-	  public static String FACEBOOK_REDIRECT_URL = "https://localhost:8443/Software-Engineering-Academic-Board/login/facebook";
+	  public static String FACEBOOK_REDIRECT_URL = "https://academicboard.herokuapp.com/login/facebook";
 	  public static String FACEBOOK_LINK_GET_TOKEN = "https://graph.facebook.com/oauth/access_token?client_id=%s&client_secret=%s&redirect_uri=%s&code=%s";
 	  public static String FACEBOOK_LINK_GET_ID="https://graph.facebook.com/me?access_token=%s";
 	  
@@ -98,7 +98,7 @@ public class FacebookController {
 				} else {
 					modelMap.addAttribute("useractive", user);
 					System.out.println("can't register...");
-					 return "redirect:/login";
+					 return "redirect:/";
 				}
 
 			}
@@ -107,59 +107,11 @@ public class FacebookController {
 			 return "redirect:/";
 		}
 		
-		//String referer = request.getHeader("Referer");
-		//System.out.println("\n\n"+referer);
-	    //return "redirect:"+ referer;
-		return "redirect:/";
+		String referer = request.getHeader("Referer");
+		System.out.println("\n\n"+referer);
+	    return "redirect:"+ referer;
+		//return "redirect:/";
 	}
 	
-//	@Transactional
-//	private User GetUser(String id) {
-//		
-//		Session session;
-//		try {
-//			 session = sessionFactory.getCurrentSession();
-//		} catch (Exception e) {
-//			 session = sessionFactory.openSession();
-//		}
-//		
-//		
-//		List<User> users= (List<User>) session.createQuery("from user where username = '"+id+"'").getResultList();
-//		
-//		if(users.isEmpty())
-//			return null;
-//		
-//		return users.get(0);
-//	}
-	
-//	@Transactional
-//	private User RegisterNewMember(String id,String name, String avatar) {
-//		try {
-//			User user=new User();
-//			user.setUsername(id);
-//			user.setName(name);
-//			user.setPosition("Member");
-//			user.setPoint(1000);
-//			user.setAvatar(avatar);
-//			
-//			Session session;
-//			try {
-//				 session = sessionFactory.getCurrentSession();
-//			} catch (Exception e) {
-//				 session = sessionFactory.openSession();
-//			}
-//			
-//			int key=(Integer) session.save(user);
-//			
-//			if(key!=0)
-//			return user;
-//			else {
-//				return null;
-//			}
-//
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//			return null;
-//		}
-//	}
+
 }

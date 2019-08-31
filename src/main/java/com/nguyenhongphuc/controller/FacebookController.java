@@ -82,7 +82,7 @@ public class FacebookController {
 			  
 			String userAvatar="https://graph.facebook.com/"+id.asText()+"/picture?type=large&width=720&height=720";
 
-			User userInSystem=userSevirce.GetUserById(userID);
+			User userInSystem=userSevirce.GetUserByUsername(userID);
 			if ( userInSystem!=null) {
 				modelMap.addAttribute("useractive", userInSystem);
 				httpSession.setAttribute("useractive", userInSystem);
@@ -107,10 +107,10 @@ public class FacebookController {
 			 return "redirect:/";
 		}
 		
-		//String referer = request.getHeader("Referer");
-		//System.out.println("\n\n"+referer);
-	    //return "redirect:"+ referer;
-		return "redirect:/documents";
+		String referer = request.getHeader("Referer");
+		System.out.println("\n\n"+referer);
+	    return "redirect:"+ referer;
+		//return "redirect:/documents";
 	}
 	
 //	@Transactional

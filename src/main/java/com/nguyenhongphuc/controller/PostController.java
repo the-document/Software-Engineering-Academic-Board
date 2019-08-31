@@ -72,8 +72,8 @@ public class PostController {
 			List<Post> sameAuthor=new ArrayList<Post>();
 			sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
 			
-			List<Comment> comments=new ArrayList<Comment>();
-			comments=commentService.GetCommentOfPost(post.getId());
+			//List<Comment> comments=new ArrayList<Comment>();
+			//comments=commentService.GetCommentOfPost(post.getId());
 			
 			post.setViewcount(post.getViewcount()+1);
 			postService.Update(post);
@@ -81,7 +81,7 @@ public class PostController {
 			
 			modelMap.addAttribute("sameContent",sameContent);
 			modelMap.addAttribute("sameAuthor",sameAuthor);
-			modelMap.addAttribute("comments",comments);
+			//modelMap.addAttribute("comments",comments);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

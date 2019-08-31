@@ -102,7 +102,7 @@
 			height: 36px;
 		}
 	</style>
-<div class="container">
+	<div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-md-12 col-sm-12 col-12">
 			<div  style="height: auto;">
@@ -227,7 +227,7 @@
 
 			<input type="text" name="comment" placeholder="Để lại bình luận" id="commment-box">
 
-			<c:forEach var="comment" items="${comments}">
+			<!-- <c:forEach var="comment" items="${comments}">
         		<div class="box-view-one-cmt">
 					<div id="header-reply-comment">
 						<div style="display: flex;">
@@ -242,7 +242,7 @@
 						${comment.getContent()}
 					</div>
 				</div>
-        	</c:forEach>
+        	</c:forEach> -->
 
 			<div class="box-view-one-cmt">
 				<div id="header-reply-comment">
@@ -312,11 +312,17 @@
 			</div>
 		</div>
 	</div>
-</div>
+	</div>
 
 
-	<div style="position: absolute;right: 100px; bottom:50px; width: 50px;height: 50px; border-radius: 50%;border: 2px solid #ff0000;text-align: center;">
-		<img style="width: 70%;padding-top: 5px; " src='<c:url value="https://academicboard.herokuapp.com/resource/images/icons/create.png"/>'>
+	<div style="position: absolute;
+		right: 100px; bottom:50px; 
+		width: 50px;height: 50px; 
+		border-radius: 50%;
+		border: 2px solid #ff0000;
+		text-align: center;">
+		<img style="width: 70%;padding-top: 5px; " 
+		src='<c:url value="/resource/images/icons/create.png"/>'>
 	</div>
 
 	<jsp:include page="footer.jsp"/>

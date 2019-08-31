@@ -77,6 +77,13 @@
 			border-radius: 50%;
 			border: 2px solid #5B9BD5;
 		}
+		#upvote-icon-disable{
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			border: 2px solid #5B9BD5;
+			display: none;
+		}
 
 		#bookmark-icon{
 			width: 36px;
@@ -126,6 +133,7 @@
 				<div id="action-bar">
 					<div style="display: flex;">
 						<img id="upvote-icon" src="https://img.icons8.com/color/48/000000/sort-up.png">
+						<img id="upvote-icon-disable" src='<c:url value="/resource/images/icons/upvote-disable.png"/>'>
 						<div style="padding-left: 9px;padding-top: 9px;">${post.getUpvote()} upvotes</div>
 					</div>
 
@@ -190,6 +198,26 @@
 				font-family: Rosario;
 				line-height: 26px;
 			}
+
+			.box-view-one-cmt{
+					margin-top: 20px;
+					padding: 8px;
+					border-radius: 15px;
+					-webkit-animation-name: freshcomment; /* Safari 4.0 - 8.0 */
+  					-webkit-animation-duration: 14s; /* Safari 4.0 - 8.0 */
+					animation-name: freshcomment;
+  					animation-duration: 14s;
+			}
+
+			/* Safari 4.0 - 8.0 */
+			@-webkit-keyframes freshcomment {
+			  from {background-color: #E0EAF1;}
+			  to {background-color: #fff;}
+			}
+			@keyframes freshcomment {
+			  from {background-color: #E0EAF1;}
+			  to {background-color: #fff;}
+			}
 		</style>
 
 		<div class="col-lg-8 col-md-8" id ="post-temlate">
@@ -199,7 +227,7 @@
 
 			<input type="text" name="comment" placeholder="Để lại bình luận" id="commment-box">
 
-			<div style=" margin-top: 20px;">
+			<div class="box-view-one-cmt">
 				<div id="header-reply-comment">
 					<div style="display: flex;">
 						<img class="post-avatar" src="https://www.thesprucepets.com/thmb/LS2xCGAy-VbbHSd9UAefbVF5wTI=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-182174009-58c5ad533df78c353c5700c8.jpg">
@@ -214,8 +242,10 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="col-lg-4">
 			<style type="text/css">
+				
 				.slider-bar{
 					border: 1px solid#5B9BD5; border-radius: 10px;
 					text-align: left;
@@ -278,5 +308,7 @@
 				  $("#posts").addClass("active");
 				});
 	</script>
+
+	<script src='<c:url value="/resource/JS/post.js"/>'></script>
 </body>
 </html>

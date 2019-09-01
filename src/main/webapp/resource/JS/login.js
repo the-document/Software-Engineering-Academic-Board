@@ -61,6 +61,7 @@ function requireLogin2() {
 
 
 function loginNormal() {
+	$("#refister-notify").text('waiting...');	
 	var username =$("#username").val();
 	var password =$("#password").val();
 	console.log(username);
@@ -75,6 +76,7 @@ function loginNormal() {
 		dataType: 'json',
 		timeout:100000,
 		success: function (data) {
+			
 			if(data.id==0)
 				{
 					$("#login-notify").text(data.fullname);	
@@ -91,6 +93,7 @@ function loginNormal() {
 }
 
 function register() {
+	$("#login-notify").text('waiting...');	
 	//console.log("in register");
 	//$("#refister-notify").text("Thất bại: ");
 	var username =$("#register-username").val();

@@ -232,13 +232,15 @@ public class PostController {
 				
 			
 			if(content.isEmpty())
-				return "errContent";			
+				return "errContent";
+			
+			User realUser=userService.GetUserById(user.getId()+"");
 			
 			Comment comment =new Comment();
 			long millis=System.currentTimeMillis();  
 	        Date date=new java.sql.Date(millis);  
 			comment.setParent(Integer.parseInt(parent));
-			comment.setAuthor(user);
+			comment.setAuthor(realUser);
 			comment.setCommentTime(date);
 			comment.setContent(content);
 			

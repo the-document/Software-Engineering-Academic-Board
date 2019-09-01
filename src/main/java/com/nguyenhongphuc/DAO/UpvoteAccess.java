@@ -56,14 +56,19 @@ public class UpvoteAccess implements IUpvote{
 
 		}
 		
-		String query="from upvote where post= "+postId+" and voter ="+userId;
-		Upvote vote = (Upvote) session.createQuery(query).getSingleResult();
+		try {
+			String query="from upvote where post= "+postId+" and voter ="+userId;
+			Upvote vote = (Upvote) session.createQuery(query).getSingleResult();
 
-		if (vote == null)
+			if (vote == null)
+				return false;
+			else {
+				return true;
+			}
+		} catch (Exception e) {
 			return false;
-		else {
-			return true;
 		}
+		
 	}
 	
 	

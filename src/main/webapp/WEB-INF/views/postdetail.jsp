@@ -85,7 +85,7 @@
 			height: 36px;
 			border-radius: 50%;
 			border: 2px solid #5B9BD5;
-			display: none;
+			//display: none;
 		}
 
 		#bookmark-icon{
@@ -137,7 +137,26 @@
 					<div style="display: flex;">
 						<img id="upvote-icon" src="https://img.icons8.com/color/48/000000/sort-up.png">
 						<img id="upvote-icon-disable" src='<c:url value="/resource/images/icons/upvote-disable.png"/>'>
-						<div style="padding-left: 9px;padding-top: 9px;">${post.getUpvote()} upvotes</div>
+							
+						<c:choose>
+							
+							<c:when test="${voted=='voted' }">
+									<script type="text/javascript">
+										var active_icon=document.getElementById('upvote-icon');
+										active_icon.style.display="none";
+									</script>			
+							</c:when>
+							
+							<c:otherwise>
+								<script type="text/javascript">
+								var unactive_icon=document.getElementById('upvote-icon-disable');
+								unactive_icon.style.display="none";
+								</script>	
+							</c:otherwise>
+						</c:choose> 
+						
+						<div style="padding-left: 9px;padding-top: 9px;flex-direction: row;
+							display: flex;"><div style="margin-right: 7px;" id="count_upvote">${post.getUpvote()}</div> upvotes</div>
 					</div>
 
 					<div style="display: flex;">
@@ -303,9 +322,9 @@
 			</style>
 
 			<div class="slider-bar">
-				<p class="slider-bar-header" ">Cùng tác giả</p>
+				<p class="slider-bar-header" ">Cùng tác giả ${sameAuthor.size() }</p>
 
-
+	
 				<c:forEach var="post" items="${sameAuthor }">
 					<p class="slider-bar-post-recomend"><a href='<c:url value="${post.getId()}"/>'>${post.getTitle()}</a></p>
 				</c:forEach>

@@ -176,7 +176,6 @@ function DowloadDocument(idSubject){
 	var current_count=$(`#count_select_doc`).attr("value");
 	if(current_count=="0")
 		{
-			console.log("you have select item to dowload document");
 	    	$("#desc").text("Bạn phải chọn item để dowload!");
 	        launch_toast();
 	        return;
@@ -185,7 +184,6 @@ function DowloadDocument(idSubject){
     var login=document.getElementById('login-btn');
     if(login)
     	{
-    		console.log("you have login to dowload document");
 	    	$("#desc").text("Bạn phải đăng nhập để dowload!");
 	        launch_toast();
 	        return;

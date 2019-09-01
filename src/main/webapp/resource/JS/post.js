@@ -80,7 +80,6 @@ function makeComment() {
         		dataType: 'text',
         		timeout:100000,
         		success: function (data) {
-        			console.log(data);
         			if(data!='Success')
         				div.className="box-view-one-cmt-err";
         			
@@ -104,16 +103,55 @@ function MakeUpvote() {
         return;
     }
 
-    //if upvoted ==> noaction
-
-    //else
-    //upvote and change icon
+    
     var active_icon=document.getElementById('upvote-icon');
     var unactive_icon=document.getElementById('upvote-icon-disable');
+    
+    //if upvoted ==> noaction
+    if(active_icon.dislay=="none"){
+    	return;
+    }
+    //else
+    //upvote and change icon
     active_icon.style.display="none";
     unactive_icon.style.display="block";
 
     //query upvote...
+    var postID=$("#idPost").attr('value');
+    $.ajax({
+		type: "POST",
+		url: "/posts/upvote",
+		data:{
+			parent:postID,
+		},
+		dataType: 'text',
+		timeout:100000,
+		success: function (data) {
+			console.log(data);
+			if(data!='Success')
+				{
+					active_icon.style.display="block";
+				    unactive_icon.style.display="none";
+				    $("#desc").text("Lỗi, không thể upvote bây giờ!");
+			        launch_toast();
+				}
+			else
+				{
+					var counttag=$("#count_upvote");
+					var count=counttag.text();
+					count=parseInt(count, 10)+1;
+					counttag.text(count);
+				}
+				
+		},
+		error: function (e){
+			console.log("ERROR:",e);
+			active_icon.style.display="block";
+		    unactive_icon.style.display="none";
+		    $("#desc").text("Lỗi, không thể upvote bây giờ!");
+	        launch_toast();
+		}
+	});
 }
 
 $("#commment-box").keyup(function(event){
@@ -122,4 +160,9 @@ $("#commment-box").keyup(function(event){
 
 $("#upvote-icon").click(function(){
     MakeUpvote();
+})
+
+$("#upvote-icon-disable").click(function(){
+	$("#desc").text("Bạn đã vote bài viết rồi!");
+    launch_toast();
 })

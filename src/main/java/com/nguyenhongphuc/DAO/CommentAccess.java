@@ -62,9 +62,15 @@ public class CommentAccess implements IComment{
 		String query = "from comment WHERE parent  = " + postID;
 		// String query="from document d ,user a WHERE d.author=a.id and type ='DETHI'
 		// and category="+category;
-		List<Comment> list = (List<Comment>) session.createQuery(query).getResultList();
+		List<Comment> list =null;
+		try {
+			list =(List<Comment>) session.createQuery(query).getResultList();
+			return list;
+		} catch (Exception e) {
+			return null;
+		}
 
-		return list;
+		
 	}
 	
 	

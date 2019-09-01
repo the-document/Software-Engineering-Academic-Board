@@ -6,13 +6,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-grid.css" rel="stylesheet"
         type="text/css" />
         
     <link rel="stylesheet" type="text/css" href='<c:url value="/resource/css/owl.carousel.min.css"/>' />
-
     <link rel="stylesheet" type="text/css" href='<c:url value="/resource/css/owl.theme.default.min.css"/>' />
-
 	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" />
 
     <link rel="stylesheet" href='<c:url value="/resource/css/bth-theme.css"/>' type="text/css" />

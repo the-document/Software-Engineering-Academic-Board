@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.sound.midi.Soundbank;
 
+import org.apache.taglibs.standard.tag.common.xml.IfTag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,10 +22,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.nguyenhongphuc.entity.Category;
 import com.nguyenhongphuc.entity.Comment;
 import com.nguyenhongphuc.entity.Post;
+import com.nguyenhongphuc.entity.Upvote;
 import com.nguyenhongphuc.entity.User;
 import com.nguyenhongphuc.service.CatalogService;
 import com.nguyenhongphuc.service.CommentService;
 import com.nguyenhongphuc.service.PostService;
+import com.nguyenhongphuc.service.UpvoteService;
 import com.nguyenhongphuc.service.UserService;
 
 @Controller
@@ -43,6 +46,9 @@ public class PostController {
 	
 	@Autowired
 	CommentService commentService;
+	
+	@Autowired
+	UpvoteService upvoteService;
 
 	@GetMapping
 	public String Default(ModelMap modelMap) {
@@ -73,14 +79,25 @@ public class PostController {
 				p.setContent("");
 			}
 			
+			
 			List<Post> sameAuthor=new ArrayList<Post>();
 			sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
 			for (Post p : sameAuthor) {
 				p.setContent("");
 			}
 			
+			int idOfPost=Integer.parseInt(id);
 			List<Comment> comments=new ArrayList<Comment>();
-			comments=commentService.GetCommentOfPost(Integer.parseInt(id));
+			comments=commentService.GetCommentOfPost(idOfPost);
+			
+			String voted = "yet";
+			if (null != userActive) {
+				if (upvoteService.CheckUpvoted(idOfPost, userActive.getId()))
+					voted = "voted";
+			}
+			else {
+				voted="nologin";
+			}
 			
 			post.setViewcount(post.getViewcount()+1);
 			postService.Update(post);
@@ -89,8 +106,9 @@ public class PostController {
 			modelMap.addAttribute("sameContent",sameContent);
 			modelMap.addAttribute("sameAuthor",sameAuthor);
 			modelMap.addAttribute("comments",comments);
+			modelMap.addAttribute("voted",voted);
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("ERR: "+e.getMessage());
 		}
 		
 		
@@ -225,6 +243,33 @@ public class PostController {
 			comment.setContent(content);
 			
 			Boolean result= commentService.MakeComment(comment);
+			if(result==false)
+				return "ErrorSaveDB";
+			
+			return "Success";
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return "ErrorSave";
+			
+		}
+	}
+
+	@PostMapping("/upvote")
+	@ResponseBody
+	public String UpvotePost(@RequestParam String parent,
+			 HttpSession httpSession) {
+		
+		try {
+			
+			User user=(User) httpSession.getAttribute("useractive");
+			if(user==null)
+				return "errLogin";
+			
+			Upvote upvote=new Upvote();
+			upvote.setPost(Integer.parseInt(parent));
+			upvote.setVoter(user.getId());
+			
+			Boolean result= upvoteService.MakeUpvote(upvote);
 			if(result==false)
 				return "ErrorSaveDB";
 			

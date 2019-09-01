@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.sound.midi.Soundbank;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -68,12 +69,18 @@ public class PostController {
 		try {
 			List<Post> sameContent=new ArrayList<Post>();
 			sameContent=postService.GetPostByTypeWithAmount(4, post.getTypePost());
+			for (Post p : sameContent) {
+				p.setContent("");
+			}
 			
 			List<Post> sameAuthor=new ArrayList<Post>();
 			sameAuthor=postService.GetPostOfAuthor(post.getAuthor().getId());
+			for (Post p : sameAuthor) {
+				p.setContent("");
+			}
 			
-			//List<Comment> comments=new ArrayList<Comment>();
-			//comments=commentService.GetCommentOfPost(post.getId());
+			List<Comment> comments=new ArrayList<Comment>();
+			comments=commentService.GetCommentOfPost(Integer.parseInt(id));
 			
 			post.setViewcount(post.getViewcount()+1);
 			postService.Update(post);
@@ -81,7 +88,7 @@ public class PostController {
 			
 			modelMap.addAttribute("sameContent",sameContent);
 			modelMap.addAttribute("sameAuthor",sameAuthor);
-			//modelMap.addAttribute("comments",comments);
+			modelMap.addAttribute("comments",comments);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -190,6 +197,42 @@ public class PostController {
 			return "Success, the post will be broesed within 24h!";
 		} catch (Exception e) {
 			return "Can't save, try again later";
+		}
+	}
+	
+	@PostMapping("/comment")
+	@ResponseBody
+	public String PostComment(@RequestParam String parent,
+			@RequestParam String content, HttpSession httpSession) {
+		
+		
+		try {
+			
+			User user=(User) httpSession.getAttribute("useractive");
+			if(user==null)
+				return "errLogin";
+				
+			
+			if(content.isEmpty())
+				return "errContent";			
+			
+			Comment comment =new Comment();
+			long millis=System.currentTimeMillis();  
+	        Date date=new java.sql.Date(millis);  
+			comment.setParent(Integer.parseInt(parent));
+			comment.setAuthor(user);
+			comment.setCommentTime(date);
+			comment.setContent(content);
+			
+			Boolean result= commentService.MakeComment(comment);
+			if(result==false)
+				return "ErrorSaveDB";
+			
+			return "Success";
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return "ErrorSave";
+			
 		}
 	}
 }

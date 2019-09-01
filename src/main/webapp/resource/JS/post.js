@@ -43,6 +43,9 @@ function makeComment() {
         var name=$("#nav-user-name").text();
         $("#commment-box").val("");
         //console.log(name);
+        if(!message){
+        	return;
+        }
         if(name){
             //console.log(message);
 
@@ -66,6 +69,27 @@ function makeComment() {
             document.getElementById("post-temlate").appendChild(div);
             //query insert here
             //===========================================================================
+            var postID=$("#idPost").attr('value');
+            $.ajax({
+        		type: "POST",
+        		url: "/posts/comment",
+        		data:{
+        			parent:postID,
+        			content:message
+        		},
+        		dataType: 'text',
+        		timeout:100000,
+        		success: function (data) {
+        			console.log(data);
+        			if(data!='Success')
+        				div.className="box-view-one-cmt-err";
+        			
+        		},
+        		error: function (e){
+        			div.className="box-view-one-cmt-err";
+        			console.log("ERROR:",e);
+        		}
+        	});
             
         }
         else

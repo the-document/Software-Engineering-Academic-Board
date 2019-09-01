@@ -7,6 +7,9 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-grid.css" rel="stylesheet"
         type="text/css" />
     <link rel="stylesheet" type="text/css" href='<c:url value="/resource/css/owl.carousel.min.css"/>' />
@@ -208,6 +211,13 @@
 					animation-name: freshcomment;
   					animation-duration: 14s;
 			}
+			
+			.box-view-one-cmt-err{
+					margin-top: 20px;
+					padding: 8px;
+					border-radius: 15px;
+  					border: 1px solid #FF8C00
+			}
 
 			/* Safari 4.0 - 8.0 */
 			@-webkit-keyframes freshcomment {
@@ -225,9 +235,10 @@
 				Bạn có cảm nhận gì về bài viết của <div style="color: #5B9BD5; padding-left: 10px;">${post.getAuthor().getFullname()}</div>
 			</div>
 
+			<div id="idPost" value="${post.getId()}"></div>
 			<input type="text" name="comment" placeholder="Để lại bình luận" id="commment-box">
-
-			<!-- <c:forEach var="comment" items="${comments}">
+			
+			<c:forEach var="comment" items="${comments}">
         		<div class="box-view-one-cmt">
 					<div id="header-reply-comment">
 						<div style="display: flex;">
@@ -242,7 +253,7 @@
 						${comment.getContent()}
 					</div>
 				</div>
-        	</c:forEach> -->
+        	</c:forEach> 
 
 			<div class="box-view-one-cmt">
 				<div id="header-reply-comment">

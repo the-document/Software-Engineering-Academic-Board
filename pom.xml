@@ -15,7 +15,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 			<dependency>
 			    <groupId>org.springframework</groupId>
 			    <artifactId>spring-webmvc</artifactId>
-			    <version>5.1.5.RELEASE</version>
+			    <version>5.2.0.RELEASE</version>
 			</dependency>
 	  
 		  <!-- TO CODE JAVA -->
